@@ -198,7 +198,7 @@
  )
 
 (defclass verifyIdentical 
-  :label "useRemote"
+  :label "verifyIdentical"
   :comment "Indicates that the definition properties of the local and remote ComponentInstance objects MUST refer to the same ComponentDefinition." 
  )
 
@@ -226,7 +226,7 @@
 
 
 (defclass mergeRoles
-  :label "mergRoles"
+  :label "mergeRoles"
   :comment "Indicates to use the union of the two sets: both the set of zero or more roles given for this Component as well as the set of zero or more roles given for the included subComponentDefinition."
  )
 
