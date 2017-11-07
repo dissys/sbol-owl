@@ -1,5 +1,6 @@
 (ns sbol-owl.core
   (:use [tawny.owl])
+  (:refer-clojure :exclude [type])
   (:require [sbol-owl.dcterms])
   )
 
@@ -348,7 +349,7 @@
 
 
 ;type is a reserved in Clojure. It can'be expressed using "defoproperty type"
-(object-property sbol "type"
+(defoproperty type
   :label "type"
   :comment "Points to a URI that represents the type."
   :domain (owl-or ComponentDefinition Interaction)
