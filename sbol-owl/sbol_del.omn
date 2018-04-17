@@ -1,3 +1,4 @@
+Prefix: : <http://sbolstandard.org/v2>
 Prefix: dcterms: <http://dublincore.org/documents/dcmi-terms/#>
 Prefix: owl: <http://www.w3.org/2002/07/owl#>
 Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -84,8 +85,8 @@ ObjectProperty: sbol:definition
 ObjectProperty: sbol:direction
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "direction"@en,
         rdfs:comment "direction"@en,
+        <http://www.purl.org/ontolink/tawny#name> "direction"@en,
         rdfs:label "direction"@en
     
     Domain: 
@@ -306,8 +307,8 @@ ObjectProperty: sbol:refinement
 
     Annotations: 
         rdfs:label "refinement"@en,
-        <http://www.purl.org/ontolink/tawny#name> "refinement"@en,
-        rdfs:comment "refinement"@en
+        rdfs:comment "refinement"@en,
+        <http://www.purl.org/ontolink/tawny#name> "refinement"@en
     
     Domain: 
         sbol:MapsTo
@@ -359,8 +360,8 @@ ObjectProperty: sbol:sequence
 
     Annotations: 
         <http://www.purl.org/ontolink/tawny#name> "sequence"@en,
-        rdfs:label "sequence"@en,
-        rdfs:comment "sequence"@en
+        rdfs:comment "sequence"@en,
+        rdfs:label "sequence"@en
     
     Domain: 
         sbol:ComponentDefinition
@@ -372,8 +373,8 @@ ObjectProperty: sbol:sequence
 ObjectProperty: sbol:sequenceAnnotation
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "sequenceAnnotation"@en,
         rdfs:comment "sequenceAnnotation"@en,
+        <http://www.purl.org/ontolink/tawny#name> "sequenceAnnotation"@en,
         rdfs:label "sequenceAnnotation"@en
     
     Domain: 
@@ -531,8 +532,8 @@ Class: sbol:Access
 
     Annotations: 
         rdfs:label "Access"@en,
-        <http://www.purl.org/ontolink/tawny#name> "Access"@en,
-        rdfs:comment "Not represented in SBOL directly. It is used in the OWL representation to enforce choosing an access type using one of its subclasses."@en
+        rdfs:comment "Not represented in SBOL directly. It is used in the OWL representation to enforce choosing an access type using one of its subclasses."@en,
+        <http://www.purl.org/ontolink/tawny#name> "Access"@en
     
     EquivalentTo: 
         sbol:private or sbol:public
@@ -573,8 +574,8 @@ Class: sbol:Complex
 Class: sbol:Component
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "Component"@en,
         rdfs:comment "Component"@en,
+        <http://www.purl.org/ontolink/tawny#name> "Component"@en,
         rdfs:label "Component"@en
     
     SubClassOf: 
@@ -626,8 +627,8 @@ Class: sbol:Cut
 Class: sbol:DNA
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "DNA"@en,
         rdfs:comment "DNA component definition"@en,
+        <http://www.purl.org/ontolink/tawny#name> "DNA"@en,
         rdfs:label "DNA"@en
     
     SubClassOf: 
@@ -639,8 +640,8 @@ Class: sbol:Direction
 
     Annotations: 
         <http://www.purl.org/ontolink/tawny#name> "Direction"@en,
-        rdfs:label "Direction"@en,
-        rdfs:comment "Not represented in SBOL directly. It is used in the OWL representation to enforce choosing a direction type using one of its subclasses."@en
+        rdfs:comment "Not represented in SBOL directly. It is used in the OWL representation to enforce choosing a direction type using one of its subclasses."@en,
+        rdfs:label "Direction"@en
     
     EquivalentTo: 
         sbol:in or sbol:inout or sbol:none or sbol:out
@@ -842,8 +843,8 @@ Class: sbol:RNA
 Class: sbol:Range
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "Range"@en,
         rdfs:comment "Range"@en,
+        <http://www.purl.org/ontolink/tawny#name> "Range"@en,
         rdfs:label "Range"@en
     
     SubClassOf: 
@@ -915,8 +916,8 @@ Class: sbol:SequenceConstraint
 
     Annotations: 
         rdfs:label "SequenceConstraint"@en,
-        <http://www.purl.org/ontolink/tawny#name> "SequenceConstraint"@en,
-        rdfs:comment "SequenceConstraint"@en
+        rdfs:comment "SequenceConstraint"@en,
+        <http://www.purl.org/ontolink/tawny#name> "SequenceConstraint"@en
     
     SubClassOf: 
         sbol:Identified

@@ -1,6 +1,6 @@
 (ns sbol-owl.core
   (:use [tawny.owl])
-  (:refer-clojure :exclude [type])
+  (:refer-clojure :exclude [type,merge,sequence] )
   (:require [sbol-owl.dcterms])
   )
 
@@ -586,11 +586,67 @@
 
 
 
+(as-subclasses
+  ComponentDefinition
+  :disjoint :cover
+  (defclass DNA)
+  (defclass Protein)
+  (defclass SmallMolecule)
+  (defclass RNA)
+  (defclass Complex)
+ )
 
-   
+
+  (defclass DNA
+  :label "DNA"
+  :comment "DNA component definition" 
+  :subclass (owl-some type (iri(str "http://www.biopax.org/release/biopax-level3.owl#DnaRegion")))
+ )
+  
+  (as-subclasses
+  DNA
+  :disjoint 
+  (defclass Promoter)
+  (defclass Operator)
+  (defclass CDS)
+  (defclass RBS)
+  (defclass Terminator)
+ )
+
+    
+ (defclass Promoter
+ :label "Promoter"
+ :comment "Promoter DNA component"
+ :equivalent (owl-some role  (iri(str "http://identifiers.org/so/SO:0000167"))))
+ 
 
  ;TODO Add wasDerivedFrom property from PROV-O
  ;TODO Add data types for datatype properties
+ 
+ (owl-class (iri(str "http://identifiers.org/so/SO:0000167")))
+ 
+ (individual (iri(str "http://identifiers.org/so/SO:0000167"))
+            :type  (owl-class (iri(str "http://identifiers.org/so/SO:0000167")))
+            )
+  
+ (owl-class (iri(str "http://www.biopax.org/release/biopax-level3.owl#DnaRegion")))
+ 
+ ;(defindividual prom1 :type ComponentDefinition
+ ;       :fact (fact role (individual (iri(str "http://identifiers.org/so/SO:0000167"))))
+ ;)
+ 
+;works 
+; (defindividual prom1 :type ComponentDefinition
+;        :fact (fact role (individual (iri(str "http://identifiers.org/so/SO:0000167")) :type  (owl-class (iri(str "http://identifiers.org/so/SO:0000167")))))
+; )
+
+
+ 
+ (defindividual prom1 :type ComponentDefinition
+        :fact (fact role (individual (iri(str "http://identifiers.org/so/SO:0000167"))))
+ )
+ 
+ 
  
   (defn save []
    (save-ontology sbol "sbol.omn" :omn) 

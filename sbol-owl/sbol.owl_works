@@ -655,10 +655,6 @@
         <Class IRI="#public"/>
     </DisjointClasses>
     <ClassAssertion>
-        <Class IRI="http://identifiers.org/so/SO:0000167"/>
-        <NamedIndividual IRI="http://identifiers.org/so/SO:0000167"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#ComponentDefinition"/>
         <NamedIndividual IRI="#prom1"/>
     </ClassAssertion>
