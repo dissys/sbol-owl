@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://sbolstandard.org/v2"
+     xml:base="http://sbols.org/v2"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://sbolstandard.org/v2">
+     ontologyIRI="http://sbols.org/v2">
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Prefix name="sbol" IRI="http://sbolstandard.org/v2#"/>
+    <Prefix name="sbol" IRI="http://sbols.org/v2#"/>
     <Prefix name="dcterms" IRI="http://dublincore.org/documents/dcmi-terms/#"/>
     <Import>http://www.purl.org/ontolink/tawny</Import>
     <Import>http://dublincore.org/documents/dcmi-terms/</Import>
@@ -28,139 +28,247 @@
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The OWL version of the SBOL data model</Literal>
     </Annotation>
     <Declaration>
-        <Class IRI="#Location"/>
+        <ObjectProperty IRI="#remote"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#out"/>
+        <Class IRI="#Module"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#mergeRoles"/>
+        <ObjectProperty IRI="#type"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Identified"/>
+        <Class IRI="#MapsTo"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#orientation"/>
+        <Class IRI="#Participation"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#end"/>
+        <Class IRI="#GenericLocation"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#direction"/>
+        <Class IRI="#overrideRoles"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#TopLevel"/>
+        <NamedIndividual IRI="http://identifiers.org/so/SO:0000280"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#DNA"/>
+        <NamedIndividual IRI="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Refinement"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#inout"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Sequence"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#GenericTopLevel"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Operator"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#verifyIdentical"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#member"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#encoding"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="http://identifiers.org/so/SO:0000167"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#framework"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#inline"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#elements"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Complex"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#model"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#module"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Orientation"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#useLocal"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Promoter"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://identifiers.org/so/SO:0000167"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#FunctionalComponent"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#at"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#sequenceConstraint"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#start"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#SequenceAnnotation"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#public"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Direction"/>
+        <Class IRI="#useRemote"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#displayId"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#ModuleDefinition"/>
+        <Class IRI="#ComponentInstance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://identifiers.org/so/SO:0000704"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://identifiers.org/so/SO:0000167"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#roleIntegration"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Component"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#local"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SequenceConstraint"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Location"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#component"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Promoter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#framework"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Model"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Orientation"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Refinement"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://identifiers.org/so/SO:0000057"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#verifyIdentical"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#access"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#ComponentInstance"/>
+        <DataProperty IRI="#version"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#RNA"/>
+        <NamedIndividual IRI="http://identifiers.org/so/SO:0000704"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#role"/>
+        <NamedIndividual IRI="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TopLevel"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://www.biopax.org/release/biopax-level3.owl#RnaRegion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#reverseComplement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SmallMolecule"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RoleIntegration"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#location"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#source"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Access"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#direction"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#interaction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://identifiers.org/so/SO:0000141"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://identifiers.org/so/SO:0000234"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#sequenceAnnotation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#persistentIdentity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#definition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DNA"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#none"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CDS"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#at"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://identifiers.org/so/SO:0000057"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#module"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#prom1"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Range"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#useLocal"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#mapsTo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Protein"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#role"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://identifiers.org/so/SO:0000316"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FunctionalComponent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RBS"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ModuleDefinition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Collection"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#SBOLVocabulary"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+        <Class IRI="#Sequence"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#component"/>
+        <Class IRI="#Operator"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://identifiers.org/so/SO:0000280"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RNA"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#end"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SequenceAnnotation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://identifiers.org/so/SO:0000167"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#start"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#sequence"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#orientation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GenericTopLevel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#inline"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Cut"/>
@@ -169,130 +277,85 @@
         <Class IRI="#private"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#in"/>
+        <Class IRI="http://www.biopax.org/release/biopax-level3.owl#RnaRegion"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#sequence"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#source"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#functionalComponent"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#none"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#overrideRoles"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#MapsTo"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#sequenceAnnotation"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#mapsTo"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#SequenceConstraint"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Model"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#CDS"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#merge"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#reverseComplement"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#RoleIntegration"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#persistentIdentity"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#refinement"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#participant"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Collection"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#definition"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#RBS"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Module"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#version"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Interaction"/>
+        <Class IRI="#Direction"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#language"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Protein"/>
+        <Class IRI="#Complex"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Range"/>
+        <Class IRI="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#GenericLocation"/>
+        <ObjectProperty IRI="#model"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#type"/>
+        <NamedIndividual IRI="http://identifiers.org/so/SO:0000316"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#local"/>
+        <ObjectProperty IRI="#encoding"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#interaction"/>
+        <ObjectProperty IRI="#refinement"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#prom1"/>
+        <Class IRI="#public"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#useRemote"/>
+        <Class IRI="#mergeRoles"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#roleIntegration"/>
+        <Class IRI="#out"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Participation"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Terminator"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#SmallMolecule"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Component"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#remote"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#ComponentDefinition"/>
+        <NamedIndividual IRI="http://identifiers.org/so/SO:0000234"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#participation"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#location"/>
+        <Class IRI="#Terminator"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://identifiers.org/so/SO:0000141"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Identified"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#elements"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ComponentDefinition"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#sequenceConstraint"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#functionalComponent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#in"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#member"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#participant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#inout"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Interaction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#merge"/>
     </Declaration>
     <EquivalentClasses>
         <Class IRI="#Access"/>
@@ -300,6 +363,13 @@
             <Class IRI="#private"/>
             <Class IRI="#public"/>
         </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#CDS"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#role"/>
+            <Class IRI="http://identifiers.org/so/SO:0000316"/>
+        </ObjectSomeValuesFrom>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#ComponentDefinition"/>
@@ -390,6 +460,13 @@
     <SubClassOf>
         <Class IRI="#Complex"/>
         <Class IRI="#ComponentDefinition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Complex"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#type"/>
+            <Class IRI="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Component"/>
@@ -493,12 +570,26 @@
         <Class IRI="#ComponentDefinition"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Protein"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#type"/>
+            <Class IRI="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#RBS"/>
         <Class IRI="#DNA"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#RNA"/>
         <Class IRI="#ComponentDefinition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RNA"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#type"/>
+            <Class IRI="http://www.biopax.org/release/biopax-level3.owl#RnaRegion"/>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Range"/>
@@ -527,6 +618,13 @@
     <SubClassOf>
         <Class IRI="#SmallMolecule"/>
         <Class IRI="#ComponentDefinition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SmallMolecule"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#type"/>
+            <Class IRI="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Terminator"/>
@@ -655,12 +753,56 @@
         <Class IRI="#public"/>
     </DisjointClasses>
     <ClassAssertion>
+        <Class IRI="http://identifiers.org/so/SO:0000057"/>
+        <NamedIndividual IRI="http://identifiers.org/so/SO:0000057"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://identifiers.org/so/SO:0000141"/>
+        <NamedIndividual IRI="http://identifiers.org/so/SO:0000141"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="http://identifiers.org/so/SO:0000167"/>
         <NamedIndividual IRI="http://identifiers.org/so/SO:0000167"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="http://identifiers.org/so/SO:0000234"/>
+        <NamedIndividual IRI="http://identifiers.org/so/SO:0000234"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://identifiers.org/so/SO:0000280"/>
+        <NamedIndividual IRI="http://identifiers.org/so/SO:0000280"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://identifiers.org/so/SO:0000316"/>
+        <NamedIndividual IRI="http://identifiers.org/so/SO:0000316"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://identifiers.org/so/SO:0000704"/>
+        <NamedIndividual IRI="http://identifiers.org/so/SO:0000704"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#ComponentDefinition"/>
         <NamedIndividual IRI="#prom1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
+        <NamedIndividual IRI="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+        <NamedIndividual IRI="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+        <NamedIndividual IRI="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.biopax.org/release/biopax-level3.owl#RnaRegion"/>
+        <NamedIndividual IRI="http://www.biopax.org/release/biopax-level3.owl#RnaRegion"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
+        <NamedIndividual IRI="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#role"/>
@@ -968,6 +1110,16 @@
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">CDS</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CDS</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">CDS DNA component</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CDS</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">CDS</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
         <IRI>#Collection</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Collection</Literal>
@@ -984,6 +1136,16 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
+        <IRI>#Complex</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Complex</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Complex</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Complex component definition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Complex</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Complex</Literal>
     </AnnotationAssertion>
@@ -1273,12 +1435,32 @@
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Protein</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Protein</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Protein component definition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Protein</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Protein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
         <IRI>#RBS</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">RBS</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
+        <IRI>#RNA</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">RNA</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RNA</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">RNA component definition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#RNA</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">RNA</Literal>
     </AnnotationAssertion>
@@ -1389,6 +1571,16 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
+        <IRI>#SmallMolecule</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">SmallMolecule</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SmallMolecule</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">SmallMolecule component definition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SmallMolecule</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">SmallMolecule</Literal>
     </AnnotationAssertion>

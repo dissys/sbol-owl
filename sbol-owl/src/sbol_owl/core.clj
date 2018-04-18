@@ -2,10 +2,11 @@
   (:use [tawny.owl])
   (:refer-clojure :exclude [type,merge,sequence] )
   (:require [sbol-owl.dcterms])
+  (:use [sbol-owl.constants])
   )
 
 (defontology sbol
-	  :iri "http://sbolstandard.org/v2"
+	  :iri "http://sbols.org/v2"
 	  :prefix "sbol:"
 	  :comment "The OWL version of the SBOL data model"
 	  :versioninfo "1.0"
@@ -597,11 +598,37 @@
  )
 
 
-  (defclass DNA
-  :label "DNA"
-  :comment "DNA component definition" 
-  :subclass (owl-some type (iri(str "http://www.biopax.org/release/biopax-level3.owl#DnaRegion")))
+ (defclass DNA
+ :label "DNA"
+ :comment "DNA component definition" 
+ :subclass (owl-some type CD_DNA)
  )
+ 
+ (defclass Protein
+ :label "Protein"
+ :comment "Protein component definition" 
+ :subclass (owl-some type CD_PROTEIN)
+ )
+  
+ (defclass SmallMolecule
+ :label "SmallMolecule"
+ :comment "SmallMolecule component definition" 
+ :subclass (owl-some type CD_SMALLMOLECULE)
+ )
+ 
+  (defclass RNA
+ :label "RNA"
+ :comment "RNA component definition" 
+ :subclass (owl-some type CD_RNA)
+ )
+  
+ (defclass Complex
+ :label "Complex"
+ :comment "Complex component definition" 
+ :subclass (owl-some type CD_COMPLEX)
+ )
+  
+  
   
   (as-subclasses
   DNA
@@ -617,19 +644,65 @@
  (defclass Promoter
  :label "Promoter"
  :comment "Promoter DNA component"
- :equivalent (owl-some role  (iri(str "http://identifiers.org/so/SO:0000167"))))
+ :equivalent (owl-some role SO_PROMOTER))
+ 
+  (defclass CDS
+ :label "CDS"
+ :comment "CDS DNA component"
+ :equivalent (owl-some role SO_CDS))
  
 
  ;TODO Add wasDerivedFrom property from PROV-O
  ;TODO Add data types for datatype properties
  
- (owl-class (iri(str "http://identifiers.org/so/SO:0000167")))
+
+
+;(defn addExternalTerm[externalIRIString]
+;  (let [externalIRI (iri(str externalIRIString)) ]
+;  (owl-class externalIRI)
+;  (individual externalIRI :type  (owl-class externalIRI))
+;  )
+; )
+
+(defn addExternalTerm[externalIRI]
+  (owl-class externalIRI)
+  (individual externalIRI :type  (owl-class externalIRI))
+ )
+
+(addExternalTerm SO_PROMOTER)
+(addExternalTerm SO_CDS)
+(addExternalTerm SO_TERMINATOR)
+(addExternalTerm SO_GENE)
+(addExternalTerm SO_OPERATOR)
+(addExternalTerm SO_ENGINEEREDGENE)
+(addExternalTerm SO_MRNA)
+
+(addExternalTerm CD_DNA)
+(addExternalTerm CD_RNA)
+(addExternalTerm CD_PROTEIN)
+(addExternalTerm CD_SMALLMOLECULE)
+(addExternalTerm CD_COMPLEX)
+
+
+;(def SO_PROMOTER (iri(str "http://identifiers.org/so/SO:0000167")))
+;(def SO_CDS (iri(str "http://identifiers.org/so/SO:0000316")))
+
+;Promoter
+; (owl-class SO_PROMOTER)
+; (individual SO_PROMOTER :type  (owl-class SO_PROMOTER))
  
- (individual (iri(str "http://identifiers.org/so/SO:0000167"))
-            :type  (owl-class (iri(str "http://identifiers.org/so/SO:0000167")))
-            )
+ 
+ ;CDS
+; (owl-class SO_CDS)
+; (individual SO_CDS :type  (owl-class SO_CDS))
+ ;(owl-class (iri(str "http://identifiers.org/so/SO:0000316")))
+ 
+ ;(individual (iri(str "http://identifiers.org/so/SO:0000316"))
+ ;           :type  (owl-class (iri(str "http://identifiers.org/so/SO:0000316")))
+ ;           )
   
  (owl-class (iri(str "http://www.biopax.org/release/biopax-level3.owl#DnaRegion")))
+ 
  
  ;(defindividual prom1 :type ComponentDefinition
  ;       :fact (fact role (individual (iri(str "http://identifiers.org/so/SO:0000167"))))
@@ -647,11 +720,18 @@
  )
  
  
+ ;(defindividual cds1 :type ComponentDefinition
+ ;      :fact (fact role (individual (iri(str "http://identifiers.org/so/SO:0000316"))))
+ ;)
+ 
+ 
  
   (defn save []
    (save-ontology sbol "sbol.omn" :omn) 
    (save-ontology sbol "sbol.owl" :owl)   
-)
+   (save-ontology sbol "sbol.rdf" :rdf)   
+
+   )
   
   
     
