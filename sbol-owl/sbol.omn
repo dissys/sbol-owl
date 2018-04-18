@@ -10,7 +10,6 @@ Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
 
 Ontology: <http://sbols.org/v2>
 
-Import: <http://dublincore.org/documents/dcmi-terms/>
 Import: <http://www.purl.org/ontolink/tawny>
 
 Annotations: 
@@ -65,6 +64,9 @@ ObjectProperty: sbol:component
     
     Range: 
         sbol:Component
+    
+    InverseOf: 
+        sbol:isComponentOf
     
     
 ObjectProperty: sbol:definition
@@ -146,6 +148,71 @@ ObjectProperty: sbol:interaction
     
     Range: 
         sbol:Interaction
+    
+    
+ObjectProperty: sbol:isComponentOf
+
+    Annotations: 
+        rdfs:comment "isComponentOf"@en,
+        rdfs:label "isComponentOf"@en,
+        <http://www.purl.org/ontolink/tawny#name> "isComponentOf"@en
+    
+    Domain: 
+        sbol:Component
+    
+    Range: 
+        sbol:ComponentDefinition or sbol:SequenceAnnotation
+    
+    InverseOf: 
+        sbol:component
+    
+    
+ObjectProperty: sbol:isDefinitionOf
+
+    Annotations: 
+        rdfs:label "isDefinitionOf"@en,
+        <http://www.purl.org/ontolink/tawny#name> "isDefinitionOf"@en,
+        rdfs:comment "isDefinitionOf"@en
+    
+    Domain: 
+        sbol:ComponentDefinition
+    
+    Range: 
+        sbol:ComponentInstance or sbol:Module
+    
+    
+ObjectProperty: sbol:isObjectOf
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "isObjectOf"@en,
+        rdfs:comment "isObjectOf"@en,
+        rdfs:label "isObjectOf"@en
+    
+    Domain: 
+        sbol:Component
+    
+    Range: 
+        sbol:SequenceConstraint
+    
+    InverseOf: 
+        sbol:object
+    
+    
+ObjectProperty: sbol:isSubjectOf
+
+    Annotations: 
+        rdfs:comment "isSubjectOf"@en,
+        <http://www.purl.org/ontolink/tawny#name> "isSubjectOf"@en,
+        rdfs:label "isSubjectOf"@en
+    
+    Domain: 
+        sbol:Component
+    
+    Range: 
+        sbol:SequenceConstraint
+    
+    InverseOf: 
+        sbol:subject
     
     
 ObjectProperty: sbol:language
@@ -246,6 +313,23 @@ ObjectProperty: sbol:module
         sbol:Module
     
     
+ObjectProperty: sbol:object
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "object"@en,
+        rdfs:comment "Points to a Component that has the relative position compared to another subject Component. E.g.: subject precedes object"@en,
+        rdfs:label "object"@en
+    
+    Domain: 
+        sbol:SequenceConstraint
+    
+    Range: 
+        sbol:Component
+    
+    InverseOf: 
+        sbol:isObjectOf
+    
+    
 ObjectProperty: sbol:orientation
 
     Annotations: 
@@ -330,6 +414,20 @@ ObjectProperty: sbol:remote
         sbol:ComponentInstance
     
     
+ObjectProperty: sbol:restriction
+
+    Annotations: 
+        rdfs:label "restriction"@en,
+        rdfs:comment "Points to a Restriction type."@en,
+        <http://www.purl.org/ontolink/tawny#name> "restriction"@en
+    
+    Domain: 
+        sbol:SequenceConstraint
+    
+    Range: 
+        sbol:Restriction
+    
+    
 ObjectProperty: sbol:role
 
     Annotations: 
@@ -411,6 +509,23 @@ ObjectProperty: sbol:source
         sbol:Model
     
     
+ObjectProperty: sbol:subject
+
+    Annotations: 
+        rdfs:label "subject"@en,
+        <http://www.purl.org/ontolink/tawny#name> "subject"@en,
+        rdfs:comment "Points to a Component that has the relative position compared to another object Component. E.g.: subject precedes object"@en
+    
+    Domain: 
+        sbol:SequenceConstraint
+    
+    Range: 
+        sbol:Component
+    
+    InverseOf: 
+        sbol:isSubjectOf
+    
+    
 ObjectProperty: sbol:type
 
     Annotations: 
@@ -422,10 +537,10 @@ ObjectProperty: sbol:type
         sbol:ComponentDefinition or sbol:Interaction
     
     
-DataProperty: dcterms:description
+DataProperty: <http://dublincore.org/documents/dcmi-terms/description>
 
     
-DataProperty: dcterms:title
+DataProperty: <http://dublincore.org/documents/dcmi-terms/title>
 
     
 DataProperty: sbol:at
@@ -521,7 +636,13 @@ DataProperty: sbol:version
         xsd:string
     
     
+Class: <http://identifiers.org/chebi/CHEBI:35224>
+
+    
 Class: <http://identifiers.org/so/SO:0000057>
+
+    
+Class: <http://identifiers.org/so/SO:0000139>
 
     
 Class: <http://identifiers.org/so/SO:0000141>
@@ -687,6 +808,34 @@ Class: sbol:Direction
         sbol:SBOLVocabulary
     
     
+Class: sbol:Effector
+
+    Annotations: 
+        rdfs:label "Effector"@en,
+        rdfs:comment "Effector small molecule"@en,
+        <http://www.purl.org/ontolink/tawny#name> "Effector"@en
+    
+    EquivalentTo: 
+        sbol:role some <http://identifiers.org/chebi/CHEBI:35224>
+    
+    SubClassOf: 
+        sbol:SmallMolecule
+    
+    
+Class: sbol:EngineeredGene
+
+    Annotations: 
+        rdfs:label "EngineeredGene"@en,
+        <http://www.purl.org/ontolink/tawny#name> "EngineeredGene"@en,
+        rdfs:comment "EngineeredGene DNA component"@en
+    
+    EquivalentTo: 
+        sbol:role some <http://identifiers.org/so/SO:0000280>
+    
+    SubClassOf: 
+        sbol:DNA
+    
+    
 Class: sbol:FunctionalComponent
 
     Annotations: 
@@ -699,6 +848,20 @@ Class: sbol:FunctionalComponent
     
     DisjointWith: 
         sbol:Component
+    
+    
+Class: sbol:Gene
+
+    Annotations: 
+        rdfs:label "Gene"@en,
+        rdfs:comment "Gene DNA component"@en,
+        <http://www.purl.org/ontolink/tawny#name> "Gene"@en
+    
+    EquivalentTo: 
+        sbol:role some <http://identifiers.org/so/SO:0000704>
+    
+    SubClassOf: 
+        sbol:DNA
     
     
 Class: sbol:GenericLocation
@@ -729,8 +892,8 @@ Class: sbol:Identified
         rdfs:label "Identified"@en
     
     SubClassOf: 
-        dcterms:description some xsd:string,
-        dcterms:title some xsd:string
+        <http://dublincore.org/documents/dcmi-terms/description> some xsd:string,
+        <http://dublincore.org/documents/dcmi-terms/title> some xsd:string
     
     
 Class: sbol:Interaction
@@ -805,7 +968,12 @@ Class: sbol:ModuleDefinition
 Class: sbol:Operator
 
     Annotations: 
+        rdfs:comment "Operator DNA component"@en,
+        rdfs:label "Operator"@en,
         <http://www.purl.org/ontolink/tawny#name> "Operator"@en
+    
+    EquivalentTo: 
+        sbol:role some <http://identifiers.org/so/SO:0000057>
     
     SubClassOf: 
         sbol:DNA
@@ -865,7 +1033,12 @@ Class: sbol:Protein
 Class: sbol:RBS
 
     Annotations: 
+        rdfs:comment "RBS DNA component"@en,
+        rdfs:label "RBS"@en,
         <http://www.purl.org/ontolink/tawny#name> "RBS"@en
+    
+    EquivalentTo: 
+        sbol:role some <http://identifiers.org/so/SO:0000139>
     
     SubClassOf: 
         sbol:DNA
@@ -908,6 +1081,20 @@ Class: sbol:Refinement
         sbol:SBOLVocabulary
     
     
+Class: sbol:Restriction
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "Restriction"@en,
+        rdfs:comment "Specifies relative positions of sub components in a design."@en,
+        rdfs:label "Restriction"@en
+    
+    EquivalentTo: 
+        sbol:differentFrom or sbol:oppositeOrientationAs or sbol:precedes or sbol:sameOrientationAs
+    
+    SubClassOf: 
+        sbol:SBOLVocabulary
+    
+    
 Class: sbol:RoleIntegration
 
     Annotations: 
@@ -930,7 +1117,7 @@ Class: sbol:SBOLVocabulary
         rdfs:label "SBOLVocabulary"@en
     
     EquivalentTo: 
-        sbol:Access or sbol:Direction or sbol:Orientation or sbol:Refinement or sbol:RoleIntegration
+        sbol:Access or sbol:Direction or sbol:Orientation or sbol:Refinement or sbol:Restriction or sbol:RoleIntegration
     
     
 Class: sbol:Sequence
@@ -981,7 +1168,12 @@ Class: sbol:SmallMolecule
 Class: sbol:Terminator
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "Terminator"@en
+        rdfs:comment "Terminator DNA component"@en,
+        <http://www.purl.org/ontolink/tawny#name> "Terminator"@en,
+        rdfs:label "Terminator"@en
+    
+    EquivalentTo: 
+        sbol:role some <http://identifiers.org/so/SO:0000141>
     
     SubClassOf: 
         sbol:DNA
@@ -996,6 +1188,17 @@ Class: sbol:TopLevel
     
     SubClassOf: 
         sbol:Identified
+    
+    
+Class: sbol:differentFrom
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "differentFrom"@en,
+        rdfs:label "differentFrom"@en,
+        rdfs:comment "The definition property of the subject Component MUST NOT refer to the same ComponentDefinition as that of the object Component."@en
+    
+    SubClassOf: 
+        sbol:Restriction
     
     
 Class: sbol:in
@@ -1034,6 +1237,20 @@ Class: sbol:inout
         sbol:Direction
     
     
+Class: sbol:mRNA
+
+    Annotations: 
+        rdfs:comment "mRNA RNA component"@en,
+        <http://www.purl.org/ontolink/tawny#name> "mRNA"@en,
+        rdfs:label "mRNA"@en
+    
+    EquivalentTo: 
+        sbol:role some <http://identifiers.org/so/SO:0000234>
+    
+    SubClassOf: 
+        sbol:RNA
+    
+    
 Class: sbol:merge
 
     Annotations: 
@@ -1070,6 +1287,17 @@ Class: sbol:none
         sbol:Direction
     
     
+Class: sbol:oppositeOrientationAs
+
+    Annotations: 
+        rdfs:label "oppositeOrientationAs"@en,
+        <http://www.purl.org/ontolink/tawny#name> "oppositeOrientationAs"@en,
+        rdfs:comment "The subject and object Component objects MUST have opposite orientations. If each one is associated with a SequenceAnnotation, then the orientation URIs of the Location objects of one SequenceAnnotation MUST NOT be among those of the other SequenceAnnotation."@en
+    
+    SubClassOf: 
+        sbol:Restriction
+    
+    
 Class: sbol:out
 
     Annotations: 
@@ -1093,6 +1321,17 @@ Class: sbol:overrideRoles
     
     DisjointWith: 
         sbol:mergeRoles
+    
+    
+Class: sbol:precedes
+
+    Annotations: 
+        rdfs:label "precedes"@en,
+        <http://www.purl.org/ontolink/tawny#name> "precedes"@en,
+        rdfs:comment "The position of the subject Component MUST precede that of the object Component. If each one is associated with a SequenceAnnotation, then the SequenceAnnotation associated with the subject Component MUST specify a region that starts before the region specified by the SequenceAnnotation associated with the object Component."@en
+    
+    SubClassOf: 
+        sbol:Restriction
     
     
 Class: sbol:private
@@ -1137,6 +1376,17 @@ Class: sbol:reverseComplement
         sbol:inline
     
     
+Class: sbol:sameOrientationAs
+
+    Annotations: 
+        rdfs:label "sameOrientationAs"@en,
+        <http://www.purl.org/ontolink/tawny#name> "sameOrientationAs"@en,
+        rdfs:comment "The subject and object Component objects MUST have the same orientation. If each one is associated with a SequenceAnnotation, then the orientation URIs of the Location objects of the first SequenceAnnotation MUST be among those of the second SequenceAnnotation, and vice versa."@en
+    
+    SubClassOf: 
+        sbol:Restriction
+    
+    
 Class: sbol:useLocal
 
     Annotations: 
@@ -1174,6 +1424,12 @@ Individual: <http://identifiers.org/so/SO:0000057>
 
     Types: 
         <http://identifiers.org/so/SO:0000057>
+    
+    
+Individual: <http://identifiers.org/so/SO:0000139>
+
+    Types: 
+        <http://identifiers.org/so/SO:0000139>
     
     
 Individual: <http://identifiers.org/so/SO:0000141>
@@ -1255,10 +1511,10 @@ Individual: sbol:prom1
     
     
 DisjointClasses: 
-    sbol:Access,sbol:Direction,sbol:Orientation,sbol:Refinement,sbol:RoleIntegration
+    sbol:Access,sbol:Direction,sbol:Orientation,sbol:Refinement,sbol:Restriction,sbol:RoleIntegration
 
 DisjointClasses: 
-    sbol:CDS,sbol:Operator,sbol:Promoter,sbol:RBS,sbol:Terminator
+    sbol:CDS,sbol:EngineeredGene,sbol:Gene,sbol:Operator,sbol:Promoter,sbol:RBS,sbol:Terminator
 
 DisjointClasses: 
     sbol:Collection,sbol:ComponentDefinition,sbol:GenericTopLevel,sbol:Model,sbol:ModuleDefinition,sbol:Sequence
@@ -1268,6 +1524,9 @@ DisjointClasses:
 
 DisjointClasses: 
     sbol:Cut,sbol:GenericLocation,sbol:Range
+
+DisjointClasses: 
+    sbol:differentFrom,sbol:oppositeOrientationAs,sbol:precedes,sbol:sameOrientationAs
 
 DisjointClasses: 
     sbol:in,sbol:inout,sbol:none,sbol:out

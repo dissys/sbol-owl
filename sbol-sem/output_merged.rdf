@@ -10,14 +10,14 @@
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:tawny="http://www.purl.org/ontolink/tawny#"
     xmlns:prov="http://www.w3.org/ns/prov#"
-    xmlns:j.4="http://identifiers.org/so/SO:0000167"
-    xmlns:j.5="http://identifiers.org/so/SO:0000057"
-    xmlns:j.6="http://identifiers.org/so/SO:0000234"
-    xmlns:j.7="http://identifiers.org/so/SO:0000141"
+    xmlns:j.4="http://identifiers.org/so/SO:0000139"
+    xmlns:j.5="http://identifiers.org/so/SO:0000167"
+    xmlns:j.6="http://identifiers.org/so/SO:0000057"
+    xmlns:j.7="http://identifiers.org/so/SO:0000234"
+    xmlns:j.8="http://identifiers.org/so/SO:0000141"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
   <owl:Ontology rdf:about="http://sbols.org/v2">
     <owl:imports rdf:resource="http://www.purl.org/ontolink/tawny"/>
-    <owl:imports rdf:resource="http://dublincore.org/documents/dcmi-terms/"/>
     <tawny:name xml:lang="en">sbol</tawny:name>
     <owl:versionInfo xml:lang="en">1.0</owl:versionInfo>
     <rdfs:comment xml:lang="en">The OWL version of the SBOL data model</rdfs:comment>
@@ -57,6 +57,24 @@
     <rdfs:comment xml:lang="en">Participation</rdfs:comment>
     <rdfs:label xml:lang="en">Participation</rdfs:label>
   </owl:Class>
+  <owl:Class rdf:about="http://sbols.org/v2#Effector">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://sbols.org/v2#role"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://identifiers.org/chebi/CHEBI:35224"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://sbols.org/v2#SmallMolecule"/>
+    </rdfs:subClassOf>
+    <tawny:name xml:lang="en">Effector</tawny:name>
+    <rdfs:comment xml:lang="en">Effector small molecule</rdfs:comment>
+    <rdfs:label xml:lang="en">Effector</rdfs:label>
+  </owl:Class>
   <owl:Class rdf:about="http://sbols.org/v2#ModuleDefinition">
     <rdfs:subClassOf rdf:resource="http://sbols.org/v2#TopLevel"/>
     <tawny:name xml:lang="en">ModuleDefinition</tawny:name>
@@ -87,6 +105,24 @@
     <rdfs:comment xml:lang="en">Range</rdfs:comment>
     <rdfs:label xml:lang="en">Range</rdfs:label>
   </owl:Class>
+  <owl:Class rdf:about="http://sbols.org/v2#Restriction">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://sbols.org/v2#differentFrom"/>
+          <owl:Class rdf:about="http://sbols.org/v2#oppositeOrientationAs"/>
+          <owl:Class rdf:about="http://sbols.org/v2#precedes"/>
+          <owl:Class rdf:about="http://sbols.org/v2#sameOrientationAs"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://sbols.org/v2#SBOLVocabulary"/>
+    </rdfs:subClassOf>
+    <tawny:name xml:lang="en">Restriction</tawny:name>
+    <rdfs:comment xml:lang="en">Specifies relative positions of sub components in a design.</rdfs:comment>
+    <rdfs:label xml:lang="en">Restriction</rdfs:label>
+  </owl:Class>
   <owl:Class rdf:about="http://sbols.org/v2#mergeRoles">
     <rdfs:subClassOf>
       <owl:Class rdf:about="http://sbols.org/v2#RoleIntegration"/>
@@ -96,16 +132,26 @@
     <rdfs:comment xml:lang="en">Indicates to use the union of the two sets: both the set of zero or more roles given for this Component as well as the set of zero or more roles given for the included subComponentDefinition.</rdfs:comment>
     <rdfs:label xml:lang="en">mergeRoles</rdfs:label>
   </owl:Class>
+  <owl:Class rdf:about="http://sbols.org/v2#precedes">
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v2#Restriction"/>
+    <tawny:name xml:lang="en">precedes</tawny:name>
+    <rdfs:comment xml:lang="en">The position of the subject Component MUST precede that of the object Component. If each one is associated with a SequenceAnnotation, then the SequenceAnnotation associated with the subject Component MUST specify a region that starts before the region specified by the SequenceAnnotation associated with the object Component.</rdfs:comment>
+    <rdfs:label xml:lang="en">precedes</rdfs:label>
+  </owl:Class>
   <owl:Class rdf:about="http://sbols.org/v2#Identified">
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:onProperty rdf:resource="http://dublincore.org/documents/dcmi-terms/#description"/>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://dublincore.org/documents/dcmi-terms/description"/>
+        </owl:onProperty>
         <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:onProperty rdf:resource="http://dublincore.org/documents/dcmi-terms/#title"/>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="http://dublincore.org/documents/dcmi-terms/title"/>
+        </owl:onProperty>
         <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -120,6 +166,24 @@
     <tawny:name xml:lang="en">merge</tawny:name>
     <rdfs:comment xml:lang="en">In the context of the ComponentDefinition or ModuleDefinition that contains the owner of the MapsTo, all references to the local ComponentInstance or the remote ComponentInstance MUST dereference to both objects.</rdfs:comment>
     <rdfs:label xml:lang="en">merge</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://sbols.org/v2#EngineeredGene">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://sbols.org/v2#role"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://identifiers.org/so/SO:0000280"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://sbols.org/v2#DNA"/>
+    </rdfs:subClassOf>
+    <tawny:name xml:lang="en">EngineeredGene</tawny:name>
+    <rdfs:comment xml:lang="en">EngineeredGene DNA component</rdfs:comment>
+    <rdfs:label xml:lang="en">EngineeredGene</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="http://sbols.org/v2#Location">
     <owl:equivalentClass>
@@ -137,10 +201,22 @@
     <rdfs:label xml:lang="en">Location</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="http://sbols.org/v2#Terminator">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://sbols.org/v2#role"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://identifiers.org/so/SO:0000141"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </owl:equivalentClass>
     <rdfs:subClassOf>
       <owl:Class rdf:about="http://sbols.org/v2#DNA"/>
     </rdfs:subClassOf>
     <tawny:name xml:lang="en">Terminator</tawny:name>
+    <rdfs:comment xml:lang="en">Terminator DNA component</rdfs:comment>
+    <rdfs:label xml:lang="en">Terminator</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="http://sbols.org/v2#GenericTopLevel">
     <rdfs:subClassOf rdf:resource="http://sbols.org/v2#TopLevel"/>
@@ -168,6 +244,22 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://identifiers.org/so/SO:0000280"/>
   </owl:Class>
+  <owl:Class rdf:about="http://sbols.org/v2#Gene">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://sbols.org/v2#role"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://identifiers.org/so/SO:0000704"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v2#DNA"/>
+    <tawny:name xml:lang="en">Gene</tawny:name>
+    <rdfs:comment xml:lang="en">Gene DNA component</rdfs:comment>
+    <rdfs:label xml:lang="en">Gene</rdfs:label>
+  </owl:Class>
   <owl:Class rdf:about="http://sbols.org/v2#Component">
     <rdfs:subClassOf>
       <owl:Class rdf:about="http://sbols.org/v2#ComponentInstance"/>
@@ -182,6 +274,12 @@
   <owl:Class rdf:about="http://www.biopax.org/release/biopax-level3.owl#DnaRegion">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://sbols.org/v2#oppositeOrientationAs">
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v2#Restriction"/>
+    <tawny:name xml:lang="en">oppositeOrientationAs</tawny:name>
+    <rdfs:comment xml:lang="en">The subject and object Component objects MUST have opposite orientations. If each one is associated with a SequenceAnnotation, then the orientation URIs of the Location objects of one SequenceAnnotation MUST NOT be among those of the other SequenceAnnotation.</rdfs:comment>
+    <rdfs:label xml:lang="en">oppositeOrientationAs</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="http://sbols.org/v2#inout">
     <rdfs:subClassOf>
@@ -216,9 +314,25 @@
     <rdfs:comment xml:lang="en">Can be used to represent biological design components such as DNA, RNA and small molecules.</rdfs:comment>
     <rdfs:label xml:lang="en">ComponentDefinition</rdfs:label>
   </owl:Class>
+  <owl:Class rdf:about="http://identifiers.org/so/SO:0000139">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://identifiers.org/so/SO:0000139"/>
+  </owl:Class>
   <owl:Class rdf:about="http://sbols.org/v2#Operator">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://sbols.org/v2#role"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://identifiers.org/so/SO:0000057"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </owl:equivalentClass>
     <rdfs:subClassOf rdf:resource="http://sbols.org/v2#DNA"/>
     <tawny:name xml:lang="en">Operator</tawny:name>
+    <rdfs:comment xml:lang="en">Operator DNA component</rdfs:comment>
+    <rdfs:label xml:lang="en">Operator</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="http://sbols.org/v2#Sequence">
     <rdfs:subClassOf rdf:resource="http://sbols.org/v2#TopLevel"/>
@@ -282,6 +396,24 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
   </owl:Class>
+  <owl:Class rdf:about="http://sbols.org/v2#mRNA">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://sbols.org/v2#role"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://identifiers.org/so/SO:0000234"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://sbols.org/v2#RNA"/>
+    </rdfs:subClassOf>
+    <tawny:name xml:lang="en">mRNA</tawny:name>
+    <rdfs:comment xml:lang="en">mRNA RNA component</rdfs:comment>
+    <rdfs:label xml:lang="en">mRNA</rdfs:label>
+  </owl:Class>
   <owl:Class rdf:about="http://sbols.org/v2#private">
     <rdfs:subClassOf>
       <owl:Class rdf:about="http://sbols.org/v2#Access"/>
@@ -292,8 +424,24 @@
     <rdfs:label xml:lang="en">private</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="http://sbols.org/v2#RBS">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://sbols.org/v2#role"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="http://identifiers.org/so/SO:0000139"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
     <rdfs:subClassOf rdf:resource="http://sbols.org/v2#DNA"/>
     <tawny:name xml:lang="en">RBS</tawny:name>
+    <rdfs:comment xml:lang="en">RBS DNA component</rdfs:comment>
+    <rdfs:label xml:lang="en">RBS</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://sbols.org/v2#sameOrientationAs">
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v2#Restriction"/>
+    <tawny:name xml:lang="en">sameOrientationAs</tawny:name>
+    <rdfs:comment xml:lang="en">The subject and object Component objects MUST have the same orientation. If each one is associated with a SequenceAnnotation, then the orientation URIs of the Location objects of the first SequenceAnnotation MUST be among those of the second SequenceAnnotation, and vice versa.</rdfs:comment>
+    <rdfs:label xml:lang="en">sameOrientationAs</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="http://identifiers.org/so/SO:0000316">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -463,6 +611,7 @@
           <owl:Class rdf:about="http://sbols.org/v2#Direction"/>
           <owl:Class rdf:about="http://sbols.org/v2#Orientation"/>
           <owl:Class rdf:about="http://sbols.org/v2#Refinement"/>
+          <owl:Class rdf:about="http://sbols.org/v2#Restriction"/>
           <owl:Class rdf:about="http://sbols.org/v2#RoleIntegration"/>
         </owl:unionOf>
       </owl:Class>
@@ -525,6 +674,12 @@
     <rdfs:comment xml:lang="en">Not represented in SBOL directly. It is used in the OWL representation to enforce choosing a direction type using one of its subclasses.</rdfs:comment>
     <rdfs:label xml:lang="en">Direction</rdfs:label>
   </owl:Class>
+  <owl:Class rdf:about="http://sbols.org/v2#differentFrom">
+    <rdfs:subClassOf rdf:resource="http://sbols.org/v2#Restriction"/>
+    <tawny:name xml:lang="en">differentFrom</tawny:name>
+    <rdfs:comment xml:lang="en">The definition property of the subject Component MUST NOT refer to the same ComponentDefinition as that of the object Component.</rdfs:comment>
+    <rdfs:label xml:lang="en">differentFrom</rdfs:label>
+  </owl:Class>
   <owl:Class rdf:about="http://sbols.org/v2#SmallMolecule">
     <rdfs:subClassOf rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
     <rdfs:subClassOf>
@@ -586,6 +741,20 @@
     <rdfs:comment xml:lang="en">Contains a URI reference of a Location object.</rdfs:comment>
     <rdfs:label xml:lang="en">location</rdfs:label>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://sbols.org/v2#isDefinitionOf">
+    <rdfs:domain rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://sbols.org/v2#ComponentInstance"/>
+          <owl:Class rdf:about="http://sbols.org/v2#Module"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <tawny:name xml:lang="en">isDefinitionOf</tawny:name>
+    <rdfs:comment xml:lang="en">isDefinitionOf</rdfs:comment>
+    <rdfs:label xml:lang="en">isDefinitionOf</rdfs:label>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://sbols.org/v2#persistentIdentity">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <rdfs:domain rdf:resource="http://sbols.org/v2#Identified"/>
@@ -599,6 +768,20 @@
     <tawny:name xml:lang="en">refinement</tawny:name>
     <rdfs:comment xml:lang="en">refinement</rdfs:comment>
     <rdfs:label xml:lang="en">refinement</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://sbols.org/v2#object">
+    <rdfs:domain rdf:resource="http://sbols.org/v2#SequenceConstraint"/>
+    <rdfs:range rdf:resource="http://sbols.org/v2#Component"/>
+    <tawny:name xml:lang="en">object</tawny:name>
+    <rdfs:comment xml:lang="en">Points to a Component that has the relative position compared to another subject Component. E.g.: subject precedes object</rdfs:comment>
+    <rdfs:label xml:lang="en">object</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://sbols.org/v2#subject">
+    <rdfs:domain rdf:resource="http://sbols.org/v2#SequenceConstraint"/>
+    <rdfs:range rdf:resource="http://sbols.org/v2#Component"/>
+    <tawny:name xml:lang="en">subject</tawny:name>
+    <rdfs:comment xml:lang="en">Points to a Component that has the relative position compared to another object Component. E.g.: subject precedes object</rdfs:comment>
+    <rdfs:label xml:lang="en">subject</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://sbols.org/v2#local">
     <rdfs:domain rdf:resource="http://sbols.org/v2#MapsTo"/>
@@ -629,6 +812,14 @@
     <tawny:name xml:lang="en">role</tawny:name>
     <rdfs:comment xml:lang="en">Points to a URI that represents the role. In the context of a ComponentDefinition, aan SO term for a promoter.</rdfs:comment>
     <rdfs:label xml:lang="en">role</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://sbols.org/v2#isObjectOf">
+    <owl:inverseOf rdf:resource="http://sbols.org/v2#object"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v2#Component"/>
+    <rdfs:range rdf:resource="http://sbols.org/v2#SequenceConstraint"/>
+    <tawny:name xml:lang="en">isObjectOf</tawny:name>
+    <rdfs:comment xml:lang="en">isObjectOf</rdfs:comment>
+    <rdfs:label xml:lang="en">isObjectOf</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://sbols.org/v2#sequenceConstraint">
     <rdfs:domain rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
@@ -713,7 +904,17 @@
     <rdfs:comment xml:lang="en">remote</rdfs:comment>
     <rdfs:label xml:lang="en">remote</rdfs:label>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://sbols.org/v2#restriction">
+    <rdfs:domain rdf:resource="http://sbols.org/v2#SequenceConstraint"/>
+    <rdfs:range rdf:resource="http://sbols.org/v2#Restriction"/>
+    <tawny:name xml:lang="en">restriction</tawny:name>
+    <rdfs:comment xml:lang="en">Points to a Restriction type.</rdfs:comment>
+    <rdfs:label xml:lang="en">restriction</rdfs:label>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://sbols.org/v2#component">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://sbols.org/v2#isComponentOf"/>
+    </owl:inverseOf>
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
@@ -747,6 +948,14 @@
     <rdfs:comment xml:lang="en">Points to a URI that represents the type.</rdfs:comment>
     <rdfs:label xml:lang="en">type</rdfs:label>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://sbols.org/v2#isSubjectOf">
+    <owl:inverseOf rdf:resource="http://sbols.org/v2#subject"/>
+    <rdfs:domain rdf:resource="http://sbols.org/v2#Component"/>
+    <rdfs:range rdf:resource="http://sbols.org/v2#SequenceConstraint"/>
+    <tawny:name xml:lang="en">isSubjectOf</tawny:name>
+    <rdfs:comment xml:lang="en">isSubjectOf</rdfs:comment>
+    <rdfs:label xml:lang="en">isSubjectOf</rdfs:label>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://sbols.org/v2#participant">
     <rdfs:domain rdf:resource="http://sbols.org/v2#Participation"/>
     <rdfs:range rdf:resource="http://sbols.org/v2#FunctionalComponent"/>
@@ -774,6 +983,20 @@
     <tawny:name xml:lang="en">module</tawny:name>
     <rdfs:comment xml:lang="en">Contains a URI that references a Module object.</rdfs:comment>
     <rdfs:label xml:lang="en">module</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://sbols.org/v2#isComponentOf">
+    <rdfs:domain rdf:resource="http://sbols.org/v2#Component"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://sbols.org/v2#ComponentDefinition"/>
+          <owl:Class rdf:about="http://sbols.org/v2#SequenceAnnotation"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <tawny:name xml:lang="en">isComponentOf</tawny:name>
+    <rdfs:comment xml:lang="en">isComponentOf</rdfs:comment>
+    <rdfs:label xml:lang="en">isComponentOf</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://sbols.org/v2#source">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
@@ -836,23 +1059,6 @@
   </owl:DatatypeProperty>
   <owl:AllDisjointClasses>
     <owl:members rdf:parseType="Collection">
-      <owl:Class rdf:about="http://sbols.org/v2#Access"/>
-      <owl:Class rdf:about="http://sbols.org/v2#Direction"/>
-      <owl:Class rdf:about="http://sbols.org/v2#Orientation"/>
-      <owl:Class rdf:about="http://sbols.org/v2#Refinement"/>
-      <owl:Class rdf:about="http://sbols.org/v2#RoleIntegration"/>
-    </owl:members>
-  </owl:AllDisjointClasses>
-  <owl:AllDisjointClasses>
-    <owl:members rdf:parseType="Collection">
-      <owl:Class rdf:about="http://sbols.org/v2#in"/>
-      <owl:Class rdf:about="http://sbols.org/v2#inout"/>
-      <owl:Class rdf:about="http://sbols.org/v2#none"/>
-      <owl:Class rdf:about="http://sbols.org/v2#out"/>
-    </owl:members>
-  </owl:AllDisjointClasses>
-  <owl:AllDisjointClasses>
-    <owl:members rdf:parseType="Collection">
       <owl:Class rdf:about="http://sbols.org/v2#merge"/>
       <owl:Class rdf:about="http://sbols.org/v2#useLocal"/>
       <owl:Class rdf:about="http://sbols.org/v2#useRemote"/>
@@ -880,6 +1086,14 @@
   </owl:AllDisjointClasses>
   <owl:AllDisjointClasses>
     <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://sbols.org/v2#in"/>
+      <owl:Class rdf:about="http://sbols.org/v2#inout"/>
+      <owl:Class rdf:about="http://sbols.org/v2#none"/>
+      <owl:Class rdf:about="http://sbols.org/v2#out"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
       <owl:Class rdf:about="http://sbols.org/v2#Cut"/>
       <owl:Class rdf:about="http://sbols.org/v2#GenericLocation"/>
       <owl:Class rdf:about="http://sbols.org/v2#Range"/>
@@ -887,11 +1101,31 @@
   </owl:AllDisjointClasses>
   <owl:AllDisjointClasses>
     <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://sbols.org/v2#differentFrom"/>
+      <owl:Class rdf:about="http://sbols.org/v2#oppositeOrientationAs"/>
+      <owl:Class rdf:about="http://sbols.org/v2#precedes"/>
+      <owl:Class rdf:about="http://sbols.org/v2#sameOrientationAs"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
       <owl:Class rdf:about="http://sbols.org/v2#CDS"/>
+      <owl:Class rdf:about="http://sbols.org/v2#EngineeredGene"/>
+      <owl:Class rdf:about="http://sbols.org/v2#Gene"/>
       <owl:Class rdf:about="http://sbols.org/v2#Operator"/>
       <owl:Class rdf:about="http://sbols.org/v2#Promoter"/>
       <owl:Class rdf:about="http://sbols.org/v2#RBS"/>
       <owl:Class rdf:about="http://sbols.org/v2#Terminator"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="http://sbols.org/v2#Access"/>
+      <owl:Class rdf:about="http://sbols.org/v2#Direction"/>
+      <owl:Class rdf:about="http://sbols.org/v2#Orientation"/>
+      <owl:Class rdf:about="http://sbols.org/v2#Refinement"/>
+      <owl:Class rdf:about="http://sbols.org/v2#Restriction"/>
+      <owl:Class rdf:about="http://sbols.org/v2#RoleIntegration"/>
     </owl:members>
   </owl:AllDisjointClasses>
   <owl:NamedIndividual rdf:about="http://sbols.org/v2#prom1">
@@ -899,10 +1133,184 @@
     <sbol:role rdf:resource="http://identifiers.org/so/SO:0000167"/>
     <tawny:name xml:lang="en">prom1</tawny:name>
   </owl:NamedIndividual>
-  <sbol:ComponentDefinition rdf:about="http://www.keele.ac.uk/dissys/cds1">
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000316"/>
+  <sbol:ComponentDefinition rdf:about="http://parts.igem.org/B0010">
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000141"/>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:displayId>cds1</sbol:displayId>
-    <sbol:persistentIdentity rdf:resource="http://www.keele.ac.uk/dissys/cds1"/>
+    <sbol:displayId>B0010</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://parts.igem.org/B0010"/>
+  </sbol:ComponentDefinition>
+  <sbol:Component rdf:about="http://parts.igem.org/BBa_F2620/ptetR_comp">
+    <sbol:definition>
+      <sbol:ComponentDefinition rdf:about="http://parts.igem.org/ptetR">
+        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000167"/>
+        <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+        <sbol:displayId>ptetR</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://parts.igem.org/ptetR"/>
+      </sbol:ComponentDefinition>
+    </sbol:definition>
+    <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+    <sbol:displayId>ptetR_comp</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/ptetR_comp"/>
+  </sbol:Component>
+  <sbol:ComponentDefinition rdf:about="http://parts.igem.org/B0034">
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000139"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:displayId>B0034</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://parts.igem.org/B0034"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://parts.igem.org/B0012">
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000141"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:displayId>B0012</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://parts.igem.org/B0012"/>
+  </sbol:ComponentDefinition>
+  <sbol:Component rdf:about="http://parts.igem.org/B0015/B0010_comp">
+    <sbol:definition rdf:resource="http://parts.igem.org/B0010"/>
+    <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+    <sbol:displayId>B0010_comp</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://parts.igem.org/B0015/B0010_comp"/>
+  </sbol:Component>
+  <sbol:SequenceConstraint rdf:about="http://parts.igem.org/BBa_J24677/BBa_F2620_compprecedesgfp_comp">
+    <sbol:object>
+      <sbol:Component rdf:about="http://parts.igem.org/BBa_J24677/gfp_comp">
+        <sbol:definition>
+          <sbol:ComponentDefinition rdf:about="http://parts.igem.org/gfp">
+            <sbol:role rdf:resource="http://identifiers.org/so/SO:0000316"/>
+            <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+            <sbol:displayId>gfp</sbol:displayId>
+            <sbol:persistentIdentity rdf:resource="http://parts.igem.org/gfp"/>
+          </sbol:ComponentDefinition>
+        </sbol:definition>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:displayId>gfp_comp</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://parts.igem.org/BBa_J24677/gfp_comp"/>
+      </sbol:Component>
+    </sbol:object>
+    <sbol:subject>
+      <sbol:Component rdf:about="http://parts.igem.org/BBa_J24677/BBa_F2620_comp">
+        <sbol:definition>
+          <sbol:ComponentDefinition rdf:about="http://parts.igem.org/BBa_F2620">
+            <sbol:sequenceConstraint>
+              <sbol:SequenceConstraint rdf:about="http://parts.igem.org/BBa_F2620/B0034_compprecedesluxR_comp">
+                <sbol:object>
+                  <sbol:Component rdf:about="http://parts.igem.org/BBa_F2620/luxR_comp">
+                    <sbol:definition>
+                      <sbol:ComponentDefinition rdf:about="http://parts.igem.org/luxR">
+                        <sbol:role rdf:resource="http://identifiers.org/so/SO:0000316"/>
+                        <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+                        <sbol:displayId>luxR</sbol:displayId>
+                        <sbol:persistentIdentity rdf:resource="http://parts.igem.org/luxR"/>
+                      </sbol:ComponentDefinition>
+                    </sbol:definition>
+                    <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+                    <sbol:displayId>luxR_comp</sbol:displayId>
+                    <sbol:persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/luxR_comp"/>
+                  </sbol:Component>
+                </sbol:object>
+                <sbol:subject>
+                  <sbol:Component rdf:about="http://parts.igem.org/BBa_F2620/B0034_comp">
+                    <sbol:definition rdf:resource="http://parts.igem.org/B0034"/>
+                    <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+                    <sbol:displayId>B0034_comp</sbol:displayId>
+                    <sbol:persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/B0034_comp"/>
+                  </sbol:Component>
+                </sbol:subject>
+                <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
+                <sbol:displayId>B0034_compprecedesluxR_comp</sbol:displayId>
+                <sbol:persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/B0034_compprecedesluxR_comp"/>
+              </sbol:SequenceConstraint>
+            </sbol:sequenceConstraint>
+            <sbol:persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620"/>
+            <sbol:component>
+              <sbol:Component rdf:about="http://parts.igem.org/BBa_F2620/pluxR_comp">
+                <sbol:definition>
+                  <sbol:ComponentDefinition rdf:about="http://parts.igem.org/pluxR">
+                    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000167"/>
+                    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+                    <sbol:displayId>pluxR</sbol:displayId>
+                    <sbol:persistentIdentity rdf:resource="http://parts.igem.org/pluxR"/>
+                  </sbol:ComponentDefinition>
+                </sbol:definition>
+                <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+                <sbol:displayId>pluxR_comp</sbol:displayId>
+                <sbol:persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/pluxR_comp"/>
+              </sbol:Component>
+            </sbol:component>
+            <sbol:component>
+              <sbol:Component rdf:about="http://parts.igem.org/BBa_F2620/B0015_comp">
+                <sbol:definition>
+                  <sbol:ComponentDefinition rdf:about="http://parts.igem.org/B0015">
+                    <sbol:component rdf:resource="http://parts.igem.org/B0015/B0010_comp"/>
+                    <sbol:component>
+                      <sbol:Component rdf:about="http://parts.igem.org/B0015/B0012_comp">
+                        <sbol:definition rdf:resource="http://parts.igem.org/B0012"/>
+                        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+                        <sbol:displayId>B0012_comp</sbol:displayId>
+                        <sbol:persistentIdentity rdf:resource="http://parts.igem.org/B0015/B0012_comp"/>
+                      </sbol:Component>
+                    </sbol:component>
+                    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000141"/>
+                    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+                    <sbol:displayId>B0015</sbol:displayId>
+                    <sbol:persistentIdentity rdf:resource="http://parts.igem.org/B0015"/>
+                  </sbol:ComponentDefinition>
+                </sbol:definition>
+                <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+                <sbol:displayId>B0015_comp</sbol:displayId>
+                <sbol:persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/B0015_comp"/>
+              </sbol:Component>
+            </sbol:component>
+            <sbol:displayId>BBa_F2620</sbol:displayId>
+            <sbol:role rdf:resource="http://identifiers.org/so/SO:0000280"/>
+            <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+            <sbol:sequenceConstraint>
+              <sbol:SequenceConstraint rdf:about="http://parts.igem.org/BBa_F2620/B0015_compprecedespluxR_comp">
+                <sbol:object rdf:resource="http://parts.igem.org/BBa_F2620/pluxR_comp"/>
+                <sbol:subject rdf:resource="http://parts.igem.org/BBa_F2620/B0015_comp"/>
+                <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
+                <sbol:displayId>B0015_compprecedespluxR_comp</sbol:displayId>
+                <sbol:persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/B0015_compprecedespluxR_comp"/>
+              </sbol:SequenceConstraint>
+            </sbol:sequenceConstraint>
+            <sbol:sequenceConstraint>
+              <sbol:SequenceConstraint rdf:about="http://parts.igem.org/BBa_F2620/luxR_compprecedesB0015_comp">
+                <sbol:object rdf:resource="http://parts.igem.org/BBa_F2620/B0015_comp"/>
+                <sbol:subject rdf:resource="http://parts.igem.org/BBa_F2620/luxR_comp"/>
+                <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
+                <sbol:displayId>luxR_compprecedesB0015_comp</sbol:displayId>
+                <sbol:persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/luxR_compprecedesB0015_comp"/>
+              </sbol:SequenceConstraint>
+            </sbol:sequenceConstraint>
+            <sbol:component rdf:resource="http://parts.igem.org/BBa_F2620/luxR_comp"/>
+            <sbol:component rdf:resource="http://parts.igem.org/BBa_F2620/ptetR_comp"/>
+            <sbol:sequenceConstraint>
+              <sbol:SequenceConstraint rdf:about="http://parts.igem.org/BBa_F2620/ptetR_compprecedesB0034_comp">
+                <sbol:object rdf:resource="http://parts.igem.org/BBa_F2620/B0034_comp"/>
+                <sbol:subject rdf:resource="http://parts.igem.org/BBa_F2620/ptetR_comp"/>
+                <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
+                <sbol:displayId>ptetR_compprecedesB0034_comp</sbol:displayId>
+                <sbol:persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/ptetR_compprecedesB0034_comp"/>
+              </sbol:SequenceConstraint>
+            </sbol:sequenceConstraint>
+            <sbol:component rdf:resource="http://parts.igem.org/BBa_F2620/B0034_comp"/>
+          </sbol:ComponentDefinition>
+        </sbol:definition>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:displayId>BBa_F2620_comp</sbol:displayId>
+        <sbol:persistentIdentity rdf:resource="http://parts.igem.org/BBa_J24677/BBa_F2620_comp"/>
+      </sbol:Component>
+    </sbol:subject>
+    <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
+    <sbol:displayId>BBa_F2620_compprecedesgfp_comp</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://parts.igem.org/BBa_J24677/BBa_F2620_compprecedesgfp_comp"/>
+  </sbol:SequenceConstraint>
+  <sbol:ComponentDefinition rdf:about="http://parts.igem.org/BBa_J24677">
+    <sbol:sequenceConstraint rdf:resource="http://parts.igem.org/BBa_J24677/BBa_F2620_compprecedesgfp_comp"/>
+    <sbol:component rdf:resource="http://parts.igem.org/BBa_J24677/gfp_comp"/>
+    <sbol:component rdf:resource="http://parts.igem.org/BBa_J24677/BBa_F2620_comp"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000280"/>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:displayId>BBa_J24677</sbol:displayId>
+    <sbol:persistentIdentity rdf:resource="http://parts.igem.org/BBa_J24677"/>
   </sbol:ComponentDefinition>
 </rdf:RDF>

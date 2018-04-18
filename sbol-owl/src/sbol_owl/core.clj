@@ -1,7 +1,7 @@
 (ns sbol-owl.core
   (:use [tawny.owl])
   (:refer-clojure :exclude [type,merge,sequence] )
-  (:require [sbol-owl.dcterms])
+;  (:require [sbol-owl.dcterms])
   (:use [sbol-owl.constants])
   )
 
@@ -12,15 +12,18 @@
 	  :versioninfo "1.0"
 )
 
- (owl-import sbol-owl.dcterms/dcterms)
+; (owl-import sbol-owl.dcterms/dcterms)
  
 (defclass Identified
   :label "Identified"
   :comment "Represents SBOL objects that can be identified uniquely using URIs."   
   :super
-    (owl-some sbol-owl.dcterms/title :XSD_STRING)
-    (owl-some sbol-owl.dcterms/description :XSD_STRING)
-;:subclass (owl-some sbol-owl.dcterms/description (iri(str "http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral")))
+    (owl-some DCTERMS_TITLE :XSD_STRING)
+    (owl-some DCTERMS_DESC :XSD_STRING)
+;    (owl-some sbol-owl.dcterms/title :XSD_STRING)
+;    (owl-some sbol-owl.dcterms/description :XSD_STRING)
+
+    ;:subclass (owl-some sbol-owl.dcterms/description (iri(str "http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral")))
  )
    
 (as-subclasses
@@ -168,6 +171,87 @@
 (defclass SequenceConstraint
   :label "SequenceConstraint"
   :comment "SequenceConstraint"
+ )
+
+(defoproperty restriction
+  :label "restriction"
+  :comment "Points to a Restriction type."
+  :domain SequenceConstraint 
+  :range Restriction
+ )
+
+(defoproperty subject
+  :label "subject"
+  :comment "Points to a Component that has the relative position compared to another object Component. E.g.: subject precedes object"
+  :domain SequenceConstraint 
+  :range Component
+ )
+
+(defoproperty isSubjectOf
+  :label "isSubjectOf"
+  :comment "isSubjectOf"
+  :domain Component 
+  :range SequenceConstraint
+  :inverse subject
+ )
+
+(defoproperty object
+  :label "object"
+  :comment "Points to a Component that has the relative position compared to another subject Component. E.g.: subject precedes object"
+  :domain SequenceConstraint 
+  :range Component
+ )
+
+(defoproperty isObjectOf
+  :label "isObjectOf"
+  :comment "isObjectOf"
+  :domain  Component
+  :range SequenceConstraint
+  :inverse object
+ )
+
+(defoproperty restriction
+  :label "restriction"
+  :comment "Points to a Restriction type."
+  :domain SequenceConstraint 
+  :range Restriction
+ )
+
+(defclass Restriction
+  :label "Restriction"
+  :comment "Specifies relative positions of sub components in a design."
+ )
+
+(as-subclasses
+  Restriction
+  :disjoint :cover
+  (defclass precedes)
+  (defclass sameOrientationAs)
+  (defclass oppositeOrientationAs)
+  (defclass differentFrom)
+  
+ )
+
+
+(defclass precedes
+  :label "precedes"
+  :comment "The position of the subject Component MUST precede that of the object Component. If each one is associated with a SequenceAnnotation, then the SequenceAnnotation associated with the subject Component MUST specify a region that starts before the region specified by the SequenceAnnotation associated with the object Component." 
+ )
+
+(defclass sameOrientationAs
+  :label "sameOrientationAs"
+  :comment "The subject and object Component objects MUST have the same orientation. If each one is associated with a SequenceAnnotation, then the orientation URIs of the Location objects of the first SequenceAnnotation MUST be among those of the second SequenceAnnotation, and vice versa." 
+ )
+
+(defclass oppositeOrientationAs
+  :label "oppositeOrientationAs"
+  :comment "The subject and object Component objects MUST have opposite orientations. If each one is associated with a SequenceAnnotation, then the orientation URIs of the Location objects of one SequenceAnnotation MUST NOT be among those of the other SequenceAnnotation."
+ )
+
+
+(defclass differentFrom
+  :label "differentFrom"
+  :comment "The definition property of the subject Component MUST NOT refer to the same ComponentDefinition as that of the object Component." 
  )
 
 (defclass MapsTo
@@ -329,6 +413,7 @@
   (defclass Refinement)
   (defclass RoleIntegration)  
   (defclass Direction)    
+  (defclass Restriction)     
  )
 
 
@@ -397,6 +482,15 @@
   :domain (owl-or ComponentDefinition SequenceAnnotation)
   :range Component
  )
+
+(defoproperty isComponentOf
+  :label "isComponentOf"
+  :comment "isComponentOf"
+  :domain Component
+  :range (owl-or ComponentDefinition SequenceAnnotation)
+  :inverse component
+ )
+
 
 (defoproperty sequenceAnnotation
   :label "sequenceAnnotation"
@@ -507,6 +601,14 @@
   :comment "definition"
   :domain (owl-or ComponentInstance Module)
   :range ComponentDefinition
+ )
+
+(defoproperty isDefinitionOf
+  :label "isDefinitionOf"
+  :comment "isDefinitionOf"
+  :domain ComponentDefinition  
+  :range (owl-or ComponentInstance Module)
+  :inverse definition
  )
 
 
@@ -638,19 +740,69 @@
   (defclass CDS)
   (defclass RBS)
   (defclass Terminator)
+  (defclass Gene)
+  (defclass EngineeredGene)
  )
+  
+
 
     
  (defclass Promoter
  :label "Promoter"
  :comment "Promoter DNA component"
  :equivalent (owl-some role SO_PROMOTER))
- 
-  (defclass CDS
+
+  (defclass RBS
+ :label "RBS"
+ :comment "RBS DNA component"
+ :equivalent (owl-some role SO_RBS))
+  
+  (defclass Operator
+ :label "Operator"
+ :comment "Operator DNA component"
+ :equivalent (owl-some role SO_OPERATOR))
+  
+ (defclass CDS
  :label "CDS"
  :comment "CDS DNA component"
  :equivalent (owl-some role SO_CDS))
  
+ (defclass Terminator
+ :label "Terminator"
+ :comment "Terminator DNA component"
+ :equivalent (owl-some role SO_TERMINATOR))            
+       
+ (defclass Gene
+ :label "Gene"
+ :comment "Gene DNA component"
+ :equivalent (owl-some role SO_GENE))
+      
+      
+       
+ (defclass EngineeredGene
+ :label "EngineeredGene"
+ :comment "EngineeredGene DNA component"
+ :equivalent (owl-some role SO_ENGINEEREDGENE))
+      
+      
+       
+ (defclass mRNA
+ :label "mRNA"
+ :comment "mRNA RNA component"
+ :equivalent (owl-some role SO_MRNA)
+ :subclass RNA
+ )
+     
+
+ (defclass Effector
+ :label "Effector"
+ :comment "Effector small molecule"
+ :equivalent (owl-some role CHEBI_EFFECTOR)
+ :subclass SmallMolecule
+ )
+      
+
+      
 
  ;TODO Add wasDerivedFrom property from PROV-O
  ;TODO Add data types for datatype properties
@@ -669,14 +821,19 @@
   (individual externalIRI :type  (owl-class externalIRI))
  )
 
+;DNA Component Definition roles
 (addExternalTerm SO_PROMOTER)
+(addExternalTerm SO_RBS)
 (addExternalTerm SO_CDS)
 (addExternalTerm SO_TERMINATOR)
 (addExternalTerm SO_GENE)
 (addExternalTerm SO_OPERATOR)
 (addExternalTerm SO_ENGINEEREDGENE)
+
+;RNA Component Definition roles
 (addExternalTerm SO_MRNA)
 
+;Component Definition types
 (addExternalTerm CD_DNA)
 (addExternalTerm CD_RNA)
 (addExternalTerm CD_PROTEIN)

@@ -21,7 +21,13 @@
 (def SO_GENE (toIri "http://identifiers.org/so/SO:0000704"))
 (def SO_OPERATOR (toIri "http://identifiers.org/so/SO:0000057"))
 (def SO_ENGINEEREDGENE (toIri "http://identifiers.org/so/SO:0000280"))
+
 (def SO_MRNA (toIri "http://identifiers.org/so/SO:0000234"))
+
+(def CHEBI_EFFECTOR (toIri "http://identifiers.org/chebi/CHEBI:35224"))
+
+(def DCTERMS_TITLE (toIri "http://dublincore.org/documents/dcmi-terms/title"))
+(def DCTERMS_DESC (toIri "http://dublincore.org/documents/dcmi-terms/description"))
 
 
 
@@ -29,3 +35,4 @@
 ;  (println "start")
 ;  (toIri "http://identifiers.org/so/SO:0000167")
 ;  )
+

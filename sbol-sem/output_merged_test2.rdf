@@ -1,20 +1,48 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://sbols.org/v2#"
      xml:base="http://sbols.org/v2"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:tawny="http://www.purl.org/ontolink/tawny#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:j.1="http://identifiers.org/so/SO:0000280"
+     xmlns:j.0="http://www.biopax.org/release/biopax-level3.owl#"
+     xmlns:j.3="http://identifiers.org/so/SO:0000316"
+     xmlns:j.2="http://identifiers.org/so/SO:0000704"
+     xmlns:j.5="http://identifiers.org/so/SO:0000167"
+     xmlns:j.4="http://identifiers.org/so/SO:0000139"
+     xmlns:j.7="http://identifiers.org/so/SO:0000234"
+     xmlns:j.6="http://identifiers.org/so/SO:0000057"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:j.8="http://identifiers.org/so/SO:0000141"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:sbol="http://sbols.org/v2#"
      xmlns:dcterms="http://dublincore.org/documents/dcmi-terms/#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+     xmlns:tawny1="http://www.purl.org/ontolink/tawny/"
+     xmlns:prov="http://www.w3.org/ns/prov#">
     <owl:Ontology rdf:about="http://sbols.org/v2">
         <owl:imports rdf:resource="http://www.purl.org/ontolink/tawny"/>
         <tawny:name xml:lang="en">sbol</tawny:name>
         <owl:versionInfo xml:lang="en">1.0</owl:versionInfo>
         <rdfs:comment xml:lang="en">The OWL version of the SBOL data model</rdfs:comment>
     </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.purl.org/ontolink/tawny#name -->
+
+    <owl:AnnotationProperty rdf:about="http://www.purl.org/ontolink/tawny#name"/>
     
 
 
@@ -64,6 +92,7 @@
     <!-- http://sbols.org/v2#definition -->
 
     <owl:ObjectProperty rdf:about="http://sbols.org/v2#definition">
+        <owl:inverseOf rdf:resource="http://sbols.org/v2#isDefinitionOf"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -672,6 +701,56 @@
         <tawny:name xml:lang="en">Access</tawny:name>
         <rdfs:comment xml:lang="en">Not represented in SBOL directly. It is used in the OWL representation to enforce choosing an access type using one of its subclasses.</rdfs:comment>
         <rdfs:label xml:lang="en">Access</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v2#BBa_J24677_node -->
+
+    <owl:Class rdf:about="http://sbols.org/v2#BBa_J24677_node">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v2#DNA"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://sbols.org/v2#component"/>
+                                <owl:someValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://sbols.org/v2#isComponentOf"/>
+                                        <owl:hasValue rdf:resource="http://parts.igem.org/BBa_J24677"/>
+                                    </owl:Restriction>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://sbols.org/v2#isDefinitionOf"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://sbols.org/v2#Component"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://sbols.org/v2#isComponentOf"/>
+                                                <owl:someValuesFrom rdf:resource="http://sbols.org/v2#BBa_J24677_node"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://sbols.org/v2#isDefinitionOf"/>
+                                <owl:someValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://sbols.org/v2#isComponentOf"/>
+                                        <owl:hasValue rdf:resource="http://parts.igem.org/BBa_J24677"/>
+                                    </owl:Restriction>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
     </owl:Class>
     
 
@@ -1422,9 +1501,6 @@
 
     <owl:Class rdf:about="http://sbols.org/v2#precedes">
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#Restriction"/>
-        <tawny:name xml:lang="en">precedes</tawny:name>
-        <rdfs:comment xml:lang="en">The position of the subject Component MUST precede that of the object Component. If each one is associated with a SequenceAnnotation, then the SequenceAnnotation associated with the subject Component MUST specify a region that starts before the region specified by the SequenceAnnotation associated with the object Component.</rdfs:comment>
-        <rdfs:label xml:lang="en">precedes</rdfs:label>
     </owl:Class>
     
 
@@ -1441,13 +1517,103 @@
     
 
 
+    <!-- http://sbols.org/v2#ptetRFollower -->
+
+    <owl:Class rdf:about="http://sbols.org/v2#ptetRFollower">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v2#Component"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v2#isComponentOf"/>
+                        <owl:someValuesFrom rdf:resource="http://sbols.org/v2#BBa_J24677_node"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v2#isObjectOf"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://sbols.org/v2#subject"/>
+                                                <owl:someValuesFrom rdf:resource="http://sbols.org/v2#ptetRFollower"/>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://sbols.org/v2#subject"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="http://sbols.org/v2#definition"/>
+                                                        <owl:someValuesFrom rdf:resource="http://sbols.org/v2#ptetRParent"/>
+                                                    </owl:Restriction>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://sbols.org/v2#subject"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="http://sbols.org/v2#definition"/>
+                                                        <owl:hasValue rdf:resource="http://parts.igem.org/ptetR"/>
+                                                    </owl:Restriction>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://sbols.org/v2#restriction"/>
+                                        <owl:hasValue rdf:resource="http://sbols.org/v2#precedes"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://sbols.org/v2#ptetRParent -->
+
+    <owl:Class rdf:about="http://sbols.org/v2#ptetRParent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v2#DNA"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://sbols.org/v2#component"/>
+                                <owl:someValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://sbols.org/v2#definition"/>
+                                        <owl:someValuesFrom rdf:resource="http://sbols.org/v2#ptetRParent"/>
+                                    </owl:Restriction>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://sbols.org/v2#component"/>
+                                <owl:someValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://sbols.org/v2#definition"/>
+                                        <owl:hasValue rdf:resource="http://parts.igem.org/ptetR"/>
+                                    </owl:Restriction>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
     <!-- http://sbols.org/v2#public -->
 
     <owl:Class rdf:about="http://sbols.org/v2#public">
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#Access"/>
-        <tawny:name xml:lang="en">public</tawny:name>
-        <rdfs:comment xml:lang="en">Indicates that a ComponentInstance MAY be referred to by remote MapsTo objects.</rdfs:comment>
-        <rdfs:label xml:lang="en">public</rdfs:label>
     </owl:Class>
     
 
@@ -1612,6 +1778,319 @@
     
 
 
+    <!-- http://parts.igem.org/B0010 -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/B0010">
+        <rdf:type rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/B0010"/>
+        <role rdf:resource="http://identifiers.org/so/SO:0000141"/>
+        <type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+        <displayId>B0010</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/B0012 -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/B0012">
+        <rdf:type rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/B0012"/>
+        <role rdf:resource="http://identifiers.org/so/SO:0000141"/>
+        <type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+        <displayId>B0012</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/B0015 -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/B0015">
+        <rdf:type rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+        <component rdf:resource="http://parts.igem.org/B0015/B0010_comp"/>
+        <component rdf:resource="http://parts.igem.org/B0015/B0012_comp"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/B0015"/>
+        <role rdf:resource="http://identifiers.org/so/SO:0000141"/>
+        <type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+        <displayId>B0015</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/B0034 -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/B0034">
+        <rdf:type rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/B0034"/>
+        <role rdf:resource="http://identifiers.org/so/SO:0000139"/>
+        <type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+        <displayId>B0034</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/BBa_F2620 -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/BBa_F2620">
+        <rdf:type rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+        <component rdf:resource="http://parts.igem.org/BBa_F2620/B0015_comp"/>
+        <component rdf:resource="http://parts.igem.org/BBa_F2620/B0034_comp"/>
+        <component rdf:resource="http://parts.igem.org/BBa_F2620/luxR_comp"/>
+        <component rdf:resource="http://parts.igem.org/BBa_F2620/pluxR_comp"/>
+        <component rdf:resource="http://parts.igem.org/BBa_F2620/ptetR_comp"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620"/>
+        <role rdf:resource="http://identifiers.org/so/SO:0000280"/>
+        <sequenceConstraint rdf:resource="http://parts.igem.org/BBa_F2620/B0015_compprecedespluxR_comp"/>
+        <sequenceConstraint rdf:resource="http://parts.igem.org/BBa_F2620/B0034_compprecedesluxR_comp"/>
+        <sequenceConstraint rdf:resource="http://parts.igem.org/BBa_F2620/luxR_compprecedesB0015_comp"/>
+        <sequenceConstraint rdf:resource="http://parts.igem.org/BBa_F2620/ptetR_compprecedesB0034_comp"/>
+        <type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+        <displayId>BBa_F2620</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/BBa_J24677 -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/BBa_J24677">
+        <rdf:type rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+        <component rdf:resource="http://parts.igem.org/BBa_J24677/BBa_F2620_comp"/>
+        <component rdf:resource="http://parts.igem.org/BBa_J24677/gfp_comp"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/BBa_J24677"/>
+        <role rdf:resource="http://identifiers.org/so/SO:0000280"/>
+        <sequenceConstraint rdf:resource="http://parts.igem.org/BBa_J24677/BBa_F2620_compprecedesgfp_comp"/>
+        <type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+        <displayId>BBa_J24677</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/gfp -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/gfp">
+        <rdf:type rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/gfp"/>
+        <role rdf:resource="http://identifiers.org/so/SO:0000316"/>
+        <type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+        <displayId>gfp</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/luxR -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/luxR">
+        <rdf:type rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/luxR"/>
+        <role rdf:resource="http://identifiers.org/so/SO:0000316"/>
+        <type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+        <displayId>luxR</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/pluxR -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/pluxR">
+        <rdf:type rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/pluxR"/>
+        <role rdf:resource="http://identifiers.org/so/SO:0000167"/>
+        <type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+        <displayId>pluxR</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/ptetR -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/ptetR">
+        <rdf:type rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/ptetR"/>
+        <role rdf:resource="http://identifiers.org/so/SO:0000167"/>
+        <type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+        <displayId>ptetR</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/B0015/B0010_comp -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/B0015/B0010_comp">
+        <rdf:type rdf:resource="http://sbols.org/v2#Component"/>
+        <access rdf:resource="http://sbols.org/v2#public"/>
+        <definition rdf:resource="http://parts.igem.org/B0010"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/B0015/B0010_comp"/>
+        <displayId>B0010_comp</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/B0015/B0012_comp -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/B0015/B0012_comp">
+        <rdf:type rdf:resource="http://sbols.org/v2#Component"/>
+        <access rdf:resource="http://sbols.org/v2#public"/>
+        <definition rdf:resource="http://parts.igem.org/B0012"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/B0015/B0012_comp"/>
+        <displayId>B0012_comp</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/BBa_F2620/B0015_comp -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/BBa_F2620/B0015_comp">
+        <rdf:type rdf:resource="http://sbols.org/v2#Component"/>
+        <access rdf:resource="http://sbols.org/v2#public"/>
+        <definition rdf:resource="http://parts.igem.org/B0015"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/B0015_comp"/>
+        <displayId>B0015_comp</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/BBa_F2620/B0015_compprecedespluxR_comp -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/BBa_F2620/B0015_compprecedespluxR_comp">
+        <rdf:type rdf:resource="http://sbols.org/v2#SequenceConstraint"/>
+        <object rdf:resource="http://parts.igem.org/BBa_F2620/pluxR_comp"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/B0015_compprecedespluxR_comp"/>
+        <restriction rdf:resource="http://sbols.org/v2#precedes"/>
+        <subject rdf:resource="http://parts.igem.org/BBa_F2620/B0015_comp"/>
+        <displayId>B0015_compprecedespluxR_comp</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/BBa_F2620/B0034_comp -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/BBa_F2620/B0034_comp">
+        <rdf:type rdf:resource="http://sbols.org/v2#Component"/>
+        <access rdf:resource="http://sbols.org/v2#public"/>
+        <definition rdf:resource="http://parts.igem.org/B0034"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/B0034_comp"/>
+        <displayId>B0034_comp</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/BBa_F2620/B0034_compprecedesluxR_comp -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/BBa_F2620/B0034_compprecedesluxR_comp">
+        <rdf:type rdf:resource="http://sbols.org/v2#SequenceConstraint"/>
+        <object rdf:resource="http://parts.igem.org/BBa_F2620/luxR_comp"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/B0034_compprecedesluxR_comp"/>
+        <restriction rdf:resource="http://sbols.org/v2#precedes"/>
+        <subject rdf:resource="http://parts.igem.org/BBa_F2620/B0034_comp"/>
+        <displayId>B0034_compprecedesluxR_comp</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/BBa_F2620/luxR_comp -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/BBa_F2620/luxR_comp">
+        <rdf:type rdf:resource="http://sbols.org/v2#Component"/>
+        <access rdf:resource="http://sbols.org/v2#public"/>
+        <definition rdf:resource="http://parts.igem.org/luxR"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/luxR_comp"/>
+        <displayId>luxR_comp</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/BBa_F2620/luxR_compprecedesB0015_comp -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/BBa_F2620/luxR_compprecedesB0015_comp">
+        <rdf:type rdf:resource="http://sbols.org/v2#SequenceConstraint"/>
+        <object rdf:resource="http://parts.igem.org/BBa_F2620/B0015_comp"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/luxR_compprecedesB0015_comp"/>
+        <restriction rdf:resource="http://sbols.org/v2#precedes"/>
+        <subject rdf:resource="http://parts.igem.org/BBa_F2620/luxR_comp"/>
+        <displayId>luxR_compprecedesB0015_comp</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/BBa_F2620/pluxR_comp -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/BBa_F2620/pluxR_comp">
+        <rdf:type rdf:resource="http://sbols.org/v2#Component"/>
+        <access rdf:resource="http://sbols.org/v2#public"/>
+        <definition rdf:resource="http://parts.igem.org/pluxR"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/pluxR_comp"/>
+        <displayId>pluxR_comp</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/BBa_F2620/ptetR_comp -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/BBa_F2620/ptetR_comp">
+        <rdf:type rdf:resource="http://sbols.org/v2#Component"/>
+        <access rdf:resource="http://sbols.org/v2#public"/>
+        <definition rdf:resource="http://parts.igem.org/ptetR"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/ptetR_comp"/>
+        <displayId>ptetR_comp</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/BBa_F2620/ptetR_compprecedesB0034_comp -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/BBa_F2620/ptetR_compprecedesB0034_comp">
+        <rdf:type rdf:resource="http://sbols.org/v2#SequenceConstraint"/>
+        <object rdf:resource="http://parts.igem.org/BBa_F2620/B0034_comp"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/BBa_F2620/ptetR_compprecedesB0034_comp"/>
+        <restriction rdf:resource="http://sbols.org/v2#precedes"/>
+        <subject rdf:resource="http://parts.igem.org/BBa_F2620/ptetR_comp"/>
+        <displayId>ptetR_compprecedesB0034_comp</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/BBa_J24677/BBa_F2620_comp -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/BBa_J24677/BBa_F2620_comp">
+        <rdf:type rdf:resource="http://sbols.org/v2#Component"/>
+        <access rdf:resource="http://sbols.org/v2#public"/>
+        <definition rdf:resource="http://parts.igem.org/BBa_F2620"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/BBa_J24677/BBa_F2620_comp"/>
+        <displayId>BBa_F2620_comp</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/BBa_J24677/BBa_F2620_compprecedesgfp_comp -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/BBa_J24677/BBa_F2620_compprecedesgfp_comp">
+        <rdf:type rdf:resource="http://sbols.org/v2#SequenceConstraint"/>
+        <object rdf:resource="http://parts.igem.org/BBa_J24677/gfp_comp"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/BBa_J24677/BBa_F2620_compprecedesgfp_comp"/>
+        <restriction rdf:resource="http://sbols.org/v2#precedes"/>
+        <subject rdf:resource="http://parts.igem.org/BBa_J24677/BBa_F2620_comp"/>
+        <displayId>BBa_F2620_compprecedesgfp_comp</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://parts.igem.org/BBa_J24677/gfp_comp -->
+
+    <owl:NamedIndividual rdf:about="http://parts.igem.org/BBa_J24677/gfp_comp">
+        <rdf:type rdf:resource="http://sbols.org/v2#Component"/>
+        <access rdf:resource="http://sbols.org/v2#public"/>
+        <definition rdf:resource="http://parts.igem.org/gfp"/>
+        <persistentIdentity rdf:resource="http://parts.igem.org/BBa_J24677/gfp_comp"/>
+        <displayId>gfp_comp</displayId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sbols.org/v2#precedes -->
+
+    <owl:NamedIndividual rdf:about="http://sbols.org/v2#precedes"/>
+    
+
+
     <!-- http://sbols.org/v2#prom1 -->
 
     <owl:NamedIndividual rdf:about="http://sbols.org/v2#prom1">
@@ -1619,6 +2098,12 @@
         <role rdf:resource="http://identifiers.org/so/SO:0000167"/>
         <tawny:name xml:lang="en">prom1</tawny:name>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://sbols.org/v2#public -->
+
+    <owl:NamedIndividual rdf:about="http://sbols.org/v2#public"/>
     
 
 
@@ -1659,6 +2144,27 @@
     <owl:NamedIndividual rdf:about="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule">
         <rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
     </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://sbols.org/v2#precedes">
+        <rdfs:label xml:lang="en">precedes</rdfs:label>
+        <tawny:name xml:lang="en">precedes</tawny:name>
+        <rdfs:comment xml:lang="en">The position of the subject Component MUST precede that of the object Component. If each one is associated with a SequenceAnnotation, then the SequenceAnnotation associated with the subject Component MUST specify a region that starts before the region specified by the SequenceAnnotation associated with the object Component.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://sbols.org/v2#public">
+        <rdfs:comment xml:lang="en">Indicates that a ComponentInstance MAY be referred to by remote MapsTo objects.</rdfs:comment>
+        <rdfs:label xml:lang="en">public</rdfs:label>
+        <tawny:name xml:lang="en">public</tawny:name>
+    </rdf:Description>
     
 
 
@@ -1753,5 +2259,5 @@
 
 
 
-<!-- Generated by the OWL API (version 4.1.4.20160202-2327) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
 
