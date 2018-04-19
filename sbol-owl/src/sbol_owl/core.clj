@@ -173,12 +173,7 @@
   :comment "SequenceConstraint"
  )
 
-(defoproperty restriction
-  :label "restriction"
-  :comment "Points to a Restriction type."
-  :domain SequenceConstraint 
-  :range Restriction
- )
+
 
 (defoproperty subject
   :label "subject"
@@ -210,6 +205,13 @@
   :inverse object
  )
 
+
+
+(defclass Restriction
+  :label "Restriction"
+  :comment "Specifies relative positions of sub components in a design."
+ )
+
 (defoproperty restriction
   :label "restriction"
   :comment "Points to a Restriction type."
@@ -217,10 +219,6 @@
   :range Restriction
  )
 
-(defclass Restriction
-  :label "Restriction"
-  :comment "Specifies relative positions of sub components in a design."
- )
 
 (as-subclasses
   Restriction
