@@ -23,7 +23,7 @@ import org.sbolstandard.core2.SequenceOntology;
  * Hello world!
  *
  */
-public class App 
+public class App2 
 {//http://parts.igem.org/wiki/index.php?title=Part:BBa_S03839
     public static void main( String[] args ) throws Exception
     {
@@ -75,12 +75,20 @@ public class App
         gfp.addRole(SequenceOntology.CDS);
         
         
-        ComponentDefinition BBa_J24677=doc.createComponentDefinition("BBa_J24677",ComponentDefinition.DNA);
-        BBa_J24677.addRole(SequenceOntology.ENGINEERED_GENE);
+        ComponentDefinition BBa_B0030=doc.createComponentDefinition("B0030",ComponentDefinition.DNA);
+        BBa_B0030.addRole(SequenceOntology.RIBOSOME_ENTRY_SITE);
+        
+        
+        ComponentDefinition BBa_S03839=doc.createComponentDefinition("BBa_S03839",ComponentDefinition.DNA);
+        BBa_S03839.addRole(SequenceOntology.ENGINEERED_GENE);
                    
-        Component cBBa_F2620=addComponent(BBa_J24677, BBa_F2620);
-        Component cgfp=addComponent(BBa_J24677, gfp);
-        addSequenceConstraint(BBa_J24677, cBBa_F2620, cgfp);
+        Component cBBa_F2620=addComponent(BBa_S03839, BBa_F2620);
+        Component cB0030=addComponent(BBa_S03839, BBa_B0030);
+        
+        Component cgfp=addComponent(BBa_S03839, gfp);
+        
+        addSequenceConstraint(BBa_S03839, cBBa_F2620, cB0030);
+        addSequenceConstraint(BBa_S03839, cB0030, cgfp);
         
         
         
