@@ -12,7 +12,6 @@
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Prefix name="sbol" IRI="http://sbols.org/v2#"/>
-    <Prefix name="dcterms" IRI="http://dublincore.org/documents/dcmi-terms/#"/>
     <Import>http://www.purl.org/ontolink/tawny</Import>
     <Annotation>
         <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
@@ -982,6 +981,10 @@
     <InverseObjectProperties>
         <ObjectProperty IRI="#component"/>
         <ObjectProperty IRI="#isComponentOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#definition"/>
+        <ObjectProperty IRI="#isDefinitionOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#isObjectOf"/>

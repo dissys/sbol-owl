@@ -114,7 +114,7 @@ public class App2
         model.add(ontModel);
         
         //save(model, "output_merged.rdf", "Turtle");
-        save(model, "output_merged.rdf");
+        save(model, "example2.rdf");
         
                        
     }
@@ -193,10 +193,9 @@ WHERE {
 //Transitive
 /*
 DNA and (
-(component some (definition value pluxR))
-or 
-
-(component some (definition some pluxR_Entity))
+  (component some (definition value pluxR))
+  or 
+  (component some (definition some pluxR_Entity))
 )
 */
 
@@ -236,32 +235,41 @@ Component and (isComponentOf value BBa_F2620) and (isSubjectOf some ((restrictio
 ))
 
 */
-//Step 7:
-//Let's define the class BBa_J42677_node to find all nodes in the design recursively, including itseld
+
+//Step 7: correct
+
+/*
+  DNA and (
+  (component some (isComponentOf value BBa_S03839)) or 
+  (isDefinitionOf some 
+    (Component
+     and (isComponentOf some BBa_S03839_node))) or (isDefinitionOf some (isComponentOf value BBa_S03839)))
+     
+ **/
+//Step 7_wrong:
+//Let's define the class BBa_S03839_node to find all nodes in the design recursively, including itself
 /*DNA and 
 
 (
-(isDefinitionOf some (isComponentOf value BBa_J24677)) or
-(isDefinitionOf some (Component and (isComponentOf some BBa_J24677_node)))
+(isDefinitionOf some (isComponentOf value BBa_S03839)) or
+(isDefinitionOf some (Component and (isComponentOf some BBa_S03839_node)))
 
 )
 
-DNA and 
+and 
 
 (
-(isDefinitionOf some (isComponentOf value BBa_J24677)) or
-(isDefinitionOf some (Component and (isComponentOf some BBa_J24677_node))) or
-(component some (isComponentOf value BBa_J24677))
+(isDefinitionOf some (isComponentOf value BBa_S03839)) or
+(isDefinitionOf some (Component and (isComponentOf some BBa_S03839_node))) or
+(component some (isComponentOf value BBa_S03839))
 
 )
-
-
 */
 
 //Step 8:
-//Update ptetRFollower to find followers in BBa_J24677
+//Update ptetRFollower to find followers in BBa_S03839
 /*
-Component and (isComponentOf some BBa_J24677_node) and (isObjectOf some ((restriction value precedes) and 
+Component and (isComponentOf some BBa_S03839_node) and (isObjectOf some ((restriction value precedes) and 
 ((subject some (definition value ptetR))   or (subject some ptetRFollower))
 
 ))
@@ -278,11 +286,11 @@ or
 */
 
 //step 10:
-//Let's find out all the components followed by ptetR in all sub components of BBa_J24677
+//Let's find out all the components followed by ptetR in all sub components of BBa_S03839
 /*
 
 
-Component and (isComponentOf some BBa_J24677_node) and (isObjectOf some ((restriction value precedes) and 
+Component and (isComponentOf some BBa_S03839_node) and (isObjectOf some ((restriction value precedes) and 
 ((subject some (definition value ptetR))   or (subject some ptetRFollower) or (subject some (definition some ptetRParent)))
 
 ))
@@ -305,4 +313,9 @@ Component and (isComponentOf some BBa_J24677_node) and (isObjectOf some ((restri
 )*/
 
 
+
+
+Component and (isComponentOf some BBa_S03839_node) and (isObjectOf some ((restriction value precedes) and 
+((subject some (definition value ptetR)) )
+		
 
