@@ -315,7 +315,6 @@ Component and (isComponentOf some BBa_S03839_node) and (isObjectOf some ((restri
 
 
 
-Component and (isComponentOf some BBa_S03839_node) and (isObjectOf some ((restriction value precedes) and 
-((subject some (definition value ptetR)) )
+
 		
 
