@@ -908,7 +908,6 @@
     <!-- http://sbols.org/v2#Identified -->
 
     <owl:Class rdf:about="http://sbols.org/v2#Identified">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://dublincore.org/documents/dcmi-terms/description"/>
@@ -1535,12 +1534,6 @@
     <!-- http://www.biopax.org/release/biopax-level3.owl#SmallMolecule -->
 
     <owl:Class rdf:about="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#Entity -->
-
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity"/>
     
 
 

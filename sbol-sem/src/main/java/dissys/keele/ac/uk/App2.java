@@ -315,6 +315,18 @@ Component and (isComponentOf some BBa_S03839_node) and (isObjectOf some ((restri
 
 
 
+/*Not working:
+ DNA
+ and ((component some (isComponentOf value BBa_S03839)) or (isDefinitionOf some 
+    (Component
+     and (isComponentOf some BBa_S03839_node))) or (isDefinitionOf some (isComponentOf value BBa_S03839)))
+ and ((isDefinitionOf some 
+    (Component
+     and (isComponentOf some BBa_S03839_node))) or (isDefinitionOf some (isComponentOf value BBa_S03839)))
+     
+  
+ */
+
 
 		
 

@@ -413,9 +413,6 @@
         <Class IRI="http://identifiers.org/chebi/CHEBI:35224"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.w3.org/ns/prov#Entity"/>
-    </Declaration>
-    <Declaration>
         <DataProperty IRI="http://dublincore.org/documents/dcmi-terms/title"/>
     </Declaration>
     <Declaration>
@@ -645,10 +642,6 @@
     <SubClassOf>
         <Class IRI="#GenericTopLevel"/>
         <Class IRI="#TopLevel"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Identified"/>
-        <Class IRI="http://www.w3.org/ns/prov#Entity"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Identified"/>

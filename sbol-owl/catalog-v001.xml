@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://www.w3.org/ns/prov-o-inverses-20130430" uri="http://www.w3.org/ns/prov"/>
+    <uri id="Imports Wizard Entry" name="http://www.w3.org/ns/prov-o-inverses-20130430" uri="http://www.w3.org/ns/prov#"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1529496985190" name="duplicate:http://sbols.org/v2" uri="sbol.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1529496985190" name="duplicate:http://sbols.org/v2" uri="sbol.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1529496985190" name="http://sbolstandard.org/v2" uri="sboldel_rdf.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1540908180928" name="duplicate:http://sbols.org/v2" uri="sbol.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1540908180928" name="duplicate:http://sbols.org/v2" uri="sbol.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1540908180928" name="http://sbolstandard.org/v2" uri="sboldel_rdf.rdf"/>
     </group>
 </catalog>

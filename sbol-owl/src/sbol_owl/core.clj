@@ -2,6 +2,7 @@
   (:use [tawny.owl])
   (:refer-clojure :exclude [type,merge,sequence] )
 ;  (:require [sbol-owl.dcterms])
+  ;(:require [sbol-owl.provo :as prov])
   (:use [sbol-owl.constants])
   )
 
@@ -13,13 +14,19 @@
 )
 
 ; (owl-import sbol-owl.dcterms/dcterms)
- 
+ ;(owl-import prov/provo)
+
+
+
+
 (defclass Identified
   :label "Identified"
   :comment "Represents SBOL objects that can be identified uniquely using URIs."   
   :super
     (owl-some DCTERMS_TITLE :XSD_STRING)
     (owl-some DCTERMS_DESC :XSD_STRING)
+    PROVO_ENTITY
+   ; prov/Entity
 ;    (owl-some sbol-owl.dcterms/title :XSD_STRING)
 ;    (owl-some sbol-owl.dcterms/description :XSD_STRING)
 
@@ -45,6 +52,11 @@
  :comment "Can be used to represent biological design components such as DNA, RNA and small molecules." 
  )
 
+;(owl-class prov/provo prov/Activity
+;           :super TopLevel
+;           )
+
+
 (defclass ComponentInstance
  :label "ComponentInstance"
  :comment "ComponentInstance" 
@@ -66,18 +78,19 @@
   (defclass Sequence)
   (defclass Model)
   (defclass Collection)
-  (defclass GenericTopLevel)          
+  (defclass GenericTopLevel)
  )
 
 ;Classes for top level SBOL entities
 (defclass Sequence
   :label "Sequence"
-  :comment "Sequence"     
+  :comment "Sequence"
  )
 
 (defclass ComponentDefinition
   :label "ComponentDefinition"
-  :comment "Can be used to represent biological design components such as DNA, RNA and small molecules."     
+  :comment "Can be used to represent biological design components such as DNA, RNA and small molecules."  
+  
  )
 
 (defclass Collection
@@ -459,12 +472,14 @@
   :comment "elements"
   :domain Sequence
   :range :XSD_STRING 
+  :characteristic :functional
  )
 
 (defoproperty encoding
   :label "encoding"
   :comment "encoding"
   :domain Sequence
+  :characteristic :functional
  )
 
 (defoproperty sequence

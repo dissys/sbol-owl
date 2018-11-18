@@ -683,6 +683,9 @@ Class: <http://www.biopax.org/release/biopax-level3.owl#RnaRegion>
 Class: <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>
 
     
+Class: <http://www.w3.org/ns/prov#Entity>
+
+    
 Class: sbol:Access
 
     Annotations: 
@@ -897,6 +900,7 @@ Class: sbol:Identified
         rdfs:label "Identified"@en
     
     SubClassOf: 
+        <http://www.w3.org/ns/prov#Entity>,
         <http://dublincore.org/documents/dcmi-terms/description> some xsd:string,
         <http://dublincore.org/documents/dcmi-terms/title> some xsd:string
     

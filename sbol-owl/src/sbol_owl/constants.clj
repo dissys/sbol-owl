@@ -30,6 +30,11 @@
 (def DCTERMS_DESC (toIri "http://dublincore.org/documents/dcmi-terms/description"))
 
 
+(def PROVO_ACTIVITY (toIri "http://www.w3.org/ns/prov#Actvity"))
+(def PROVO_ENTITY (toIri "http://www.w3.org/ns/prov#Entity"))
+
+
+
 
 ;(defn testabc []
 ;  (println "start")
