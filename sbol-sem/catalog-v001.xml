@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1530544774830" name="duplicate:http://sbols.org/v2" uri="example2.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1530544774830" name="duplicate:http://sbols.org/v2" uri="example2_working_manual_queries.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1530544774830" name="duplicate:http://sbols.org/v2" uri="example3.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1530544774830" name="duplicate:http://sbols.org/v2" uri="output_merged_test1.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1530544774830" name="duplicate:http://sbols.org/v2" uri="output_merged_test2.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1543436961208" name="duplicate:http://sbols.org/v2" uri="example2.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1543436961208" name="duplicate:http://sbols.org/v2" uri="example2_working_manual_queries.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1543436961208" name="duplicate:http://sbols.org/v2" uri="example3.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1543436961208" name="duplicate:http://sbols.org/v2" uri="output_merged_test1.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1543436961208" name="duplicate:http://sbols.org/v2" uri="output_merged_test2.rdf"/>
     </group>
 </catalog>

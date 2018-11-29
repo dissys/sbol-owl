@@ -13,6 +13,12 @@
 (def CD_SMALLMOLECULE (toIri "http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"))
 (def CD_COMPLEX (toIri "http://www.biopax.org/release/biopax-level3.owl#Complex"))
 
+(def SEQ_IUPAC_NA (toIri "http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"))
+(def SEQ_IUPAC_PROTEIN (toIri "http://www.chem.qmul.ac.uk/iupac/AminoAcid/"))
+(def SEQ_SMILES (toIri "http://www.opensmiles.org/opensmiles.html"))
+
+
+
 
 (def SO_PROMOTER (toIri "http://identifiers.org/so/SO:0000167"))
 (def SO_RBS (toIri "http://identifiers.org/so/SO:0000139"))
@@ -32,6 +38,9 @@
 
 (def PROVO_ACTIVITY (toIri "http://www.w3.org/ns/prov#Actvity"))
 (def PROVO_ENTITY (toIri "http://www.w3.org/ns/prov#Entity"))
+
+
+
 
 
 
