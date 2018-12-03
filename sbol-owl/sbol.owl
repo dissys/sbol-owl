@@ -32,6 +32,9 @@
         <ObjectProperty IRI="#built"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#out"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Module"/>
     </Declaration>
     <Declaration>
@@ -42,6 +45,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Participation"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#inline"/>
     </Declaration>
     <Declaration>
         <Class IRI="#VariableComponent"/>
@@ -101,6 +107,9 @@
         <ObjectProperty IRI="#local"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#useLocal"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#sample"/>
     </Declaration>
     <Declaration>
@@ -152,7 +161,13 @@
         <NamedIndividual IRI="http://identifiers.org/so/SO:0000057"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#sample"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#verifyIdentical"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#enumerate"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#access"/>
@@ -164,6 +179,9 @@
         <ObjectProperty IRI="#template"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#in"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#version"/>
     </Declaration>
     <Declaration>
@@ -171,6 +189,12 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#useRemote"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#merge"/>
     </Declaration>
     <Declaration>
         <Class IRI="#oneOrMore"/>
@@ -227,6 +251,9 @@
         <ObjectProperty IRI="#interaction"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#one"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="http://identifiers.org/so/SO:0000141"/>
     </Declaration>
     <Declaration>
@@ -236,6 +263,9 @@
         <Class IRI="http://identifiers.org/so/SO:0000234"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#inout"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Effector"/>
     </Declaration>
     <Declaration>
@@ -243,6 +273,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#persistentIdentity"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#zeroOrMore"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#definition"/>
@@ -275,7 +308,7 @@
         <ObjectProperty IRI="#module"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#prom1"/>
+        <NamedIndividual IRI="#verifyIdentical"/>
     </Declaration>
     <Declaration>
         <Class IRI="#CombinatorialDerivation"/>
@@ -315,6 +348,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#SBOLVocabulary"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#reverseComplement"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Sequence"/>
@@ -431,6 +467,9 @@
         <Class IRI="#Attachment"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#none"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#public"/>
     </Declaration>
     <Declaration>
@@ -494,10 +533,16 @@
         <Class IRI="#inout"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#oneOrMore"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Interaction"/>
     </Declaration>
     <Declaration>
         <Class IRI="#merge"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#zeroOrOne"/>
     </Declaration>
     <Declaration>
         <Class IRI="http://identifiers.org/chebi/CHEBI:35224"/>
@@ -752,6 +797,13 @@
         <Class IRI="#Location"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Cut"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#at"/>
+            <Datatype abbreviatedIRI="xsd:integer"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#DNA"/>
         <Class IRI="#ComponentDefinition"/>
     </SubClassOf>
@@ -777,6 +829,13 @@
     <SubClassOf>
         <Class IRI="#FunctionalComponent"/>
         <Class IRI="#ComponentInstance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FunctionalComponent"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#direction"/>
+            <Class IRI="#Direction"/>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Gene"/>
@@ -848,6 +907,13 @@
     <SubClassOf>
         <Class IRI="#Module"/>
         <Class IRI="#Identified"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Module"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#definition"/>
+            <Class IRI="#ModuleDefinition"/>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#ModuleDefinition"/>
@@ -946,6 +1012,20 @@
         <Class IRI="#Location"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Range"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#end"/>
+            <Datatype abbreviatedIRI="xsd:integer"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Range"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#start"/>
+            <Datatype abbreviatedIRI="xsd:integer"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Refinement"/>
         <Class IRI="#SBOLVocabulary"/>
     </SubClassOf>
@@ -991,8 +1071,36 @@
         <Class IRI="#Identified"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#SequenceAnnotation"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#location"/>
+            <Class IRI="#Location"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#SequenceConstraint"/>
         <Class IRI="#Identified"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SequenceConstraint"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#object"/>
+            <Class IRI="#Component"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SequenceConstraint"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#restriction"/>
+            <Class IRI="#Restriction"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SequenceConstraint"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#subject"/>
+            <Class IRI="#Component"/>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#SmallMolecule"/>
@@ -1259,16 +1367,76 @@
         <NamedIndividual IRI="http://identifiers.org/so/SO:0000704"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#enumerate"/>
+        <NamedIndividual IRI="#enumerate"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#in"/>
+        <NamedIndividual IRI="#in"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#inline"/>
+        <NamedIndividual IRI="#inline"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#inout"/>
+        <NamedIndividual IRI="#inout"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#merge"/>
+        <NamedIndividual IRI="#merge"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#none"/>
+        <NamedIndividual IRI="#none"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#one"/>
+        <NamedIndividual IRI="#one"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#oneOrMore"/>
+        <NamedIndividual IRI="#oneOrMore"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#out"/>
+        <NamedIndividual IRI="#out"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#private"/>
         <NamedIndividual IRI="#private"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#ComponentDefinition"/>
-        <NamedIndividual IRI="#prom1"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#public"/>
         <NamedIndividual IRI="#public"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#reverseComplement"/>
+        <NamedIndividual IRI="#reverseComplement"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#sample"/>
+        <NamedIndividual IRI="#sample"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#useLocal"/>
+        <NamedIndividual IRI="#useLocal"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#useRemote"/>
+        <NamedIndividual IRI="#useRemote"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#verifyIdentical"/>
+        <NamedIndividual IRI="#verifyIdentical"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#zeroOrOne"/>
+        <NamedIndividual IRI="#zeroOrMore"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#zeroOrOne"/>
+        <NamedIndividual IRI="#zeroOrOne"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
@@ -1290,11 +1458,6 @@
         <Class IRI="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
         <NamedIndividual IRI="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
     </ClassAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#role"/>
-        <NamedIndividual IRI="#prom1"/>
-        <NamedIndividual IRI="http://identifiers.org/so/SO:0000167"/>
-    </ObjectPropertyAssertion>
     <InverseObjectProperties>
         <ObjectProperty IRI="#component"/>
         <ObjectProperty IRI="#isComponentOf"/>
@@ -1325,6 +1488,9 @@
         <ObjectProperty IRI="#definition"/>
     </FunctionalObjectProperty>
     <FunctionalObjectProperty>
+        <ObjectProperty IRI="#direction"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
         <ObjectProperty IRI="#encoding"/>
     </FunctionalObjectProperty>
     <FunctionalObjectProperty>
@@ -1346,7 +1512,16 @@
         <ObjectProperty IRI="#local"/>
     </FunctionalObjectProperty>
     <FunctionalObjectProperty>
+        <ObjectProperty IRI="#object"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
         <ObjectProperty IRI="#operator"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#orientation"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#participant"/>
     </FunctionalObjectProperty>
     <FunctionalObjectProperty>
         <ObjectProperty IRI="#persistentIdentity"/>
@@ -1358,6 +1533,9 @@
         <ObjectProperty IRI="#remote"/>
     </FunctionalObjectProperty>
     <FunctionalObjectProperty>
+        <ObjectProperty IRI="#restriction"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
         <ObjectProperty IRI="#roleIntegration"/>
     </FunctionalObjectProperty>
     <FunctionalObjectProperty>
@@ -1365,6 +1543,9 @@
     </FunctionalObjectProperty>
     <FunctionalObjectProperty>
         <ObjectProperty IRI="#strategy"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#subject"/>
     </FunctionalObjectProperty>
     <FunctionalObjectProperty>
         <ObjectProperty IRI="#template"/>
@@ -1981,7 +2162,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Cut</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Cut</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The Cut class has been introduced to enable the specification of a region between two discrete positions. This specification is accomplished using the at property, which specifies a discrete position that that corresponds to the index of a character in the elements String of a Sequence.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2086,7 +2267,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#GenericLocation</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">GenericLocation</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">While the Range and Cut classes are best suited to specifying regions on Sequence objects with IUPAC encodings, the GenericLocation class is included as a starting point for specifying regions on Sequence objects with different encoding properties and potentially nonlinear structure. This class can also be used to set the orientation of a SequenceAnnotation and any associated Component when their parent ComponentDefinition is a partial design that lacks a Sequence.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2151,7 +2332,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Location</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Extended by the Range, Cut, and GenericLocation classes</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Extended by the Range, Cut, and GenericLocation classes.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2256,7 +2437,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Orientation</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Orientation</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Provides values for the orientation of a Sequence entity.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2361,7 +2542,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Range</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Range</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A Range object specifies a region via discrete, inclusive start and end positions that correspond to indices for characters in the elements String of a Sequence.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2466,7 +2647,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#SequenceAnnotation</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">SequenceAnnotation</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The SequenceAnnotation class describes one or more regions of interest on the Sequence objects referred to by its parent ComponentDefinition. In addition, SequenceAnnotation objects can describe the substructure of their parent ComponentDefinition through association with the Component objects contained by this ComponentDefinition.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2481,7 +2662,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#SequenceConstraint</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">SequenceConstraint</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The SequenceConstraint class can be used to assert restrictions on the relative, sequence-based positions of pairs of Component objects contained by the same parent ComponentDefinition. The primary purpose of this class is to enable the specification of partially designed ComponentDefinition objects, for which the precise positions or orientations of their contained Component objects are not yet fully determined. Each SequenceConstraint includes the restriction, subject, and object properties.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2661,7 +2842,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#direction</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">direction</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Each FunctionalComponent MUST specify via the direction property whether it serves as an input, output, both, or neither for its parent ModuleDefinition object.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2766,7 +2947,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#framework</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Contains a URI that specifies the framework in which the model is implemented.</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The framework property is REQUIRED and MUST contain a URI that specifies the framework in which the model is implemented. It is RECOMMENDED this URI refer to a term from the modeling framework branch of the SBO when possible.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2781,7 +2962,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#functionalComponent</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Contains a URI that references a FunctionalComponentobject.</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The property is OPTIONAL and MAY be used specify a set of FunctionalComponent objects contained by the ModuleDefinition.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2856,7 +3037,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#interaction</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Contains a URI that references an Interaction object.</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The interaction property is OPTIONAL and MAY be used specify a set of Interaction objects within the ModuleDefinition.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2946,7 +3127,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#language</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">contain a URI that specifies the language in which the model is implemented.</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The language property is REQUIRED and MUST contain a URI that specifies the language in which the model is implemented. It is RECOMMENDED that this URI refer to a term from the EMBRACE Data and Methods (EDAM) ontology.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2961,7 +3142,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#local</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">local</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">This REQUIRED property has a data type of URI and is used to refer to the ComponentInstance contained by the “higher level” ComponentDefinition or ModuleDefinition. This local ComponentInstance MUST be contained by the ComponentDefinition or ModuleDefinition that contains the ComponentInstance or Module that owns the MapsTo.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2976,7 +3157,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#location</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Contains a URI reference of a Location object.</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The location property is REQUIRED to specify one or more Location objects that indicate which elements of a Sequence are described by the SequenceAnnotation.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3006,7 +3187,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#mapsTo</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The mapsTos property is OPTIONAL and MAY contain a set of MapsTo objects that refer to and link together ComponentInstance objects (both Component objects and FunctionalComponent objects) within a larger design.</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The mapsTo property is OPTIONAL and MAY contain a MapsTo object that refers to and links together a ComponentInstance object (both Component objects and FunctionalComponent objects) within a larger design.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3066,7 +3247,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#model</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Contains a URI that references a Model object.</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The model property is OPTIONAL and MAY be used to specify a set of URI references to Model objects.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3081,7 +3262,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#module</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Contains a URI that references a Module object.</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The property is OPTIONAL and MAY be used specify a set of Module objects contained by the ModuleDefinition. Note that the set of relations between Module and ModuleDefinition objects is strictly acyclic.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3111,7 +3292,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#object</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Points to a Component that has the relative position compared to another subject Component. E.g.: subject precedes object</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The object property is REQUIRED and MUST contain a URI that refers to a Component contained by the same parent ComponentDefinition that contains the SequenceConstraint. This Component MUST NOT be the same Component that the SequenceConstraint refers to via its subject property.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3186,7 +3367,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#orientation</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Indicates the type of a component&apos;s orientation.</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Indicates the type of a component&apos;s orientation. All subclasses of Location share this property, which can be used to indicate how the region specified by the SequenceAnnotation and any associated double-stranded Component is oriented on the elements of a Sequence from their parent ComponentDefinition</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3231,7 +3412,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#participant</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">participant</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The participant property MUST specify precisely one FunctionalComponent object that plays the designated role in its parent Interaction object.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3246,7 +3427,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#participation</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">participation</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The participation property is an OPTIONAL and MAY contain a Participation object, which identifies the roles that its referenced FunctionalComponent plays in the Interaction</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3297,11 +3478,6 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#private</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">private</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
-        <IRI>#prom1</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">prom1</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
@@ -3356,7 +3532,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#restriction</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Points to a Restriction type.</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The restriction property is REQUIRED and has a data type of URI. This property MUST indicate the type of structural restriction on the positions, orientations, or structural identities of the subject and object Component objects in relation to each other.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3506,7 +3682,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#source</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Contains a URI reference to the source file.</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The source property is REQUIRED and MUST contain a URI reference to the source file for a model.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3551,7 +3727,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#subject</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Points to a Component that has the relative position compared to another object Component. E.g.: subject precedes object</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The subject property is REQUIRED and MUST contain a URI that refers to a Component contained by the same parent ComponentDefinition that contains the SequenceConstraint.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>

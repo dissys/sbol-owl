@@ -116,9 +116,12 @@ ObjectProperty: sbol:definition
 ObjectProperty: sbol:direction
 
     Annotations: 
-        rdfs:comment "direction"@en,
+        rdfs:comment "Each FunctionalComponent MUST specify via the direction property whether it serves as an input, output, both, or neither for its parent ModuleDefinition object."@en,
         <http://www.purl.org/ontolink/tawny#name> "direction"@en,
         rdfs:label "direction"@en
+    
+    Characteristics: 
+        Functional
     
     Domain: 
         sbol:FunctionalComponent
@@ -158,8 +161,8 @@ ObjectProperty: sbol:format
 ObjectProperty: sbol:framework
 
     Annotations: 
+        rdfs:comment "The framework property is REQUIRED and MUST contain a URI that specifies the framework in which the model is implemented. It is RECOMMENDED this URI refer to a term from the modeling framework branch of the SBO when possible."@en,
         <http://www.purl.org/ontolink/tawny#name> "framework"@en,
-        rdfs:comment "Contains a URI that specifies the framework in which the model is implemented."@en,
         rdfs:label "framework"@en
     
     Characteristics: 
@@ -173,8 +176,8 @@ ObjectProperty: sbol:functionalComponent
 
     Annotations: 
         rdfs:label "functionalComponent"@en,
-        <http://www.purl.org/ontolink/tawny#name> "functionalComponent"@en,
-        rdfs:comment "Contains a URI that references a FunctionalComponentobject."@en
+        rdfs:comment "The property is OPTIONAL and MAY be used specify a set of FunctionalComponent objects contained by the ModuleDefinition."@en,
+        <http://www.purl.org/ontolink/tawny#name> "functionalComponent"@en
     
     Domain: 
         sbol:ModuleDefinition
@@ -187,8 +190,8 @@ ObjectProperty: sbol:interaction
 
     Annotations: 
         rdfs:label "interaction"@en,
-        <http://www.purl.org/ontolink/tawny#name> "interaction"@en,
-        rdfs:comment "Contains a URI that references an Interaction object."@en
+        rdfs:comment "The interaction property is OPTIONAL and MAY be used specify a set of Interaction objects within the ModuleDefinition."@en,
+        <http://www.purl.org/ontolink/tawny#name> "interaction"@en
     
     Domain: 
         sbol:ModuleDefinition
@@ -291,8 +294,8 @@ ObjectProperty: sbol:isSubjectOf
 ObjectProperty: sbol:language
 
     Annotations: 
-        rdfs:comment "contain a URI that specifies the language in which the model is implemented."@en,
         <http://www.purl.org/ontolink/tawny#name> "language"@en,
+        rdfs:comment "The language property is REQUIRED and MUST contain a URI that specifies the language in which the model is implemented. It is RECOMMENDED that this URI refer to a term from the EMBRACE Data and Methods (EDAM) ontology."@en,
         rdfs:label "language"@en
     
     Characteristics: 
@@ -307,7 +310,7 @@ ObjectProperty: sbol:local
     Annotations: 
         rdfs:label "local"@en,
         <http://www.purl.org/ontolink/tawny#name> "local"@en,
-        rdfs:comment "local"@en
+        rdfs:comment "This REQUIRED property has a data type of URI and is used to refer to the ComponentInstance contained by the “higher level” ComponentDefinition or ModuleDefinition. This local ComponentInstance MUST be contained by the ComponentDefinition or ModuleDefinition that contains the ComponentInstance or Module that owns the MapsTo."@en
     
     Characteristics: 
         Functional
@@ -322,7 +325,7 @@ ObjectProperty: sbol:local
 ObjectProperty: sbol:location
 
     Annotations: 
-        rdfs:comment "Contains a URI reference of a Location object."@en,
+        rdfs:comment "The location property is REQUIRED to specify one or more Location objects that indicate which elements of a Sequence are described by the SequenceAnnotation."@en,
         <http://www.purl.org/ontolink/tawny#name> "location"@en,
         rdfs:label "location"@en
     
@@ -336,7 +339,7 @@ ObjectProperty: sbol:location
 ObjectProperty: sbol:mapsTo
 
     Annotations: 
-        rdfs:comment "The mapsTos property is OPTIONAL and MAY contain a set of MapsTo objects that refer to and link together ComponentInstance objects (both Component objects and FunctionalComponent objects) within a larger design."@en,
+        rdfs:comment "The mapsTo property is OPTIONAL and MAY contain a MapsTo object that refers to and links together a ComponentInstance object (both Component objects and FunctionalComponent objects) within a larger design."@en,
         rdfs:label "mapsTo"@en,
         <http://www.purl.org/ontolink/tawny#name> "mapsTo"@en
     
@@ -364,8 +367,8 @@ ObjectProperty: sbol:member
 ObjectProperty: sbol:model
 
     Annotations: 
+        rdfs:comment "The model property is OPTIONAL and MAY be used to specify a set of URI references to Model objects."@en,
         rdfs:label "model"@en,
-        rdfs:comment "Contains a URI that references a Model object."@en,
         <http://www.purl.org/ontolink/tawny#name> "model"@en
     
     Domain: 
@@ -378,8 +381,8 @@ ObjectProperty: sbol:model
 ObjectProperty: sbol:module
 
     Annotations: 
+        rdfs:comment "The property is OPTIONAL and MAY be used specify a set of Module objects contained by the ModuleDefinition. Note that the set of relations between Module and ModuleDefinition objects is strictly acyclic."@en,
         rdfs:label "module"@en,
-        rdfs:comment "Contains a URI that references a Module object."@en,
         <http://www.purl.org/ontolink/tawny#name> "module"@en
     
     Domain: 
@@ -393,8 +396,11 @@ ObjectProperty: sbol:object
 
     Annotations: 
         <http://www.purl.org/ontolink/tawny#name> "object"@en,
-        rdfs:comment "Points to a Component that has the relative position compared to another subject Component. E.g.: subject precedes object"@en,
+        rdfs:comment "The object property is REQUIRED and MUST contain a URI that refers to a Component contained by the same parent ComponentDefinition that contains the SequenceConstraint. This Component MUST NOT be the same Component that the SequenceConstraint refers to via its subject property."@en,
         rdfs:label "object"@en
+    
+    Characteristics: 
+        Functional
     
     Domain: 
         sbol:SequenceConstraint
@@ -426,9 +432,12 @@ ObjectProperty: sbol:operator
 ObjectProperty: sbol:orientation
 
     Annotations: 
-        rdfs:comment "Indicates the type of a component's orientation."@en,
         <http://www.purl.org/ontolink/tawny#name> "orientation"@en,
-        rdfs:label "orientation"@en
+        rdfs:label "orientation"@en,
+        rdfs:comment "Indicates the type of a component's orientation. All subclasses of Location share this property, which can be used to indicate how the region specified by the SequenceAnnotation and any associated double-stranded Component is oriented on the elements of a Sequence from their parent ComponentDefinition"@en
+    
+    Characteristics: 
+        Functional
     
     Domain: 
         sbol:Location
@@ -441,8 +450,11 @@ ObjectProperty: sbol:participant
 
     Annotations: 
         <http://www.purl.org/ontolink/tawny#name> "participant"@en,
-        rdfs:comment "participant"@en,
+        rdfs:comment "The participant property MUST specify precisely one FunctionalComponent object that plays the designated role in its parent Interaction object."@en,
         rdfs:label "participant"@en
+    
+    Characteristics: 
+        Functional
     
     Domain: 
         sbol:Participation
@@ -456,7 +468,7 @@ ObjectProperty: sbol:participation
     Annotations: 
         rdfs:label "participation"@en,
         <http://www.purl.org/ontolink/tawny#name> "participation"@en,
-        rdfs:comment "participation"@en
+        rdfs:comment "The participation property is an OPTIONAL and MAY contain a Participation object, which identifies the roles that its referenced FunctionalComponent plays in the Interaction"@en
     
     Domain: 
         sbol:Interaction
@@ -517,8 +529,11 @@ ObjectProperty: sbol:restriction
 
     Annotations: 
         rdfs:label "restriction"@en,
-        rdfs:comment "Points to a Restriction type."@en,
-        <http://www.purl.org/ontolink/tawny#name> "restriction"@en
+        <http://www.purl.org/ontolink/tawny#name> "restriction"@en,
+        rdfs:comment "The restriction property is REQUIRED and has a data type of URI. This property MUST indicate the type of structural restriction on the positions, orientations, or structural identities of the subject and object Component objects in relation to each other."@en
+    
+    Characteristics: 
+        Functional
     
     Domain: 
         sbol:SequenceConstraint
@@ -603,7 +618,7 @@ ObjectProperty: sbol:sequenceConstraint
 ObjectProperty: sbol:source
 
     Annotations: 
-        rdfs:comment "Contains a URI reference to the source file."@en,
+        rdfs:comment "The source property is REQUIRED and MUST contain a URI reference to the source file for a model."@en,
         rdfs:label "source"@en,
         <http://www.purl.org/ontolink/tawny#name> "source"@en
     
@@ -634,9 +649,12 @@ ObjectProperty: sbol:strategy
 ObjectProperty: sbol:subject
 
     Annotations: 
+        rdfs:comment "The subject property is REQUIRED and MUST contain a URI that refers to a Component contained by the same parent ComponentDefinition that contains the SequenceConstraint."@en,
         rdfs:label "subject"@en,
-        <http://www.purl.org/ontolink/tawny#name> "subject"@en,
-        rdfs:comment "Points to a Component that has the relative position compared to another object Component. E.g.: subject precedes object"@en
+        <http://www.purl.org/ontolink/tawny#name> "subject"@en
+    
+    Characteristics: 
+        Functional
     
     Domain: 
         sbol:SequenceConstraint
@@ -1075,11 +1093,12 @@ Class: sbol:Cut
 
     Annotations: 
         <http://www.purl.org/ontolink/tawny#name> "Cut"@en,
-        rdfs:comment "Cut"@en,
+        rdfs:comment "The Cut class has been introduced to enable the specification of a region between two discrete positions. This specification is accomplished using the at property, which specifies a discrete position that that corresponds to the index of a character in the elements String of a Sequence."@en,
         rdfs:label "Cut"@en
     
     SubClassOf: 
-        sbol:Location
+        sbol:Location,
+        sbol:at some xsd:integer
     
     
 Class: sbol:DNA
@@ -1144,7 +1163,8 @@ Class: sbol:FunctionalComponent
         <http://www.purl.org/ontolink/tawny#name> "FunctionalComponent"@en
     
     SubClassOf: 
-        sbol:ComponentInstance
+        sbol:ComponentInstance,
+        sbol:direction some sbol:Direction
     
     DisjointWith: 
         sbol:Component
@@ -1167,9 +1187,9 @@ Class: sbol:Gene
 Class: sbol:GenericLocation
 
     Annotations: 
+        rdfs:comment "While the Range and Cut classes are best suited to specifying regions on Sequence objects with IUPAC encodings, the GenericLocation class is included as a starting point for specifying regions on Sequence objects with different encoding properties and potentially nonlinear structure. This class can also be used to set the orientation of a SequenceAnnotation and any associated Component when their parent ComponentDefinition is a partial design that lacks a Sequence."@en,
         rdfs:label "GenericLocation"@en,
-        <http://www.purl.org/ontolink/tawny#name> "GenericLocation"@en,
-        rdfs:comment "GenericLocation"@en
+        <http://www.purl.org/ontolink/tawny#name> "GenericLocation"@en
     
     SubClassOf: 
         sbol:Location
@@ -1221,8 +1241,8 @@ Class: sbol:Location
 
     Annotations: 
         rdfs:label "Location"@en,
-        <http://www.purl.org/ontolink/tawny#name> "Location"@en,
-        rdfs:comment "Extended by the Range, Cut, and GenericLocation classes"@en
+        rdfs:comment "Extended by the Range, Cut, and GenericLocation classes."@en,
+        <http://www.purl.org/ontolink/tawny#name> "Location"@en
     
     EquivalentTo: 
         sbol:Cut or sbol:GenericLocation or sbol:Range
@@ -1265,7 +1285,8 @@ Class: sbol:Module
         <http://www.purl.org/ontolink/tawny#name> "Module"@en
     
     SubClassOf: 
-        sbol:Identified
+        sbol:Identified,
+        sbol:definition some sbol:ModuleDefinition
     
     
 Class: sbol:ModuleDefinition
@@ -1310,8 +1331,8 @@ Class: sbol:Operator
 Class: sbol:Orientation
 
     Annotations: 
-        rdfs:comment "Orientation"@en,
         rdfs:label "Orientation"@en,
+        rdfs:comment "Provides values for the orientation of a Sequence entity."@en,
         <http://www.purl.org/ontolink/tawny#name> "Orientation"@en
     
     EquivalentTo: 
@@ -1402,11 +1423,13 @@ Class: sbol:Range
 
     Annotations: 
         <http://www.purl.org/ontolink/tawny#name> "Range"@en,
-        rdfs:comment "Range"@en,
+        rdfs:comment "A Range object specifies a region via discrete, inclusive start and end positions that correspond to indices for characters in the elements String of a Sequence."@en,
         rdfs:label "Range"@en
     
     SubClassOf: 
-        sbol:Location
+        sbol:Location,
+        sbol:end some xsd:integer,
+        sbol:start some xsd:integer
     
     
 Class: sbol:Refinement
@@ -1492,21 +1515,25 @@ Class: sbol:SequenceAnnotation
     Annotations: 
         <http://www.purl.org/ontolink/tawny#name> "SequenceAnnotation"@en,
         rdfs:label "SequenceAnnotation"@en,
-        rdfs:comment "SequenceAnnotation"@en
+        rdfs:comment "The SequenceAnnotation class describes one or more regions of interest on the Sequence objects referred to by its parent ComponentDefinition. In addition, SequenceAnnotation objects can describe the substructure of their parent ComponentDefinition through association with the Component objects contained by this ComponentDefinition."@en
     
     SubClassOf: 
-        sbol:Identified
+        sbol:Identified,
+        sbol:location some sbol:Location
     
     
 Class: sbol:SequenceConstraint
 
     Annotations: 
         rdfs:label "SequenceConstraint"@en,
-        rdfs:comment "SequenceConstraint"@en,
+        rdfs:comment "The SequenceConstraint class can be used to assert restrictions on the relative, sequence-based positions of pairs of Component objects contained by the same parent ComponentDefinition. The primary purpose of this class is to enable the specification of partially designed ComponentDefinition objects, for which the precise positions or orientations of their contained Component objects are not yet fully determined. Each SequenceConstraint includes the restriction, subject, and object properties."@en,
         <http://www.purl.org/ontolink/tawny#name> "SequenceConstraint"@en
     
     SubClassOf: 
-        sbol:Identified
+        sbol:Identified,
+        sbol:object some sbol:Component,
+        sbol:restriction some sbol:Restriction,
+        sbol:subject some sbol:Component
     
     
 Class: sbol:SmallMolecule
@@ -1953,6 +1980,105 @@ Individual: <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>
         <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>
     
     
+Individual: sbol:enumerate
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "enumerate"@en,
+        rdfs:comment "A user SHOULD derive all possible ComponentDefinition objects specified by the CombinatorialDerivation."@en,
+        rdfs:label "enumerate"@en
+    
+    Types: 
+        sbol:enumerate
+    
+    
+Individual: sbol:in
+
+    Annotations: 
+        rdfs:comment "Indicates that the FunctionalComponent is an input."@en,
+        <http://www.purl.org/ontolink/tawny#name> "in"@en,
+        rdfs:label "in"@en
+    
+    Types: 
+        sbol:in
+    
+    
+Individual: sbol:inline
+
+    Annotations: 
+        rdfs:comment "The region specified by this Location is on the elements of a Sequence."@en,
+        rdfs:label "inline"@en,
+        <http://www.purl.org/ontolink/tawny#name> "inline"@en
+    
+    Types: 
+        sbol:inline
+    
+    
+Individual: sbol:inout
+
+    Annotations: 
+        rdfs:label "inout"@en,
+        rdfs:comment "Indicates that the FunctionalComponent is both an input and output."@en,
+        <http://www.purl.org/ontolink/tawny#name> "inout"@en
+    
+    Types: 
+        sbol:inout
+    
+    
+Individual: sbol:merge
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "merge"@en,
+        rdfs:label "merge"@en,
+        rdfs:comment "In the context of the ComponentDefinition or ModuleDefinition that contains the owner of the MapsTo, all references to the local ComponentInstance or the remote ComponentInstance MUST dereference to both objects."@en
+    
+    Types: 
+        sbol:merge
+    
+    
+Individual: sbol:none
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "none"@en,
+        rdfs:comment "Indicates that the FunctionalComponent is neither an input or output."@en,
+        rdfs:label "none"@en
+    
+    Types: 
+        sbol:none
+    
+    
+Individual: sbol:one
+
+    Annotations: 
+        rdfs:label "one"@en,
+        rdfs:comment "Exactly one Component in the derived ComponentDefinition SHOULD have a wasDerivedFroms property that refers to the template Component."@en,
+        <http://www.purl.org/ontolink/tawny#name> "one"@en
+    
+    Types: 
+        sbol:one
+    
+    
+Individual: sbol:oneOrMore
+
+    Annotations: 
+        rdfs:label "oneOrMore"@en,
+        rdfs:comment "At least one Component in the derived ComponentDefinition SHOULD have a wasDerivedFroms property that refers to the template Component."@en,
+        <http://www.purl.org/ontolink/tawny#name> "oneOrMore"@en
+    
+    Types: 
+        sbol:oneOrMore
+    
+    
+Individual: sbol:out
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "out"@en,
+        rdfs:label "out"@en,
+        rdfs:comment "Indicates that the FunctionalComponent is an output."@en
+    
+    Types: 
+        sbol:out
+    
+    
 Individual: sbol:private
 
     Annotations: 
@@ -1964,18 +2090,6 @@ Individual: sbol:private
         sbol:private
     
     
-Individual: sbol:prom1
-
-    Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "prom1"@en
-    
-    Types: 
-        sbol:ComponentDefinition
-    
-    Facts:  
-     sbol:role  <http://identifiers.org/so/SO:0000167>
-    
-    
 Individual: sbol:public
 
     Annotations: 
@@ -1985,6 +2099,83 @@ Individual: sbol:public
     
     Types: 
         sbol:public
+    
+    
+Individual: sbol:reverseComplement
+
+    Annotations: 
+        rdfs:label "reverseComplement"@en,
+        rdfs:comment "The region specified by this Location is on the reverse-complement translation of the elements of a Sequence. The exact nature of this translation depends on the encoding of the Sequence"@en,
+        <http://www.purl.org/ontolink/tawny#name> "reverseComplement"@en
+    
+    Types: 
+        sbol:reverseComplement
+    
+    
+Individual: sbol:sample
+
+    Annotations: 
+        rdfs:label "sample"@en,
+        <http://www.purl.org/ontolink/tawny#name> "sample"@en,
+        rdfs:comment "A user SHOULD derive a subset of all possible ComponentDefinition objects specified by CombinatorialDerivation. The manner in which this subset is chosen is for the user to decide."@en
+    
+    Types: 
+        sbol:sample
+    
+    
+Individual: sbol:useLocal
+
+    Annotations: 
+        rdfs:comment "In the context of the ComponentDefinition or ModuleDefinition that contains the owner of the MapsTo, all references to the remote ComponentInstance MUST dereference to the local ComponentInstance instead."@en,
+        rdfs:label "useLocal"@en,
+        <http://www.purl.org/ontolink/tawny#name> "useLocal"@en
+    
+    Types: 
+        sbol:useLocal
+    
+    
+Individual: sbol:useRemote
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "useRemote"@en,
+        rdfs:comment "Indicates that all references to the local ComponentInstance MUST dereference to the remote ComponentInstance instead."@en,
+        rdfs:label "useRemote"@en
+    
+    Types: 
+        sbol:useRemote
+    
+    
+Individual: sbol:verifyIdentical
+
+    Annotations: 
+        rdfs:label "verifyIdentical"@en,
+        rdfs:comment "Indicates that the definition properties of the local and remote ComponentInstance objects MUST refer to the same ComponentDefinition."@en,
+        <http://www.purl.org/ontolink/tawny#name> "verifyIdentical"@en
+    
+    Types: 
+        sbol:verifyIdentical
+    
+    
+Individual: sbol:zeroOrMore
+
+    Annotations: 
+        rdfs:comment "Any number of Component objects in the derived ComponentDefinition MAY have wasDerivedFroms properties that refer to the template Component."@en,
+        <http://www.purl.org/ontolink/tawny#name> "zeroOrMore"@en,
+        rdfs:label "zeroOrMore"@en
+    
+    Types: 
+        sbol:zeroOrOne
+    
+    
+Individual: sbol:zeroOrOne
+
+    Annotations: 
+        rdfs:label "zeroOrOne"@en,
+        rdfs:comment "No more than one Component in the derived ComponentDefinition SHOULD have a wasDerivedFroms property that refers to the template Component."@en,
+        <http://www.purl.org/ontolink/tawny#name> "zeroOrOne"@en
+    
+    Types: 
+        sbol:zeroOrOne
     
     
 DisjointClasses: 

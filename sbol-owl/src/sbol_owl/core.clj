@@ -14,10 +14,7 @@
 )
 
 ; (owl-import sbol-owl.dcterms/dcterms)
- ;(owl-import prov/provo)
-
-
-
+;(owl-import prov/provo)
 
 (defclass Identified
   :label "Identified"
@@ -50,7 +47,7 @@
 
 (defclass TopLevel
  :label "TopLevel"
- :comment "Can be used to represent biological design components such as DNA, RNA and small molecules." 
+ :comment "Can be used to represent biological design components such as DNA, RNA and small molecules."
  )
 
 ;(owl-class prov/provo prov/Activity
@@ -66,7 +63,6 @@
  :comment "The ComponentInstance abstract class is inherited by SBOL classes that represent the usage or occurrence of a ComponentDefinition within a larger design (that is, another ComponentDefinition or ModuleDefinition)." 
  :subclass (owl-some access Access)
  :subclass (owl-some definition ComponentDefinition)
- 
  )
  
 (as-subclasses
@@ -74,7 +70,7 @@
   :disjoint :cover
   (defclass Component)
   (defclass FunctionalComponent)
- )
+  )
 
 
 (as-subclasses
@@ -89,7 +85,7 @@
   (defclass Attachment)
   (defclass Implementation)
   (defclass CombinatorialDerivation)
- )
+  )
 
 
 (as-subclasses
@@ -98,7 +94,7 @@
   (defclass NASequence)
   (defclass ProteinSequence)
   (defclass SMILES)
- )
+  )
 
 
  (defoproperty encoding)
@@ -126,12 +122,12 @@
  :subclass (only isSequenceOf Protein)
  )
   
-   (defclass SMILES
- :label "SMILES"
- :comment "SMILES sequence" 
- :subclass (owl-some encoding SEQ_SMILES)
- :subclass (only isSequenceOf SmallMolecule)
- )
+(defclass SMILES
+:label "SMILES"
+:comment "SMILES sequence" 
+:subclass (owl-some encoding SEQ_SMILES)
+:subclass (only isSequenceOf SmallMolecule)
+)
  
 ;Classes for top level SBOL entities
 (defclass Sequence
@@ -140,20 +136,6 @@
   :subclass (owl-some elements :XSD_STRING)
   ;TODO :subclass (owl-some encoding (thing))
  )
-
-;(defclass Person)
-;(defclass Parent)
-;(defoproperty hasParent)
-
-;TODO: Remove
-;( defclass ChildlessPerson
-;:equivalent (and Person (not Parent ))
-;:super (and Person
-;(not
-;( some
-;( inverse hasParent )
-;( thing )))))
-
 
 (defclass ComponentDefinition
   :label "ComponentDefinition"
@@ -169,7 +151,8 @@
 (defclass Model
   :label "Model"
   :comment "Serves as a placeholder for an external computational model and provide additional meta-data to enable better reasoning about the contents of this model."     
- )
+  ;TODO Ask Phil  :subclass (owl-some source URI)
+  )
 
 (defclass ModuleDefinition
   :label "ModuleDefinition"
@@ -180,24 +163,20 @@
   :label "Attachment"
   :comment "The purpose of the Attachment class is to serve as a general container for data files, especially experimental data files. It provides a means for linking files and metadata to SBOL designs."     
   ;TODO :subclass (owl-some source IRI)
-  
  )
 
 (defoproperty format
   :label "format"
   :comment "The format property is OPTIONAL and MAY contain a URI that specifies the format of the attached file. It is RECOMMENDED that this URI refer to a term from the EMBRACE Data and Methods (EDAM) ontology"
   :domain Attachment
-  ;1-0..1
   :characteristic :functional
  )
-
 
 (defoproperty built
   :label "built"
   :comment "The built property is OPTIONAL and MAY contain a URI that MUST refer to a TopLevel object that is either a ComponentDefinition or ModuleDefinition. This ComponentDefinition or ModuleDefinition is intended to describe the actual physical structure and/or functional behavior of the Implementation."
   :domain Implementation
   :range  (owl-or ComponentDefinition ModuleDefinition)
-  ;1-0..1
   :characteristic :functional
  )
 
@@ -205,8 +184,6 @@
   :label "size"
   :comment "The size property is OPTIONAL and MAY contain a long indicating the file size in bytes."
   :domain Attachment
-  ;TODO: :range :XSD_STRING
-  ;1-0..1
   :range :XSD_LONG
   :characteristic :functional
  )
@@ -216,18 +193,14 @@
   :comment "The hash property is OPTIONAL and MAY contain a SHA-1 hash of the file contents represented as a hexadecimal digest."
   :domain Attachment
   :range :XSD_STRING
-  ;1-0..1
   :characteristic :functional
  )
-
 
 (defclass Implementation
   :label "Implementation"
   :comment "An Implementation represents an instance of a synthetic biological construct, and describes the build phase of a design-built-test-learn workflow. Importantly, an Implementation can be associated with a laboratory sample that was already built, or that is to be built in the future. An Implementation can also represent virtual and simulated instances. An Implementation may be linked back to its original design (either a ModuleDefinition or ComponentDefinition) using the wasDerivedFroms property inherited from the Identified superclass. An Implementation may also link to a ModuleDefinition or ComponentDefinition that specifies its realized structure and/or function."     
  )
 
-
-;CombinatorialDerivation
 (defclass CombinatorialDerivationStrategy
   :label "CombinatorialDerivationStrategy"
   :comment "Specifies strategy types for combinatorial derivations."
@@ -277,27 +250,20 @@
   :comment "At least one Component in the derived ComponentDefinition SHOULD have a wasDerivedFroms property that refers to the template Component."
  )
 
-
-
 (as-subclasses
   VariableOperator
   :disjoint :cover
   (defclass zeroOrOne)
   (defclass one)
   (defclass zeroOrMore)
-  (defclass oneOrMore)
-  
+  (defclass oneOrMore) 
  )
-
-
-
 
 (defoproperty template
   :label "template"
   :comment "The template property is REQUIRED and MUST contain a URI that refers to a ComponentDefinition. This ComponentDefinition is expected to serve as a template for the derivation of new ComponentDefinition objects."
   :domain CombinatorialDerivation
   :range ComponentDefinition
-  ;1-1
   :characteristic :functional
  )
 
@@ -306,16 +272,10 @@
   :comment "Indicates combinatorial derivation strategy."
   :domain CombinatorialDerivation
   :range CombinatorialDerivationStrategy
-  ;1-0..1
   :characteristic :functional
  )
 
-
-
-(defclass VariableComponent
-  :label "VariableComponent"
-  :comment "The VariableComponent class can be used to specify a choice of ComponentDefinition objects for any new 35 Component derived from a template Component in the template ComponentDefinition."     
-  )
+(defclass VariableComponent)
 
 (defoproperty variable
   :label "variable"
@@ -325,15 +285,12 @@
   :characteristic :functional
  )
 
-
-
 (defoproperty variant
   :label "variant"
   :comment "The variants property is OPTIONAL and MAY contain zero or more URIs that each refer to a ComponentDefinition. This property specifies individual ComponentDefinition objects to serve as options when deriving a new Component from the template Component."
   :domain VariableComponent
   :range ComponentDefinition
  )
-
 
 (defoproperty operator
   :label "operator"
@@ -342,13 +299,14 @@
   :range VariableOperator
   :characteristic :functional
  )
-;Defined in two places in purpose, without defining the property, we can't use them! And the proeprties refer to this class in domain and range properties.
-(defclass VariableComponent
-  :subclass (owl-some variable Component)
-   :subclass (owl-some operator VariableOperator)
- 
-  )
 
+;Defined in two places in purpose, without defining the property, we can't use them! And the properties refer to this class in domain and range properties.
+(defclass VariableComponent
+   :label "VariableComponent"
+   :comment "The VariableComponent class can be used to specify a choice of ComponentDefinition objects for any new 35 Component derived from a template Component in the template ComponentDefinition."     
+   :subclass (owl-some variable Component)
+   :subclass (owl-some operator VariableOperator) 
+  )
 
 (defoproperty variantCollection
   :label "variantCollection"
@@ -356,8 +314,6 @@
   :domain VariableComponent
   :range Collection
  )
-
-
 
 (defoproperty variableComponent
   :label "variableComponent"
@@ -373,21 +329,12 @@
   :range CombinatorialDerivation
  )
 
-
-
-
-
-
 (defclass CombinatorialDerivation
   :label "CombinatorialDerivation"
   :comment "The purpose of the CombinatorialDerivation class is to specify combinatorial genetic designs without having to specify every possible design variant. For example, a CombinatorialDerivation can be used to specify a library of reporter gene variants that include different promoters and RBSs without having to specify a ComponentDefinition for every possible combination of promoter, RBS, and CDS in the library. ComponentDefinition objects that realize a CombinatorialDerivation can be derived in accordance with the class properties template, variableComponents, and strategy."     
   :subclass (owl-some template ComponentDefinition)
  )
-
-                                 
-;Classes for entities that a=used within top level SBOL entities
-
-
+                        
 (defclass Component
   :label "Component"
   :comment "Component"
@@ -396,6 +343,7 @@
 (defclass FunctionalComponent
   :label "FunctionalComponent"
   :comment "FunctionalComponent"
+  :subclass (owl-some direction Direction)
  )
 
 (defclass SequenceAnnotation
@@ -431,13 +379,10 @@
   :subclass (owl-some at :XSD_INTEGER)
  )
 
-
 (defclass GenericLocation
   :label "GenericLocation"
   :comment "While the Range and Cut classes are best suited to specifying regions on Sequence objects with IUPAC encodings, the GenericLocation class is included as a starting point for specifying regions on Sequence objects with different encoding properties and potentially nonlinear structure. This class can also be used to set the orientation of a SequenceAnnotation and any associated Component when their parent ComponentDefinition is a partial design that lacks a Sequence." 
  )
-
-
 
 (defclass Orientation
   :label "Orientation"
@@ -451,7 +396,6 @@
   (defclass reverseComplement)
  )
 
-
 (defclass inline
   :label "inline"
   :comment "The region specified by this Location is on the elements of a Sequence." 
@@ -462,19 +406,20 @@
   :comment "The region specified by this Location is on the reverse-complement translation of the elements of a Sequence. The exact nature of this translation depends on the encoding of the Sequence" 
  )
 
-
 (defclass SequenceConstraint
   :label "SequenceConstraint"
   :comment "The SequenceConstraint class can be used to assert restrictions on the relative, sequence-based positions of pairs of Component objects contained by the same parent ComponentDefinition. The primary purpose of this class is to enable the specification of partially designed ComponentDefinition objects, for which the precise positions or orientations of their contained Component objects are not yet fully determined. Each SequenceConstraint includes the restriction, subject, and object properties."
- )
-
-
+  :subclass (owl-some restriction Restriction)
+  :subclass (owl-some subject Component)
+  :subclass (owl-some object Component)
+  )
 
 (defoproperty subject
   :label "subject"
-  :comment "Points to a Component that has the relative position compared to another object Component. E.g.: subject precedes object"
+  :comment "The subject property is REQUIRED and MUST contain a URI that refers to a Component contained by the same parent ComponentDefinition that contains the SequenceConstraint."
   :domain SequenceConstraint 
   :range Component
+  :characteristic :functional
  )
 
 (defoproperty isSubjectOf
@@ -487,9 +432,10 @@
 
 (defoproperty object
   :label "object"
-  :comment "Points to a Component that has the relative position compared to another subject Component. E.g.: subject precedes object"
+  :comment "The object property is REQUIRED and MUST contain a URI that refers to a Component contained by the same parent ComponentDefinition that contains the SequenceConstraint. This Component MUST NOT be the same Component that the SequenceConstraint refers to via its subject property."
   :domain SequenceConstraint 
   :range Component
+  :characteristic :functional
  )
 
 (defoproperty isObjectOf
@@ -500,20 +446,18 @@
   :inverse object
  )
 
-
-
 (defclass Restriction
   :label "Restriction"
-  :comment "Specifies relative positions of sub components in a design."
- )
+  :comment "Specifies relative positions of sub components in a design." 
+  )
 
 (defoproperty restriction
   :label "restriction"
-  :comment "Points to a Restriction type."
+  :comment "The restriction property is REQUIRED and has a data type of URI. This property MUST indicate the type of structural restriction on the positions, orientations, or structural identities of the subject and object Component objects in relation to each other."
   :domain SequenceConstraint 
   :range Restriction
+  :characteristic :functional
  )
-
 
 (as-subclasses
   Restriction
@@ -522,9 +466,7 @@
   (defclass sameOrientationAs)
   (defclass oppositeOrientationAs)
   (defclass differentFrom)
-  
  )
-
 
 (defclass precedes
   :label "precedes"
@@ -541,12 +483,10 @@
   :comment "The subject and object Component objects MUST have opposite orientations. If each one is associated with a SequenceAnnotation, then the orientation URIs of the Location objects of one SequenceAnnotation MUST NOT be among those of the other SequenceAnnotation."
  )
 
-
 (defclass differentFrom
   :label "differentFrom"
   :comment "The definition property of the subject Component MUST NOT refer to the same ComponentDefinition as that of the object Component." 
  )
-
 
 (defoproperty refinement)
 (defoproperty local)
@@ -554,7 +494,6 @@
 (defclass Refinement)
 (defclass public)
 (defclass private)
-
 
 (defclass MapsTo
  :label "MapsTo"
@@ -569,7 +508,6 @@
  :subclass (owl-only remote (owl-some access public))
  ;TODO: How about this: Why is it not working?
  ;:subclass (and (owl-some remote ComponentInstance) (owl-only remote (owl-some access public)))
-
  )
 
 (defclass Refinement
@@ -629,12 +567,10 @@
   :comment "Indicates to use the union of the two sets: both the set of zero or more roles given for this Component as well as the set of zero or more roles given for the included subComponentDefinition."
  )
 
-
 (defclass private
   :label "private"
   :comment "Indicates that a ComponentInstance MUST NOT be referred to by remote MapsTo objects."
  )
-
 
 (defclass Access
   :label "Access"
@@ -648,7 +584,6 @@
   (defclass private)
  )
 
-
 (defclass public
   :label "public"
   :comment "Indicates that a ComponentInstance MAY be referred to by remote MapsTo objects."
@@ -658,9 +593,6 @@
   :label "private"
   :comment "Indicates that a ComponentInstance MUST NOT be referred to by remote MapsTo objects."
  )
-
-
-
 
 (defclass Direction
   :label "Direction"
@@ -675,7 +607,6 @@
   (defclass inout)
   (defclass none)  
  )
-
 
 (defclass in
   :label "in"
@@ -700,6 +631,7 @@
 (defclass Interaction
   :label "Interaction"
   :comment "Provides more detailed description of how the FunctionalComponent objects of a ModuleDefinition are intended to work together."
+  ;TODO ASK Phil owl-some type URI
  )
 
 (defoproperty participant)
@@ -712,8 +644,8 @@
 (defclass Module
  :label "Module"
  :comment "Represents the usage or occurrence of a ModuleDefinition within a larger design."
+ :subclass (owl-some definition ModuleDefinition)
  )
-
 
 (defclass SBOLVocabulary
   :label "SBOLVocabulary"
@@ -733,8 +665,6 @@
   (defclass VariableOperator) 
  )
 
-
-
 ;Properties
 (defoproperty persistentIdentity
   :label "persistentIdentity"
@@ -743,15 +673,12 @@
   :characteristic :functional
  )
  
- 
 (defoproperty role
   :label "role"
   :comment "Points to a URI that represents the role. In the context of a ComponentDefinition, aan SO term for a promoter."
   :domain (owl-or ComponentDefinition Component SequenceAnnotation Participation ModuleDefinition)
  )
 
-
-;type is a reserved in Clojure. It can'be expressed using "defoproperty type"
 (defoproperty type
   :label "type"
   :comment "Points to a URI that represents the type."
@@ -774,7 +701,6 @@
   :characteristic :functional
  )
    
-
 (defdproperty elements
   :label "elements"
   :comment "The elements property is a REQUIRED String of characters that represents the constituents of a biological or chemical molecule. For example, these characters could represent the nucleotide bases of a molecule of DNA, the amino acid residues of a protein, or the atoms and chemical bonds of a small molecule."
@@ -822,7 +748,6 @@
   :characteristic :functional
  )
 
-
 (defoproperty sequenceAnnotation
   :label "sequenceAnnotation"
   :comment "The sequenceAnnotations property is OPTIONAL and MAY contain a set of SequenceAnnotation objects. Each SequenceAnnotation specifies and describes a potentially discontiguous region on the Sequence objects referred to by the ComponentDefinition."
@@ -832,7 +757,7 @@
 
 (defoproperty location
   :label "location"
-  :comment "Contains a URI reference of a Location object.  indicate which elements of a Sequence are described by the SequenceAnnotation."
+  :comment "The location property is REQUIRED to specify one or more Location objects that indicate which elements of a Sequence are described by the SequenceAnnotation."
   :domain SequenceAnnotation
   :range Location
  )
@@ -845,7 +770,6 @@
   :characteristic :functional
  )
 
-
 (defdproperty start
   :label "start"
   :comment "Specifies the inclusive starting position of the Range."
@@ -853,7 +777,6 @@
   :range :XSD_INTEGER
   :characteristic :functional
  )
-
 
 (defdproperty end
   :label "end"
@@ -888,11 +811,10 @@
 
 (defoproperty mapsTo
   :label "mapsTo"
-  :comment "The mapsTos property is OPTIONAL and MAY contain a set of MapsTo objects that refer to and link together ComponentInstance objects (both Component objects and FunctionalComponent objects) within a larger design."
+  :comment "The mapsTo property is OPTIONAL and MAY contain a MapsTo object that refers to and links together a ComponentInstance object (both Component objects and FunctionalComponent objects) within a larger design."
   :domain ComponentInstance
   :range MapsTo
  )
-
 
 (defoproperty roleIntegration
   :label "roleIntegration"
@@ -904,14 +826,15 @@
 
 (defoproperty direction
   :label "direction"
-  :comment "direction"
+  :comment "Each FunctionalComponent MUST specify via the direction property whether it serves as an input, output, both, or neither for its parent ModuleDefinition object."
   :domain FunctionalComponent
   :range Direction
+  :characteristic :functional
  )
 
 (defoproperty local
   :label "local"
-  :comment "local"
+  :comment "This REQUIRED property has a data type of URI and is used to refer to the ComponentInstance contained by the “higher level” ComponentDefinition or ModuleDefinition. This local ComponentInstance MUST be contained by the ComponentDefinition or ModuleDefinition that contains the ComponentInstance or Module that owns the MapsTo."
   :domain MapsTo
   :range ComponentInstance
   :characteristic :functional
@@ -949,19 +872,19 @@
   :inverse definition
  )
 
-
 (defoproperty participation
   :label "participation"
-  :comment "participation"
+  :comment "The participation property is an OPTIONAL and MAY contain a Participation object, which identifies the roles that its referenced FunctionalComponent plays in the Interaction"
   :domain Interaction
   :range Participation
  )
 
 (defoproperty participant
   :label "participant"
-  :comment "participant"
+  :comment "The participant property MUST specify precisely one FunctionalComponent object that plays the designated role in its parent Interaction object."
   :domain Participation
   :range FunctionalComponent
+  :characteristic :functional
  )
 
 (defoproperty member
@@ -973,57 +896,52 @@
 
 (defoproperty source
   :label "source"
-  :comment "Contains a URI reference to the source file."
+  :comment "The source property is REQUIRED and MUST contain a URI reference to the source file for a model."
   :domain (owl-or Model Attachment)
   :characteristic :functional
   )
 
 (defoproperty language
   :label "language"
-  :comment "contain a URI that specifies the language in which the model is implemented."
+  :comment "The language property is REQUIRED and MUST contain a URI that specifies the language in which the model is implemented. It is RECOMMENDED that this URI refer to a term from the EMBRACE Data and Methods (EDAM) ontology."
   :domain Model
   :characteristic :functional
  )
 
 (defoproperty framework
   :label "framework"
-  :comment "Contains a URI that specifies the framework in which the model is implemented."
+  :comment "The framework property is REQUIRED and MUST contain a URI that specifies the framework in which the model is implemented. It is RECOMMENDED this URI refer to a term from the modeling framework branch of the SBO when possible."
   :domain Model
   :characteristic :functional
  )
 
-
 (defoproperty model
   :label "model"
-  :comment "Contains a URI that references a Model object."
+  :comment "The model property is OPTIONAL and MAY be used to specify a set of URI references to Model objects."
   :domain ModuleDefinition
   :range Model
  )
 
-
 (defoproperty interaction
   :label "interaction"
-  :comment "Contains a URI that references an Interaction object."
+  :comment "The interaction property is OPTIONAL and MAY be used specify a set of Interaction objects within the ModuleDefinition."
   :domain ModuleDefinition
   :range Interaction
  )
 
-
 (defoproperty functionalComponent
   :label "functionalComponent"
-  :comment "Contains a URI that references a FunctionalComponentobject."
+  :comment "The property is OPTIONAL and MAY be used specify a set of FunctionalComponent objects contained by the ModuleDefinition."
   :domain ModuleDefinition
   :range FunctionalComponent
  )
 
-
 (defoproperty module
   :label "module"
-  :comment "Contains a URI that references a Module object."
+  :comment "The property is OPTIONAL and MAY be used specify a set of Module objects contained by the ModuleDefinition. Note that the set of relations between Module and ModuleDefinition objects is strictly acyclic."
   :domain ModuleDefinition
   :range Module
  )
-
 
 (as-subclasses
   ComponentDefinition
@@ -1034,7 +952,6 @@
   (defclass RNA)
   (defclass Complex)
  )
-
 
  (defclass DNA
  :label "DNA"
@@ -1054,7 +971,7 @@
  :subclass (owl-some type CD_SMALLMOLECULE)
  )
  
-  (defclass RNA
+ (defclass RNA
  :label "RNA"
  :comment "RNA component definition" 
  :subclass (owl-some type CD_RNA)
@@ -1065,7 +982,6 @@
  :comment "Complex component definition" 
  :subclass (owl-some type CD_COMPLEX)
  )
-  
   
   ;Metadata classes
   (as-subclasses
@@ -1080,9 +996,6 @@
   (defclass EngineeredGene)
  )
   
-
-
-    
  (defclass Promoter
  :label "Promoter"
  :comment "Promoter DNA component"
@@ -1111,46 +1024,25 @@
  (defclass Gene
  :label "Gene"
  :comment "Gene DNA component"
- :equivalent (owl-some role SO_GENE))
-      
-      
+ :equivalent (owl-some role SO_GENE))    
        
  (defclass EngineeredGene
  :label "EngineeredGene"
  :comment "EngineeredGene DNA component"
  :equivalent (owl-some role SO_ENGINEEREDGENE))
-      
-      
-       
+         
  (defclass mRNA
  :label "mRNA"
  :comment "mRNA RNA component"
  :equivalent (owl-some role SO_MRNA)
- :subclass RNA
- )
+ :subclass RNA)
      
-
  (defclass Effector
  :label "Effector"
  :comment "Effector small molecule"
  :equivalent (owl-some role CHEBI_EFFECTOR)
- :subclass SmallMolecule
- )
+ :subclass SmallMolecule)
       
-
-      
-
- ;TODO Add wasDerivedFrom property from PROV-O
- ;TODO Add data types for datatype properties
- 
-
-
-;(defn addExternalTerm[externalIRIString]
-;  (let [externalIRI (iri(str externalIRIString)) ]
-;  (owl-class externalIRI)
-;  (individual externalIRI :type  (owl-class externalIRI))
-;  )
-; )
 
 (defn addExternalTerm[externalIRI]
   (owl-class externalIRI)
@@ -1184,67 +1076,23 @@
 (individual (toIri "http://sbols.org/v2#merge") :type (owl-class merge))
 (individual (toIri "http://sbols.org/v2#inline") :type (owl-class inline))
 (individual (toIri "http://sbols.org/v2#reverseComplement") :type (owl-class reverseComplement))
+(individual (toIri "http://sbols.org/v2#in") :type (owl-class in))
+(individual (toIri "http://sbols.org/v2#out") :type (owl-class out))
+(individual (toIri "http://sbols.org/v2#inout") :type (owl-class inout))
+(individual (toIri "http://sbols.org/v2#none") :type (owl-class none))
+(individual (toIri "http://sbols.org/v2#enumerate") :type (owl-class enumerate))
+(individual (toIri "http://sbols.org/v2#sample") :type (owl-class sample))
+(individual (toIri "http://sbols.org/v2#zeroOrOne") :type (owl-class zeroOrOne))
+(individual (toIri "http://sbols.org/v2#one") :type (owl-class one))
+(individual (toIri "http://sbols.org/v2#zeroOrMore") :type (owl-class zeroOrOne))
+(individual (toIri "http://sbols.org/v2#oneOrMore") :type (owl-class oneOrMore))
 
 
-
-
-
-;(def SO_PROMOTER (iri(str "http://identifiers.org/so/SO:0000167")))
-;(def SO_CDS (iri(str "http://identifiers.org/so/SO:0000316")))
-
-;Promoter
-; (owl-class SO_PROMOTER)
-; (individual SO_PROMOTER :type  (owl-class SO_PROMOTER))
- 
- 
- ;CDS
-; (owl-class SO_CDS)
-; (individual SO_CDS :type  (owl-class SO_CDS))
- ;(owl-class (iri(str "http://identifiers.org/so/SO:0000316")))
- 
- ;(individual (iri(str "http://identifiers.org/so/SO:0000316"))
- ;           :type  (owl-class (iri(str "http://identifiers.org/so/SO:0000316")))
- ;           )
-  
- (owl-class (iri(str "http://www.biopax.org/release/biopax-level3.owl#DnaRegion")))
- 
- 
- ;(defindividual prom1 :type ComponentDefinition
- ;       :fact (fact role (individual (iri(str "http://identifiers.org/so/SO:0000167"))))
- ;)
- 
-;works 
-; (defindividual prom1 :type ComponentDefinition
-;        :fact (fact role (individual (iri(str "http://identifiers.org/so/SO:0000167")) :type  (owl-class (iri(str "http://identifiers.org/so/SO:0000167")))))
-; )
-
-
- 
- (defindividual prom1 :type ComponentDefinition
-        :fact (fact role (individual (iri(str "http://identifiers.org/so/SO:0000167"))))
- )
- 
- 
- ;(defindividual cds1 :type ComponentDefinition
- ;      :fact (fact role (individual (iri(str "http://identifiers.org/so/SO:0000316"))))
- ;)
- 
- 
- 
   (defn save []
    (save-ontology sbol "sbol.omn" :omn) 
    (save-ontology sbol "sbol.owl" :owl)   
-   (save-ontology sbol "sbol.rdf" :rdf)   
-
-   )
-  
-  
-    
-
-     (defn testing []
-   (print "test")
-)
-  
+   (save-ontology sbol "sbol.rdf" :rdf))
+ 
   ;http://homepages.cs.ncl.ac.uk/phillip.lord/download/tawny/icbo_2015/2015_lisbon.html#(180)
   ;http://homepages.cs.ncl.ac.uk/phillip.lord/take-wing/take_wing.html
   ;https://github.com/phillord/tawny-pizza/blob/master/src/pizza/pizza.cl
@@ -1283,4 +1131,23 @@
 
 ;(refine HappyPerson
 ;:equivalent (and (owl-only hasChild HappyPerson) (owl-some hasChild HappyPerson)))
+
+;(defclass Person)
+;(defclass Parent)
+;(defoproperty hasParent)
+
+;TODO: Remove
+;( defclass ChildlessPerson
+;:equivalent (and Person (not Parent ))
+;:super (and Person
+;(not
+;( some
+;( inverse hasParent )
+;( thing )))))
+
+
+;TODO:
+;Interaction types: Table 13
+;Model types 
+;Framework types
   

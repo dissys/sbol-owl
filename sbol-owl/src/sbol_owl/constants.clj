@@ -50,3 +50,43 @@
 ;  (toIri "http://identifiers.org/so/SO:0000167")
 ;  )
 
+
+;(def SO_PROMOTER (iri(str "http://identifiers.org/so/SO:0000167")))
+;(def SO_CDS (iri(str "http://identifiers.org/so/SO:0000316")))
+
+;Promoter
+; (owl-class SO_PROMOTER)
+; (individual SO_PROMOTER :type  (owl-class SO_PROMOTER))
+ 
+ 
+ ;CDS
+; (owl-class SO_CDS)
+; (individual SO_CDS :type  (owl-class SO_CDS))
+ ;(owl-class (iri(str "http://identifiers.org/so/SO:0000316")))
+ 
+ ;(individual (iri(str "http://identifiers.org/so/SO:0000316"))
+ ;           :type  (owl-class (iri(str "http://identifiers.org/so/SO:0000316")))
+ ;           )
+  
+ 
+ 
+ ;(defindividual prom1 :type ComponentDefinition
+ ;       :fact (fact role (individual (iri(str "http://identifiers.org/so/SO:0000167"))))
+ ;)
+ 
+;works 
+; (defindividual prom1 :type ComponentDefinition
+;        :fact (fact role (individual (iri(str "http://identifiers.org/so/SO:0000167")) :type  (owl-class (iri(str "http://identifiers.org/so/SO:0000167")))))
+; )
+
+;Test
+;(owl-class (iri(str "http://www.biopax.org/release/biopax-level3.owl#DnaRegion")))
+; (defindividual prom1 :type ComponentDefinition
+;        :fact (fact role (individual (iri(str "http://identifiers.org/so/SO:0000167"))))
+; )
+ 
+ 
+ ;(defindividual cds1 :type ComponentDefinition
+ ;      :fact (fact role (individual (iri(str "http://identifiers.org/so/SO:0000316"))))
+ ;)
+ 
