@@ -35,7 +35,7 @@
         <rdfs:domain rdf:resource="http://sbols.org/v2#ComponentInstance"/>
         <rdfs:range rdf:resource="http://sbols.org/v2#Access"/>
         <tawny:name xml:lang="en">access</tawny:name>
-        <rdfs:comment xml:lang="en">access</rdfs:comment>
+        <rdfs:comment xml:lang="en">The access property is a REQUIRED URI that indicates whether the ComponentInstance can be referred to remotely by a MapsTo on another ComponentInstance or Module contained by a different parent ComponentDefinition or ModuleDefinition (one that does not contain this ComponentInstance)</rdfs:comment>
         <rdfs:label xml:lang="en">access</rdfs:label>
     </owl:ObjectProperty>
     
