@@ -107,7 +107,7 @@ ObjectProperty: sbol:definition
         sbol:ComponentInstance or sbol:Module
     
     Range: 
-        sbol:ComponentDefinition or sbol:ModuleDefinition
+        sbol:ComponentDefinition
     
     InverseOf: 
         sbol:isDefinitionOf
@@ -225,7 +225,13 @@ ObjectProperty: sbol:isDefinitionOf
     Annotations: 
         rdfs:label "isDefinitionOf"@en,
         <http://www.purl.org/ontolink/tawny#name> "isDefinitionOf"@en,
-        rdfs:comment "Inverse of the definition property"@en
+        rdfs:comment "isDefinitionOf"@en
+    
+    Domain: 
+        sbol:ComponentDefinition
+    
+    Range: 
+        sbol:ComponentInstance or sbol:Module
     
     InverseOf: 
         sbol:definition

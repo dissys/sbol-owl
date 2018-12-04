@@ -11,7 +11,7 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.vocabulary.RDFS;
 import org.sbolstandard.core2.*;
 
-public class MapsTo {
+public class ConsistenceyCheck_MapsToExample {
 
 	public static void main(String[] args) throws URISyntaxException, SBOLValidationException, IOException, SBOLConversionException {
 		SBOLDocument doc = new SBOLDocument();
@@ -35,11 +35,11 @@ public class MapsTo {
 		
 		fc1.createMapsTo("mapsTo", RefinementType.USELOCAL, "fc2", "component1");
 		
-		doc.write(new File("mapsto.rdf"));
+		doc.write(new File("examples/mapsto.rdf"));
 		   
-		RDFHandler.combine("mapsto.rdf","../sbol-owl/sbol.rdf", "mapsto_sbolowl.rdf");
+		RDFMerger.combine("examples/mapsto.rdf","../sbol-owl/sbol.rdf", "examples/mapsto_sbolowl_consistent.rdf");
 		
-
+		System.out.println("done!");
 	}
 	
 	

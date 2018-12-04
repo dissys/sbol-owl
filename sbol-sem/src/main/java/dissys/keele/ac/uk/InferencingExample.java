@@ -19,16 +19,11 @@ import org.sbolstandard.core2.SBOLValidationException;
 import org.sbolstandard.core2.SequenceConstraint;
 import org.sbolstandard.core2.SequenceOntology;
 
-/**
- * Hello world!
- *
- */
-public class App2 
-{//http://parts.igem.org/wiki/index.php?title=Part:BBa_S03839
-    public static void main( String[] args ) throws Exception
+
+public class InferencingExample 
+{   public static void main( String[] args ) throws Exception
     {
         SBOLDocument doc=new SBOLDocument();
-        //doc.setDefaultURIprefix("http://www.keele.ac.uk/dissys");
         doc.setDefaultURIprefix("http://parts.igem.org");
         
         ComponentDefinition BBa_B0010=doc.createComponentDefinition("B0010",ComponentDefinition.DNA);
@@ -36,8 +31,7 @@ public class App2
         
         ComponentDefinition BBa_B0012=doc.createComponentDefinition("B0012",ComponentDefinition.DNA);
         BBa_B0012.addRole(SequenceOntology.TERMINATOR);
-        
-        
+          
         ComponentDefinition ptetR=doc.createComponentDefinition("ptetR",ComponentDefinition.DNA);
         ptetR.addRole(SequenceOntology.PROMOTER);
         
@@ -54,8 +48,7 @@ public class App2
                 
         ComponentDefinition pluxR=doc.createComponentDefinition("pluxR",ComponentDefinition.DNA);
         pluxR.addRole(SequenceOntology.PROMOTER);
-      
-                
+             
         ComponentDefinition BBa_F2620=doc.createComponentDefinition("BBa_F2620",ComponentDefinition.DNA);
         BBa_F2620.addRole(SequenceOntology.ENGINEERED_GENE);
                    
@@ -70,14 +63,11 @@ public class App2
         addSequenceConstraint(BBa_F2620, cluxR, cBBa_B0015);
         addSequenceConstraint(BBa_F2620, cBBa_B0015, cpluxR);
         
-        
         ComponentDefinition gfp=doc.createComponentDefinition("gfp",ComponentDefinition.DNA);
         gfp.addRole(SequenceOntology.CDS);
         
-        
         ComponentDefinition BBa_B0030=doc.createComponentDefinition("B0030",ComponentDefinition.DNA);
         BBa_B0030.addRole(SequenceOntology.RIBOSOME_ENTRY_SITE);
-        
         
         ComponentDefinition BBa_S03839=doc.createComponentDefinition("BBa_S03839",ComponentDefinition.DNA);
         BBa_S03839.addRole(SequenceOntology.ENGINEERED_GENE);
@@ -90,71 +80,21 @@ public class App2
         addSequenceConstraint(BBa_S03839, cBBa_F2620, cB0030);
         addSequenceConstraint(BBa_S03839, cB0030, cgfp);
         
-        
-        
-        
-        
-        
-        
-        doc.write(new File("output.rdf"));
-        
-        Model model = ModelFactory.createDefaultModel() ;
-        
-        InputStream is=new FileInputStream("output.rdf");
-        model.read(is, RDFS.getURI());
-        
-        //model.read("output.rdf") ;
-        
-        Model ontModel=ModelFactory.createDefaultModel() ;
-        InputStream ontIs=new FileInputStream("../sbol-owl/sbol.rdf");
-        ontModel.read(ontIs, RDFS.getURI());
-        
-        //ontModel.read("/home/goksel/work/sbol-owl/sbol-owl/sbol.owl");
-        
-        model.add(ontModel);
-        
-        //save(model, "output_merged.rdf", "Turtle");
-        save(model, "example2.rdf");               
+        doc.write(new File("examples/popsreceiver.rdf"));
+    	RDFMerger.combine("examples/popsreceiver.rdf","../sbol-owl/sbol.rdf", "examples/popsreceiver_sbolowl.rdf");  
+    	System.out.println("done!");
     }
     
     
     private static Component  addComponent(ComponentDefinition cd, ComponentDefinition subCd) throws SBOLValidationException
     {
     	return cd.createComponent(subCd.getDisplayId() + "_comp", AccessType.PUBLIC, subCd.getIdentity());
-    	
     }
     
     private static SequenceConstraint addSequenceConstraint(ComponentDefinition cd, Component subject, Component object) throws SBOLValidationException
     {
-    	return cd.createSequenceConstraint (subject.getDisplayId() + "precedes" + object.getDisplayId(), RestrictionType.PRECEDES, subject.getIdentity(), object.getIdentity());
-    	
+    	return cd.createSequenceConstraint (subject.getDisplayId() + "precedes" + object.getDisplayId(), RestrictionType.PRECEDES, subject.getIdentity(), object.getIdentity());	
     }
-
-	public static void save(Model rdfModel, String filePath) throws IOException, FileNotFoundException {
-		save(rdfModel, filePath,getDefaultFormat());
-	}	
-	  
-	public static void save(Model rdfModel, String filePath, String format) throws IOException, FileNotFoundException {
-		if (format == null || format.length() == 0) {
-			format = getDefaultFormat();
-		}
-		FileOutputStream stream = null;
-		try {
-			stream = new FileOutputStream(new File(filePath));
-			rdfModel.write(stream, format);
-		} 
-		finally {
-			if (stream != null) {
-				stream.close();
-				stream = null;
-			}
-		}
-	}
-
-	
-	public static String getDefaultFormat() {
-		return "RDF/XML-ABBREV";
-	}
 }
 
 /*

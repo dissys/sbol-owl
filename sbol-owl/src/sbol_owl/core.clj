@@ -1,8 +1,6 @@
 (ns sbol-owl.core
   (:use [tawny.owl])
   (:refer-clojure :exclude [type,merge,sequence,hash,format] )
-;  (:require [sbol-owl.dcterms])
-  ;(:require [sbol-owl.provo :as prov])
   (:use [sbol-owl.constants])
   )
 
@@ -13,22 +11,11 @@
 	  :versioninfo "1.0"
 )
 
-; (owl-import sbol-owl.dcterms/dcterms)
-;(owl-import prov/provo)
-
 (defclass Identified
   :label "Identified"
   :comment "Represents SBOL objects that can be identified uniquely using URIs."   
-  :super
-  ;  (owl-some DCTERMS_TITLE :XSD_STRING)
-  ;  (owl-some DCTERMS_DESC :XSD_STRING)
-    PROVO_ENTITY
-   ; prov/Entity
-;    (owl-some sbol-owl.dcterms/title :XSD_STRING)
-;    (owl-some sbol-owl.dcterms/description :XSD_STRING)
-
-    ;:subclass (owl-some sbol-owl.dcterms/description (iri(str "http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral")))
- )
+  :super PROVO_ENTITY
+  )
    
 (as-subclasses
   Identified
@@ -50,10 +37,6 @@
  :comment "Can be used to represent biological design components such as DNA, RNA and small molecules."
  )
 
-;(owl-class prov/provo prov/Activity
-;           :super TopLevel
-;           )
-
 (defoproperty access)
 (defoproperty definition)
 (defclass Access)
@@ -71,7 +54,6 @@
   (defclass Component)
   (defclass FunctionalComponent)
   )
-
 
 (as-subclasses
   TopLevel
@@ -96,7 +78,6 @@
   (defclass SMILES)
   )
 
-
  (defoproperty encoding)
  (defoproperty isSequenceOf)
  (defdproperty elements)
@@ -104,8 +85,6 @@
  (defclass RNA)
  (defclass Protein)
  (defclass SmallMolecule)
- 
- 
  
  (defclass NASequence
  :label "NASequence"
@@ -140,7 +119,7 @@
 (defclass ComponentDefinition
   :label "ComponentDefinition"
   :comment "Can be used to represent biological design components such as DNA, RNA and small molecules."  
-;TODO  :subclass (owl-some type (thing))
+  ;TODO  :subclass (owl-some type (thing))
  )
 
 (defclass Collection
@@ -151,7 +130,7 @@
 (defclass Model
   :label "Model"
   :comment "Serves as a placeholder for an external computational model and provide additional meta-data to enable better reasoning about the contents of this model."     
-  ;TODO Ask Phil  :subclass (owl-some source URI)
+  ;TODO :subclass (owl-some source URI)
   )
 
 (defclass ModuleDefinition
@@ -216,14 +195,12 @@
   :comment "A user SHOULD derive a subset of all possible ComponentDefinition objects specified by CombinatorialDerivation. The manner in which this subset is chosen is for the user to decide."
  )
 
-
 (as-subclasses
   CombinatorialDerivationStrategy
   :disjoint :cover
   (defclass enumerate)
   (defclass sample)
  )
-
 
 (defclass VariableOperator
   :label "VariableOperator"
@@ -500,14 +477,9 @@
  :comment "MapsTo"
  :subclass (owl-some refinement Refinement)
  :subclass (owl-some local ComponentInstance)
- ;:subclass (owl-some remote (and  ComponentInstance  (owl-only access public)))
- ;:subclass (owl-some remote (and  (owl-only access public) (owl-only access private) ))
- ;:subclass (and (owl-some remote ComponentInstance) (owl-only remote (owl-some access public)))
- ;Works: Next two lines
+ 
  :subclass (owl-some remote ComponentInstance)
  :subclass (owl-only remote (owl-some access public))
- ;TODO: How about this: Why is it not working?
- ;:subclass (and (owl-some remote ComponentInstance) (owl-only remote (owl-some access public)))
  )
 
 (defclass Refinement
@@ -631,7 +603,7 @@
 (defclass Interaction
   :label "Interaction"
   :comment "Provides more detailed description of how the FunctionalComponent objects of a ModuleDefinition are intended to work together."
-  ;TODO ASK Phil owl-some type URI
+  ;TODO: owl-some type URI
  )
 
 (defoproperty participant)
@@ -665,7 +637,7 @@
   (defclass VariableOperator) 
  )
 
-;Properties
+
 (defoproperty persistentIdentity
   :label "persistentIdentity"
   :comment "It is used to refer to a set of SBOL objects that are different versions of each other."
@@ -803,7 +775,7 @@
 
 (defoproperty access
   :label "access"
-  :comment "access"
+  :comment "The access property is a REQUIRED URI that indicates whether the ComponentInstance can be referred to remotely by a MapsTo on another ComponentInstance or Module contained by a different parent ComponentDefinition or ModuleDefinition (one that does not contain this ComponentInstance)"
   :domain ComponentInstance
   :range Access
   :characteristic :functional
@@ -860,15 +832,13 @@
   :label "definition"
   :comment "The definition property is a REQUIRED URI that refers to the ComponentDefinition of the ComponentInstance. As described in the previous section, this ComponentDefinition effectively provides information about the types and roles of the ComponentInstance."
   :domain (owl-or ComponentInstance Module)
-  :range ComponentDefinition
+  :range (owl-or ComponentDefinition ModuleDefinition)
   :characteristic :functional
  )
 
 (defoproperty isDefinitionOf
   :label "isDefinitionOf"
-  :comment "isDefinitionOf"
-  :domain ComponentDefinition  
-  :range (owl-or ComponentInstance Module)
+  :comment "Inverse of the definition property"
   :inverse definition
  )
 
@@ -1009,39 +979,46 @@
   (defclass Operator
  :label "Operator"
  :comment "Operator DNA component"
- :equivalent (owl-some role SO_OPERATOR))
+ :equivalent (owl-some role SO_OPERATOR)
+ )
   
  (defclass CDS
  :label "CDS"
  :comment "CDS DNA component"
- :equivalent (owl-some role SO_CDS))
+ :equivalent (owl-some role SO_CDS)
+ )
  
  (defclass Terminator
  :label "Terminator"
  :comment "Terminator DNA component"
- :equivalent (owl-some role SO_TERMINATOR))            
+ :equivalent (owl-some role SO_TERMINATOR)
+ )            
        
  (defclass Gene
  :label "Gene"
  :comment "Gene DNA component"
- :equivalent (owl-some role SO_GENE))    
+ :equivalent (owl-some role SO_GENE)
+ )    
        
  (defclass EngineeredGene
  :label "EngineeredGene"
  :comment "EngineeredGene DNA component"
- :equivalent (owl-some role SO_ENGINEEREDGENE))
+ :equivalent (owl-some role SO_ENGINEEREDGENE)
+ )
          
  (defclass mRNA
  :label "mRNA"
  :comment "mRNA RNA component"
  :equivalent (owl-some role SO_MRNA)
- :subclass RNA)
+ :subclass RNA
+ )
      
  (defclass Effector
  :label "Effector"
  :comment "Effector small molecule"
  :equivalent (owl-some role CHEBI_EFFECTOR)
- :subclass SmallMolecule)
+ :subclass SmallMolecule
+ )
       
 
 (defn addExternalTerm[externalIRI]
@@ -1068,6 +1045,7 @@
 (addExternalTerm CD_SMALLMOLECULE)
 (addExternalTerm CD_COMPLEX)
 
+;To use the some relationship for individuals
 (individual (toIri "http://sbols.org/v2#private")  :type (owl-class private))
 (individual (toIri "http://sbols.org/v2#public") :type (owl-class public))
 (individual (toIri "http://sbols.org/v2#useLocal") :type (owl-class useLocal))
@@ -1087,67 +1065,8 @@
 (individual (toIri "http://sbols.org/v2#zeroOrMore") :type (owl-class zeroOrOne))
 (individual (toIri "http://sbols.org/v2#oneOrMore") :type (owl-class oneOrMore))
 
-
-  (defn save []
-   (save-ontology sbol "sbol.omn" :omn) 
-   (save-ontology sbol "sbol.owl" :owl)   
-   (save-ontology sbol "sbol.rdf" :rdf))
- 
-  ;http://homepages.cs.ncl.ac.uk/phillip.lord/download/tawny/icbo_2015/2015_lisbon.html#(180)
-  ;http://homepages.cs.ncl.ac.uk/phillip.lord/take-wing/take_wing.html
-  ;https://github.com/phillord/tawny-pizza/blob/master/src/pizza/pizza.cl
-  ;https://phillord.github.io/take-wing/take_wing.pdf
-  
- ;TODO: 
- ;provo:Activity, provo:Plan, provo:Agent 
- ; Not represented GenericTopLevel 
- 
- 
- ;Relationships:
- ;Required
- ;subject-property value:1..1 --> Subject some property value (at lelast one) , property:functional (at most one), domain:subject, range:value
-
- ;optional
- ;subject-property value:1..[0..1] --> domain:subject, range:value, property functional (at most one)
- 
- ;unbounded
- ;subject-property value:1..[0..*] --> domain:subject, range:value
- 
- ;required, unbounded:at least one:
- ;1..[1..*]using somevalues from , domain:subject, range:value
- 
- ;n..*
- ;No examples but can be done using min n relationships
- 
- ;If exist, the value must belong to the subject only. For describing sequence types
- ;subject-property value: 1..[0..*] --> Used an inverse relationship. And indicated that the value can only belong to the subject via the inverse property. The inverse property is declared to be functional to kae sure that there is only one subject.
- 
- 
- 
- ;(defoproperty hasChild)
-; defclass HappyPerson )
-;( refine HappyPerson
-;:equivalent ( only hasChild HappyPerson ))
-
-;(refine HappyPerson
-;:equivalent (and (owl-only hasChild HappyPerson) (owl-some hasChild HappyPerson)))
-
-;(defclass Person)
-;(defclass Parent)
-;(defoproperty hasParent)
-
-;TODO: Remove
-;( defclass ChildlessPerson
-;:equivalent (and Person (not Parent ))
-;:super (and Person
-;(not
-;( some
-;( inverse hasParent )
-;( thing )))))
-
-
-;TODO:
-;Interaction types: Table 13
-;Model types 
-;Framework types
-  
+(defn save []
+ (save-ontology sbol "sbol.omn" :omn) 
+ (save-ontology sbol "sbol.owl" :owl)   
+ (save-ontology sbol "sbol.rdf" :rdf)
+ )

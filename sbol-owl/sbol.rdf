@@ -94,7 +94,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v2#ComponentDefinition"/>
+                    <rdf:Description rdf:about="http://sbols.org/v2#ModuleDefinition"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
         <tawny:name xml:lang="en">definition</tawny:name>
         <rdfs:comment xml:lang="en">The definition property is a REQUIRED URI that refers to the ComponentDefinition of the ComponentInstance. As described in the previous section, this ComponentDefinition effectively provides information about the types and roles of the ComponentInstance.</rdfs:comment>
         <rdfs:label xml:lang="en">definition</rdfs:label>
@@ -198,17 +205,8 @@
     <!-- http://sbols.org/v2#isDefinitionOf -->
 
     <owl:ObjectProperty rdf:about="http://sbols.org/v2#isDefinitionOf">
-        <rdfs:domain rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://sbols.org/v2#ComponentInstance"/>
-                    <rdf:Description rdf:about="http://sbols.org/v2#Module"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <tawny:name xml:lang="en">isDefinitionOf</tawny:name>
-        <rdfs:comment xml:lang="en">isDefinitionOf</rdfs:comment>
+        <rdfs:comment xml:lang="en">Inverse of the definition property</rdfs:comment>
         <rdfs:label xml:lang="en">isDefinitionOf</rdfs:label>
     </owl:ObjectProperty>
     

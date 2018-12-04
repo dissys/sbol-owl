@@ -1604,10 +1604,6 @@
         <Class IRI="#Component"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isDefinitionOf"/>
-        <Class IRI="#ComponentDefinition"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#isObjectOf"/>
         <Class IRI="#Component"/>
     </ObjectPropertyDomain>
@@ -1772,7 +1768,10 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#definition"/>
-        <Class IRI="#ComponentDefinition"/>
+        <ObjectUnionOf>
+            <Class IRI="#ComponentDefinition"/>
+            <Class IRI="#ModuleDefinition"/>
+        </ObjectUnionOf>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#direction"/>
@@ -1791,13 +1790,6 @@
         <ObjectUnionOf>
             <Class IRI="#ComponentDefinition"/>
             <Class IRI="#SequenceAnnotation"/>
-        </ObjectUnionOf>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isDefinitionOf"/>
-        <ObjectUnionOf>
-            <Class IRI="#ComponentInstance"/>
-            <Class IRI="#Module"/>
         </ObjectUnionOf>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
@@ -3067,7 +3059,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#isDefinitionOf</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isDefinitionOf</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Inverse of the definition property</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
