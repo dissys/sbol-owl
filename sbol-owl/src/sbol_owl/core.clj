@@ -742,19 +742,34 @@
   :characteristic :functional
  )
 
+( defdatatype greaterThanZero
+  :label "greaterThanZero"
+  :comment "Greater than zero."
+  :equivalent ( owl-min 1 )
+  )
+
+( defdatatype zeroOrGreater
+  :label "zeroOrGreater"
+  :comment "Zero or greater."
+  :equivalent ( owl-min 0 )
+  )
+
 (defdproperty start
   :label "start"
   :comment "Specifies the inclusive starting position of the Range."
   :domain Range
-  :range :XSD_INTEGER
+  :range greaterThanZero
+  ;Commented :range :XSD_POSITIVE_INTEGER 
   :characteristic :functional
  )
+
+
 
 (defdproperty end
   :label "end"
   :comment "Specifies the inclusive ending position of the Range."
   :domain Range
-  :range :XSD_INTEGER
+  :range greaterThanZero
   :characteristic :functional
  )
 
@@ -762,7 +777,7 @@
   :label "at"
   :comment "specifies a discrete position that that corresponds to the index of a character in the elements String of a Sequence."
   :domain Cut
-  :range :XSD_INTEGER
+  :range zeroOrGreater
   :characteristic :functional
  )
 

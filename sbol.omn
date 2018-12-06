@@ -33,6 +33,28 @@ AnnotationProperty: rdfs:label
 Datatype: rdf:PlainLiteral
 
     
+Datatype: sbol:greaterThanZero
+
+    Annotations: 
+        rdfs:comment "Greater than zero."@en,
+        rdfs:label "greaterThanZero"@en,
+        <http://www.purl.org/ontolink/tawny#name> "greaterThanZero"@en
+    
+    EquivalentTo: 
+        xsd:integer[> 1]
+    
+    
+Datatype: sbol:zeroOrGreater
+
+    Annotations: 
+        rdfs:comment "Zero or greater."@en,
+        <http://www.purl.org/ontolink/tawny#name> "zeroOrGreater"@en,
+        rdfs:label "zeroOrGreater"@en
+    
+    EquivalentTo: 
+        xsd:integer[> 0]
+    
+    
 Datatype: xsd:integer
 
     
@@ -107,7 +129,7 @@ ObjectProperty: sbol:definition
         sbol:ComponentInstance or sbol:Module
     
     Range: 
-        sbol:ComponentDefinition
+        sbol:ComponentDefinition or sbol:ModuleDefinition
     
     InverseOf: 
         sbol:isDefinitionOf
@@ -225,13 +247,7 @@ ObjectProperty: sbol:isDefinitionOf
     Annotations: 
         rdfs:label "isDefinitionOf"@en,
         <http://www.purl.org/ontolink/tawny#name> "isDefinitionOf"@en,
-        rdfs:comment "isDefinitionOf"@en
-    
-    Domain: 
-        sbol:ComponentDefinition
-    
-    Range: 
-        sbol:ComponentInstance or sbol:Module
+        rdfs:comment "Inverse of the definition property"@en
     
     InverseOf: 
         sbol:definition
@@ -781,7 +797,7 @@ DataProperty: sbol:at
         sbol:Cut
     
     Range: 
-        xsd:integer
+        sbol:zeroOrGreater
     
     
 DataProperty: sbol:displayId
@@ -832,7 +848,7 @@ DataProperty: sbol:end
         sbol:Range
     
     Range: 
-        xsd:integer
+        sbol:greaterThanZero
     
     
 DataProperty: sbol:hash
@@ -883,7 +899,7 @@ DataProperty: sbol:start
         sbol:Range
     
     Range: 
-        xsd:integer
+        sbol:greaterThanZero
     
     
 DataProperty: sbol:version

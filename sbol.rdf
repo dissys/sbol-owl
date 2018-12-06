@@ -20,6 +20,57 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sbols.org/v2#greaterThanZero -->
+
+    <rdfs:Datatype rdf:about="http://sbols.org/v2#greaterThanZero">
+        <tawny:name xml:lang="en">greaterThanZero</tawny:name>
+        <rdfs:comment xml:lang="en">Greater than zero.</rdfs:comment>
+        <rdfs:label xml:lang="en">greaterThanZero</rdfs:label>
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</xsd:minExclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://sbols.org/v2#zeroOrGreater -->
+
+    <rdfs:Datatype rdf:about="http://sbols.org/v2#zeroOrGreater">
+        <tawny:name xml:lang="en">zeroOrGreater</tawny:name>
+        <rdfs:comment xml:lang="en">Zero or greater.</rdfs:comment>
+        <rdfs:label xml:lang="en">zeroOrGreater</rdfs:label>
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:minExclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Object Properties
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -94,7 +145,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v2#ComponentDefinition"/>
+                    <rdf:Description rdf:about="http://sbols.org/v2#ModuleDefinition"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
         <tawny:name xml:lang="en">definition</tawny:name>
         <rdfs:comment xml:lang="en">The definition property is a REQUIRED URI that refers to the ComponentDefinition of the ComponentInstance. As described in the previous section, this ComponentDefinition effectively provides information about the types and roles of the ComponentInstance.</rdfs:comment>
         <rdfs:label xml:lang="en">definition</rdfs:label>
@@ -198,17 +256,8 @@
     <!-- http://sbols.org/v2#isDefinitionOf -->
 
     <owl:ObjectProperty rdf:about="http://sbols.org/v2#isDefinitionOf">
-        <rdfs:domain rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://sbols.org/v2#ComponentInstance"/>
-                    <rdf:Description rdf:about="http://sbols.org/v2#Module"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <tawny:name xml:lang="en">isDefinitionOf</tawny:name>
-        <rdfs:comment xml:lang="en">isDefinitionOf</rdfs:comment>
+        <rdfs:comment xml:lang="en">Inverse of the definition property</rdfs:comment>
         <rdfs:label xml:lang="en">isDefinitionOf</rdfs:label>
     </owl:ObjectProperty>
     
@@ -677,7 +726,7 @@
     <owl:DatatypeProperty rdf:about="http://sbols.org/v2#at">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://sbols.org/v2#Cut"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:range rdf:resource="http://sbols.org/v2#zeroOrGreater"/>
         <tawny:name xml:lang="en">at</tawny:name>
         <rdfs:comment xml:lang="en">specifies a discrete position that that corresponds to the index of a character in the elements String of a Sequence.</rdfs:comment>
         <rdfs:label xml:lang="en">at</rdfs:label>
@@ -716,7 +765,7 @@
     <owl:DatatypeProperty rdf:about="http://sbols.org/v2#end">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://sbols.org/v2#Range"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:range rdf:resource="http://sbols.org/v2#greaterThanZero"/>
         <tawny:name xml:lang="en">end</tawny:name>
         <rdfs:comment xml:lang="en">Specifies the inclusive ending position of the Range.</rdfs:comment>
         <rdfs:label xml:lang="en">end</rdfs:label>
@@ -755,7 +804,7 @@
     <owl:DatatypeProperty rdf:about="http://sbols.org/v2#start">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://sbols.org/v2#Range"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:range rdf:resource="http://sbols.org/v2#greaterThanZero"/>
         <tawny:name xml:lang="en">start</tawny:name>
         <rdfs:comment xml:lang="en">Specifies the inclusive starting position of the Range.</rdfs:comment>
         <rdfs:label xml:lang="en">start</rdfs:label>

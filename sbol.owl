@@ -323,6 +323,9 @@
         <ObjectProperty IRI="#mapsTo"/>
     </Declaration>
     <Declaration>
+        <Datatype IRI="#zeroOrGreater"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Protein"/>
     </Declaration>
     <Declaration>
@@ -414,6 +417,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#private"/>
+    </Declaration>
+    <Declaration>
+        <Datatype IRI="#greaterThanZero"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#subject"/>
@@ -1604,10 +1610,6 @@
         <Class IRI="#Component"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isDefinitionOf"/>
-        <Class IRI="#ComponentDefinition"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#isObjectOf"/>
         <Class IRI="#Component"/>
     </ObjectPropertyDomain>
@@ -1772,7 +1774,10 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#definition"/>
-        <Class IRI="#ComponentDefinition"/>
+        <ObjectUnionOf>
+            <Class IRI="#ComponentDefinition"/>
+            <Class IRI="#ModuleDefinition"/>
+        </ObjectUnionOf>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#direction"/>
@@ -1791,13 +1796,6 @@
         <ObjectUnionOf>
             <Class IRI="#ComponentDefinition"/>
             <Class IRI="#SequenceAnnotation"/>
-        </ObjectUnionOf>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isDefinitionOf"/>
-        <ObjectUnionOf>
-            <Class IRI="#ComponentInstance"/>
-            <Class IRI="#Module"/>
         </ObjectUnionOf>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
@@ -1974,7 +1972,7 @@
     </DataPropertyDomain>
     <DataPropertyRange>
         <DataProperty IRI="#at"/>
-        <Datatype abbreviatedIRI="xsd:integer"/>
+        <Datatype IRI="#zeroOrGreater"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#displayId"/>
@@ -1986,7 +1984,7 @@
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#end"/>
-        <Datatype abbreviatedIRI="xsd:integer"/>
+        <Datatype IRI="#greaterThanZero"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#hash"/>
@@ -1998,7 +1996,7 @@
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#start"/>
-        <Datatype abbreviatedIRI="xsd:integer"/>
+        <Datatype IRI="#greaterThanZero"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#version"/>
@@ -2971,6 +2969,21 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
+        <IRI>#greaterThanZero</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">greaterThanZero</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#greaterThanZero</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Greater than zero.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#greaterThanZero</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">greaterThanZero</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
         <IRI>#hash</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">hash</Literal>
     </AnnotationAssertion>
@@ -3067,7 +3080,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#isDefinitionOf</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isDefinitionOf</Literal>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Inverse of the definition property</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3901,6 +3914,21 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
+        <IRI>#zeroOrGreater</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">zeroOrGreater</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#zeroOrGreater</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Zero or greater.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#zeroOrGreater</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">zeroOrGreater</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
         <IRI>#zeroOrMore</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">zeroOrMore</Literal>
     </AnnotationAssertion>
@@ -3929,6 +3957,24 @@
         <IRI>#zeroOrOne</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">zeroOrOne</Literal>
     </AnnotationAssertion>
+    <DatatypeDefinition>
+        <Datatype IRI="#greaterThanZero"/>
+        <DatatypeRestriction>
+            <Datatype abbreviatedIRI="xsd:integer"/>
+            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
+            </FacetRestriction>
+        </DatatypeRestriction>
+    </DatatypeDefinition>
+    <DatatypeDefinition>
+        <Datatype IRI="#zeroOrGreater"/>
+        <DatatypeRestriction>
+            <Datatype abbreviatedIRI="xsd:integer"/>
+            <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
+            </FacetRestriction>
+        </DatatypeRestriction>
+    </DatatypeDefinition>
 </Ontology>
 
 
