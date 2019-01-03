@@ -21,7 +21,17 @@ import org.jsoup.select.Elements;
 public class App 
 {
 	private static String sbolbase="http://sbols.org/v2";
-    
+    /*Steps (Make sure the remote and online Github repo includes the latest sbol.rdf)
+     * 1- Remove the sbol-owl-org.htm
+     * 2- Take a copy of the LODE from Github: git clone https://github.com/essepuntato/LODE.git
+     * 3 - Run LODE:
+     * 	cd LODE
+     *  mvn clean jetty:run
+     *  4 - Save the output from the following URL as sbol-owl.htm
+     *      http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf
+     *  5- Rename the sbol-owl.htm as sbol-owl-org.htm
+     *  6 - Run this App.java to create the updated sbol-owl.htm with comments    
+     * */
     public static void main( String[] args ) throws IOException
     {
         System.out.print( "..." );
@@ -32,6 +42,12 @@ public class App
         Model ontModel=getRdfModel();
         
         for (Element link : links) {
+        	String href=link.attr("href");
+        	if (href.startsWith("http://localhost"))
+        	{
+        		href="#" + getAfter(href, "#");
+        		link.attr("href",href);
+        	}
         	String title=link.attr("title");
         	
         	if (title!=null && title.contains(sbolbase))
@@ -39,7 +55,7 @@ public class App
         		String newLocalUrl=title.replace(sbolbase, "");
         		String newLocalId=newLocalUrl.replace("#", "");
         		
-        		String oldLocalId=link.attr("href").split("#")[1];
+        		String oldLocalId=getAfter(href, "#");
         		link.attr("href", newLocalUrl);
         		Element divContainer=doc.getElementById(oldLocalId);
         		if (divContainer!=null) {
@@ -54,6 +70,18 @@ public class App
         System.out.println( "done!" );
     }
     
+    private static String getAfter(String data, String separator)
+    {
+    	int index=data.indexOf(separator);
+    	if (index>=0)
+    	{
+    		return data.substring(index+separator.length());
+    	}
+    	else
+    	{
+    		return data;
+    	}
+    }
     private static void cleanHeaders(Document doc)
     {
     	Elements heads=doc.select("div.head");

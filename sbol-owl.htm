@@ -1,4 +1,4 @@
-<!-- saved from url=(0081)http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf -->
+<!-- saved from url=(0085)http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf?a=1 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,7 +15,7 @@
                     function () {
                     	jQuery(".markdown").each(function(el){
 							jQuery(this).after(marked(jQuery(this).text())).remove()});
-                        var list = $('a[name="https://dissys.github.io/sbol-owl/sbol.rdf"]');
+                        var list = $('a[name="https://dissys.github.io/sbol-owl/sbol.rdf?a=1"]');
                         if (list.size() != 0) {
                         	var element = list.first();
                         	$.scrollTo(element);
@@ -48,12 +48,12 @@
   <div id="toc">
    <h2>Table of Content</h2>
    <ol>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Classes</a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Properties</a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#dataproperties">Data Properties</a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individuals</a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#generalaxioms">General Axioms</a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namespacedeclarations">Namespace Declarations</a></li>
+    <li><a href="#classes">Classes</a></li>
+    <li><a href="#objectproperties">Object Properties</a></li>
+    <li><a href="#dataproperties">Data Properties</a></li>
+    <li><a href="#namedindividuals">Named Individuals</a></li>
+    <li><a href="#generalaxioms">General Axioms</a></li>
+    <li><a href="#namespacedeclarations">Namespace Declarations</a></li>
    </ol>
   </div>
   <div id="classes">
@@ -78,8 +78,8 @@
     <li><a href="#enumerate" title="http://sbols.org/v2#enumerate"><span>enumerate</span></a></li>
     <li><a href="#FunctionalComponent" title="http://sbols.org/v2#FunctionalComponent">FunctionalComponent</a></li>
     <li><a href="#Gene" title="http://sbols.org/v2#Gene">Gene</a></li>
-    <li><a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel"><span>generic top level</span></a></li>
     <li><a href="#GenericLocation" title="http://sbols.org/v2#GenericLocation">GenericLocation</a></li>
+    <li><a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">GenericTopLevel</a></li>
     <li><a href="#Identified" title="http://sbols.org/v2#Identified">Identified</a></li>
     <li><a href="#Implementation" title="http://sbols.org/v2#Implementation">Implementation</a></li>
     <li><a href="#in" title="http://sbols.org/v2#in"><span>in</span></a></li>
@@ -137,7 +137,7 @@
    </ul>
    <div id="Access" class="entity">
     <a name="http://sbols.org/v2#Access"></a>
-    <h3>Access<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Access<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Access</p>
     <div class="comment">
      <p>Not represented in SBOL directly. It is used in the OWL representation to enforce choosing an access type using one of its subclasses.</p> 
@@ -199,7 +199,7 @@
    </div>
    <div id="Attachment" class="entity">
     <a name="http://sbols.org/v2#Attachment"></a>
-    <h3>Attachment<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Attachment<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Attachment</p>
     <div class="comment">
      <p>The purpose of the Attachment class is to serve as a general container for data files, especially experimental data files. It provides a means for linking files and metadata to SBOL designs.</p> 
@@ -233,7 +233,7 @@
       <sup title="class" class="type-c">c</sup>, 
       <a href="#ComponentDefinition" title="http://sbols.org/v2#ComponentDefinition">ComponentDefinition</a>
       <sup title="class" class="type-c">c</sup>, 
-      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">generic top level</a>
+      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">GenericTopLevel</a>
       <sup title="class" class="type-c">c</sup>, 
       <a href="#Implementation" title="http://sbols.org/v2#Implementation">Implementation</a>
       <sup title="class" class="type-c">c</sup>, 
@@ -248,7 +248,7 @@
    </div>
    <div id="CDS" class="entity">
     <a name="http://sbols.org/v2#CDS"></a>
-    <h3>CDS<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>CDS<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#CDS</p>
     <div class="comment">
      <p>CDS DNA component</p> 
@@ -292,7 +292,7 @@
    </div>
    <div id="Collection" class="entity">
     <a name="http://sbols.org/v2#Collection"></a>
-    <h3>Collection<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Collection<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Collection</p>
     <div class="comment">
      <p>Groups together a set of TopLevel objects that have something in common.</p> 
@@ -329,7 +329,7 @@
       <sup title="class" class="type-c">c</sup>, 
       <a href="#ComponentDefinition" title="http://sbols.org/v2#ComponentDefinition">ComponentDefinition</a>
       <sup title="class" class="type-c">c</sup>, 
-      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">generic top level</a>
+      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">GenericTopLevel</a>
       <sup title="class" class="type-c">c</sup>, 
       <a href="#Implementation" title="http://sbols.org/v2#Implementation">Implementation</a>
       <sup title="class" class="type-c">c</sup>, 
@@ -344,7 +344,7 @@
    </div>
    <div id="CombinatorialDerivation" class="entity">
     <a name="http://sbols.org/v2#CombinatorialDerivation"></a>
-    <h3>CombinatorialDerivation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>CombinatorialDerivation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#CombinatorialDerivation</p>
     <div class="comment">
      <p>The purpose of the CombinatorialDerivation class is to specify combinatorial genetic designs without having to specify every possible design variant. For example, a CombinatorialDerivation can be used to specify a library of reporter gene variants that include different promoters and RBSs without having to specify a ComponentDefinition for every possible combination of promoter, RBS, and CDS in the library. ComponentDefinition objects that realize a CombinatorialDerivation can be derived in accordance with the class properties template, variableComponents, and strategy.</p> 
@@ -392,7 +392,7 @@
       <sup title="class" class="type-c">c</sup>, 
       <a href="#ComponentDefinition" title="http://sbols.org/v2#ComponentDefinition">ComponentDefinition</a>
       <sup title="class" class="type-c">c</sup>, 
-      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">generic top level</a>
+      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">GenericTopLevel</a>
       <sup title="class" class="type-c">c</sup>, 
       <a href="#Implementation" title="http://sbols.org/v2#Implementation">Implementation</a>
       <sup title="class" class="type-c">c</sup>, 
@@ -407,7 +407,7 @@
    </div>
    <div id="CombinatorialDerivationStrategy" class="entity">
     <a name="http://sbols.org/v2#CombinatorialDerivationStrategy"></a>
-    <h3>CombinatorialDerivationStrategy<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>CombinatorialDerivationStrategy<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#CombinatorialDerivationStrategy</p>
     <div class="comment">
      <p>Specifies strategy types for combinatorial derivations.</p> 
@@ -469,7 +469,7 @@
    </div>
    <div id="Complex" class="entity">
     <a name="http://sbols.org/v2#Complex"></a>
-    <h3>Complex<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Complex<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Complex</p>
     <div class="comment">
      <p>Complex component definition</p> 
@@ -506,7 +506,7 @@
    </div>
    <div id="Component" class="entity">
     <a name="http://sbols.org/v2#Component"></a>
-    <h3>Component<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Component<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Component</p>
     <div class="comment">
      <p>Component</p> 
@@ -556,7 +556,7 @@
    </div>
    <div id="ComponentDefinition" class="entity">
     <a name="http://sbols.org/v2#ComponentDefinition"></a>
-    <h3>ComponentDefinition<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>ComponentDefinition<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#ComponentDefinition</p>
     <div class="comment">
      <p>Can be used to represent biological design components such as DNA, RNA and small molecules.</p> 
@@ -635,7 +635,7 @@
       <sup title="class" class="type-c">c</sup>, 
       <a href="#CombinatorialDerivation" title="http://sbols.org/v2#CombinatorialDerivation">CombinatorialDerivation</a>
       <sup title="class" class="type-c">c</sup>, 
-      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">generic top level</a>
+      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">GenericTopLevel</a>
       <sup title="class" class="type-c">c</sup>, 
       <a href="#Implementation" title="http://sbols.org/v2#Implementation">Implementation</a>
       <sup title="class" class="type-c">c</sup>, 
@@ -650,7 +650,7 @@
    </div>
    <div id="ComponentInstance" class="entity">
     <a name="http://sbols.org/v2#ComponentInstance"></a>
-    <h3>ComponentInstance<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>ComponentInstance<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#ComponentInstance</p>
     <div class="comment">
      <p>The ComponentInstance abstract class is inherited by SBOL classes that represent the usage or occurrence of a ComponentDefinition within a larger design (that is, another ComponentDefinition or ModuleDefinition).</p> 
@@ -718,7 +718,7 @@
    </div>
    <div id="Cut" class="entity">
     <a name="http://sbols.org/v2#Cut"></a>
-    <h3>Cut<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Cut<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Cut</p>
     <div class="comment">
      <p>The Cut class has been introduced to enable the specification of a region between two discrete positions. This specification is accomplished using the at property, which specifies a discrete position that that corresponds to the index of a character in the elements String of a Sequence.</p> 
@@ -757,7 +757,7 @@
    </div>
    <div id="differentFrom" class="entity">
     <a name="http://sbols.org/v2#differentFrom"></a>
-    <h3>differentFrom<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>differentFrom<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#differentFrom</p>
     <div class="comment">
      <p>The definition property of the subject Component MUST NOT refer to the same ComponentDefinition as that of the object Component.</p> 
@@ -785,7 +785,7 @@
    </div>
    <div id="Direction" class="entity">
     <a name="http://sbols.org/v2#Direction"></a>
-    <h3>Direction<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Direction<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Direction</p>
     <div class="comment">
      <p>Not represented in SBOL directly. It is used in the OWL representation to enforce choosing a direction type using one of its subclasses.</p> 
@@ -857,7 +857,7 @@
    </div>
    <div id="DNA" class="entity">
     <a name="http://sbols.org/v2#DNA"></a>
-    <h3>DNA<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>DNA<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#DNA</p>
     <div class="comment">
      <p>DNA component definition</p> 
@@ -913,7 +913,7 @@
    </div>
    <div id="Effector" class="entity">
     <a name="http://sbols.org/v2#Effector"></a>
-    <h3>Effector<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Effector<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Effector</p>
     <div class="comment">
      <p>Effector small molecule</p> 
@@ -940,7 +940,7 @@
    </div>
    <div id="EngineeredGene" class="entity">
     <a name="http://sbols.org/v2#EngineeredGene"></a>
-    <h3>EngineeredGene<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>EngineeredGene<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#EngineeredGene</p>
     <div class="comment">
      <p>EngineeredGene DNA component</p> 
@@ -984,7 +984,7 @@
    </div>
    <div id="enumerate" class="entity">
     <a name="http://sbols.org/v2#enumerate"></a>
-    <h3>enumerate<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>enumerate<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#enumerate</p>
     <div class="comment">
      <p>A user SHOULD derive all possible ComponentDefinition objects specified by the CombinatorialDerivation.</p>
@@ -1015,13 +1015,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3084">named individual</a>
+      <a href="#d4e3090">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="FunctionalComponent" class="entity">
     <a name="http://sbols.org/v2#FunctionalComponent"></a>
-    <h3>FunctionalComponent<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>FunctionalComponent<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#FunctionalComponent</p>
     <div class="comment">
      <p>FunctionalComponent</p> 
@@ -1068,7 +1068,7 @@
    </div>
    <div id="Gene" class="entity">
     <a name="http://sbols.org/v2#Gene"></a>
-    <h3>Gene<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Gene<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Gene</p>
     <div class="comment">
      <p>Gene DNA component</p> 
@@ -1110,12 +1110,38 @@
      </dd>
     </dl>
    </div>
+   <div id="GenericLocation" class="entity">
+    <a name="http://sbols.org/v2#GenericLocation"></a>
+    <h3>GenericLocation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+    <p><strong>IRI:</strong> http://sbols.org/v2#GenericLocation</p>
+    <div class="comment">
+     <p>While the Range and Cut classes are best suited to specifying regions on Sequence objects with IUPAC encodings, the GenericLocation class is included as a starting point for specifying regions on Sequence objects with different encoding properties and potentially nonlinear structure. This class can also be used to set the orientation of a SequenceAnnotation and any associated Component when their parent ComponentDefinition is a partial design that lacks a Sequence.</p> 
+    </div>
+    <dl class="description">
+     <dt>
+      has super-classes
+     </dt>
+     <dd>
+      <a href="#Location" title="http://sbols.org/v2#Location">Location</a>
+      <sup title="class" class="type-c">c</sup>
+     </dd>
+     <dt>
+      is disjoint with
+     </dt>
+     <dd>
+      <a href="#Cut" title="http://sbols.org/v2#Cut">Cut</a>
+      <sup title="class" class="type-c">c</sup>, 
+      <a href="#Range" title="http://sbols.org/v2#Range">Range</a>
+      <sup title="class" class="type-c">c</sup>
+     </dd>
+    </dl>
+   </div>
    <div id="GenericTopLevel" class="entity">
     <a name="http://sbols.org/v2#GenericTopLevel"></a>
-    <h3>generic top level<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>GenericTopLevel<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#GenericTopLevel</p>
     <div class="comment">
-     <p>The GenericTopLevel class is used to represent top-level entities whose purpose is to contain a set of annotations that are independent of any other class of SBOL object.</p>
+     <p>The GenericTopLevel class is used to represent top-level entities whose purpose is to contain a set of annotations that are independent of any other class of SBOL object.</p> 
     </div>
     <dl class="description">
      <dt>
@@ -1148,35 +1174,9 @@
      </dd>
     </dl>
    </div>
-   <div id="GenericLocation" class="entity">
-    <a name="http://sbols.org/v2#GenericLocation"></a>
-    <h3>GenericLocation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
-    <p><strong>IRI:</strong> http://sbols.org/v2#GenericLocation</p>
-    <div class="comment">
-     <p>While the Range and Cut classes are best suited to specifying regions on Sequence objects with IUPAC encodings, the GenericLocation class is included as a starting point for specifying regions on Sequence objects with different encoding properties and potentially nonlinear structure. This class can also be used to set the orientation of a SequenceAnnotation and any associated Component when their parent ComponentDefinition is a partial design that lacks a Sequence.</p> 
-    </div>
-    <dl class="description">
-     <dt>
-      has super-classes
-     </dt>
-     <dd>
-      <a href="#Location" title="http://sbols.org/v2#Location">Location</a>
-      <sup title="class" class="type-c">c</sup>
-     </dd>
-     <dt>
-      is disjoint with
-     </dt>
-     <dd>
-      <a href="#Cut" title="http://sbols.org/v2#Cut">Cut</a>
-      <sup title="class" class="type-c">c</sup>, 
-      <a href="#Range" title="http://sbols.org/v2#Range">Range</a>
-      <sup title="class" class="type-c">c</sup>
-     </dd>
-    </dl>
-   </div>
    <div id="Identified" class="entity">
     <a name="http://sbols.org/v2#Identified"></a>
-    <h3>Identified<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Identified<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Identified</p>
     <div class="comment">
      <p>Represents SBOL objects that can be identified uniquely using URIs.</p> 
@@ -1229,7 +1229,7 @@
    </div>
    <div id="Implementation" class="entity">
     <a name="http://sbols.org/v2#Implementation"></a>
-    <h3>Implementation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Implementation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Implementation</p>
     <div class="comment">
      <p>An Implementation represents an instance of a synthetic biological construct, and describes the build phase of a design-built-test-learn workflow. Importantly, an Implementation can be associated with a laboratory sample that was already built, or that is to be built in the future. An Implementation can also represent virtual and simulated instances. An Implementation may be linked back to its original design (either a ModuleDefinition or ComponentDefinition) using the wasDerivedFroms property inherited from the Identified superclass. An Implementation may also link to a ModuleDefinition or ComponentDefinition that specifies its realized structure and/or function.</p> 
@@ -1261,7 +1261,7 @@
       <sup title="class" class="type-c">c</sup>, 
       <a href="#ComponentDefinition" title="http://sbols.org/v2#ComponentDefinition">ComponentDefinition</a>
       <sup title="class" class="type-c">c</sup>, 
-      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">generic top level</a>
+      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">GenericTopLevel</a>
       <sup title="class" class="type-c">c</sup>, 
       <a href="#Model" title="http://sbols.org/v2#Model">Model</a>
       <sup title="class" class="type-c">c</sup>, 
@@ -1274,7 +1274,7 @@
    </div>
    <div id="in" class="entity">
     <a name="http://sbols.org/v2#in"></a>
-    <h3>in<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>in<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#in</p>
     <div class="comment">
      <p>Indicates that the FunctionalComponent is an input.</p>
@@ -1309,13 +1309,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3091">named individual</a>
+      <a href="#d4e3097">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="inline" class="entity">
     <a name="http://sbols.org/v2#inline"></a>
-    <h3>inline<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>inline<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#inline</p>
     <div class="comment">
      <p>The region specified by this Location is on the elements of a Sequence.</p>
@@ -1346,13 +1346,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3098">named individual</a>
+      <a href="#d4e3104">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="inout" class="entity">
     <a name="http://sbols.org/v2#inout"></a>
-    <h3>inout<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>inout<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#inout</p>
     <div class="comment">
      <p>Indicates that the FunctionalComponent is both an input and output.</p>
@@ -1387,13 +1387,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3106">named individual</a>
+      <a href="#d4e3112">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="Interaction" class="entity">
     <a name="http://sbols.org/v2#Interaction"></a>
-    <h3>Interaction<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Interaction<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Interaction</p>
     <div class="comment">
      <p>Provides more detailed description of how the FunctionalComponent objects of a ModuleDefinition are intended to work together.</p> 
@@ -1424,7 +1424,7 @@
    </div>
    <div id="Location" class="entity">
     <a name="http://sbols.org/v2#Location"></a>
-    <h3>Location<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Location<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Location</p>
     <div class="comment">
      <p>Extended by the Range, Cut, and GenericLocation classes.</p> 
@@ -1479,10 +1479,10 @@
    </div>
    <div id="MapsTo" class="entity">
     <a name="http://sbols.org/v2#MapsTo"></a>
-    <h3>MapsTo<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>MapsTo<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#MapsTo</p>
     <div class="comment">
-     <p>MapsTo</p> 
+     <p>When ComponentDefinition and ModuleDefinition objects are composed into structural and functional hierarchies using ComponentInstance and Module objects, it is often the case that some ComponentInstance objects are intended to represent the same entity in the overall design. The purpose of the MapsTo class is to make these identity relationships clear and explicit. For example, consider a ModuleDefinition for a genetic inverter that includes a FunctionalComponent for an abstract repressor protein. When this ModuleDefinition is instantiated within a “higher level” ModuleDefinition that includes a FunctionalComponent for a LacI protein, the MapsTo object can be used to indicate that the repressor protein in the first ModuleDefinition is LacI in the context of the composite design. </p> 
     </div>
     <dl class="description">
      <dt>
@@ -1545,7 +1545,7 @@
    </div>
    <div id="merge" class="entity">
     <a name="http://sbols.org/v2#merge"></a>
-    <h3>merge<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>merge<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#merge</p>
     <div class="comment">
      <p>In the context of the ComponentDefinition or ModuleDefinition that contains the owner of the MapsTo, all references to the local ComponentInstance or the remote ComponentInstance MUST dereference to both objects.</p>
@@ -1580,13 +1580,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3113">named individual</a>
+      <a href="#d4e3119">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="mergeRoles" class="entity">
     <a name="http://sbols.org/v2#mergeRoles"></a>
-    <h3>mergeRoles<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>mergeRoles<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#mergeRoles</p>
     <div class="comment">
      <p>Indicates to use the union of the two sets: both the set of zero or more roles given for this Component as well as the set of zero or more roles given for the included subComponentDefinition.</p> 
@@ -1610,7 +1610,7 @@
    </div>
    <div id="Model" class="entity">
     <a name="http://sbols.org/v2#Model"></a>
-    <h3>Model<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Model<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Model</p>
     <div class="comment">
      <p>Serves as a placeholder for an external computational model and provide additional meta-data to enable better reasoning about the contents of this model.</p> 
@@ -1651,7 +1651,7 @@
       <sup title="class" class="type-c">c</sup>, 
       <a href="#ComponentDefinition" title="http://sbols.org/v2#ComponentDefinition">ComponentDefinition</a>
       <sup title="class" class="type-c">c</sup>, 
-      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">generic top level</a>
+      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">GenericTopLevel</a>
       <sup title="class" class="type-c">c</sup>, 
       <a href="#Implementation" title="http://sbols.org/v2#Implementation">Implementation</a>
       <sup title="class" class="type-c">c</sup>, 
@@ -1664,7 +1664,7 @@
    </div>
    <div id="Module" class="entity">
     <a name="http://sbols.org/v2#Module"></a>
-    <h3>Module<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Module<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Module</p>
     <div class="comment">
      <p>Represents the usage or occurrence of a ModuleDefinition within a larger design.</p> 
@@ -1695,7 +1695,7 @@
    </div>
    <div id="ModuleDefinition" class="entity">
     <a name="http://sbols.org/v2#ModuleDefinition"></a>
-    <h3>ModuleDefinition<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>ModuleDefinition<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#ModuleDefinition</p>
     <div class="comment">
      <p>Represents a grouping of structural and functional entities in a biological design.</p> 
@@ -1733,7 +1733,7 @@
       <sup title="class" class="type-c">c</sup>, 
       <a href="#ComponentDefinition" title="http://sbols.org/v2#ComponentDefinition">ComponentDefinition</a>
       <sup title="class" class="type-c">c</sup>, 
-      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">generic top level</a>
+      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">GenericTopLevel</a>
       <sup title="class" class="type-c">c</sup>, 
       <a href="#Implementation" title="http://sbols.org/v2#Implementation">Implementation</a>
       <sup title="class" class="type-c">c</sup>, 
@@ -1746,7 +1746,7 @@
    </div>
    <div id="mRNA" class="entity">
     <a name="http://sbols.org/v2#mRNA"></a>
-    <h3>mRNA<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>mRNA<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#mRNA</p>
     <div class="comment">
      <p>mRNA RNA component</p> 
@@ -1773,7 +1773,7 @@
    </div>
    <div id="NASequence" class="entity">
     <a name="http://sbols.org/v2#NASequence"></a>
-    <h3>NASequence<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>NASequence<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#NASequence</p>
     <div class="comment">
      <p>Nucleic acid sequence</p> 
@@ -1816,7 +1816,7 @@
    </div>
    <div id="none" class="entity">
     <a name="http://sbols.org/v2#none"></a>
-    <h3>none<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>none<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#none</p>
     <div class="comment">
      <p>Indicates that the FunctionalComponent is neither an input or output.</p>
@@ -1851,13 +1851,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3120">named individual</a>
+      <a href="#d4e3126">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="one" class="entity">
     <a name="http://sbols.org/v2#one"></a>
-    <h3>one<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>one<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#one</p>
     <div class="comment">
      <p>Exactly one Component in the derived ComponentDefinition SHOULD have a wasDerivedFroms property that refers to the template Component.</p>
@@ -1892,13 +1892,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3128">named individual</a>
+      <a href="#d4e3134">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="oneOrMore" class="entity">
     <a name="http://sbols.org/v2#oneOrMore"></a>
-    <h3>oneOrMore<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>oneOrMore<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#oneOrMore</p>
     <div class="comment">
      <p>At least one Component in the derived ComponentDefinition SHOULD have a wasDerivedFroms property that refers to the template Component.</p>
@@ -1933,13 +1933,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3135">named individual</a>
+      <a href="#d4e3141">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="Operator" class="entity">
     <a name="http://sbols.org/v2#Operator"></a>
-    <h3>Operator<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Operator<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Operator</p>
     <div class="comment">
      <p>Operator DNA component</p> 
@@ -1983,7 +1983,7 @@
    </div>
    <div id="oppositeOrientationAs" class="entity">
     <a name="http://sbols.org/v2#oppositeOrientationAs"></a>
-    <h3>oppositeOrientationAs<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>oppositeOrientationAs<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#oppositeOrientationAs</p>
     <div class="comment">
      <p>The subject and object Component objects MUST have opposite orientations. If each one is associated with a SequenceAnnotation, then the orientation URIs of the Location objects of one SequenceAnnotation MUST NOT be among those of the other SequenceAnnotation.</p> 
@@ -2011,7 +2011,7 @@
    </div>
    <div id="Orientation" class="entity">
     <a name="http://sbols.org/v2#Orientation"></a>
-    <h3>Orientation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Orientation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Orientation</p>
     <div class="comment">
      <p>Provides values for the orientation of a Sequence entity.</p> 
@@ -2073,7 +2073,7 @@
    </div>
    <div id="out" class="entity">
     <a name="http://sbols.org/v2#out"></a>
-    <h3>out<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>out<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#out</p>
     <div class="comment">
      <p>Indicates that the FunctionalComponent is an output.</p>
@@ -2108,13 +2108,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3142">named individual</a>
+      <a href="#d4e3148">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="overrideRoles" class="entity">
     <a name="http://sbols.org/v2#overrideRoles"></a>
-    <h3>overrideRoles<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>overrideRoles<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#overrideRoles</p>
     <div class="comment">
      <p>Indicates that in the context of a Component, ignore any roles given for the included subComponentDefinition. Instead use only the set of zero or more roles given for this Component.</p> 
@@ -2138,7 +2138,7 @@
    </div>
    <div id="Participation" class="entity">
     <a name="http://sbols.org/v2#Participation"></a>
-    <h3>Participation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Participation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Participation</p>
     <div class="comment">
      <p>Each Participation represents how a particular FunctionalComponent behaves in its parent Interaction.</p> 
@@ -2176,7 +2176,7 @@
    </div>
    <div id="precedes" class="entity">
     <a name="http://sbols.org/v2#precedes"></a>
-    <h3>precedes<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>precedes<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#precedes</p>
     <div class="comment">
      <p>The position of the subject Component MUST precede that of the object Component. If each one is associated with a SequenceAnnotation, then the SequenceAnnotation associated with the subject Component MUST specify a region that starts before the region specified by the SequenceAnnotation associated with the object Component.</p> 
@@ -2204,7 +2204,7 @@
    </div>
    <div id="private" class="entity">
     <a name="http://sbols.org/v2#private"></a>
-    <h3>private<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>private<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#private</p>
     <div class="comment">
      <p>Indicates that a ComponentInstance MUST NOT be referred to by remote MapsTo objects.</p>
@@ -2235,13 +2235,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3150">named individual</a>
+      <a href="#d4e3156">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="Promoter" class="entity">
     <a name="http://sbols.org/v2#Promoter"></a>
-    <h3>Promoter<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Promoter<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Promoter</p>
     <div class="comment">
      <p>Promoter DNA component</p> 
@@ -2285,7 +2285,7 @@
    </div>
    <div id="Protein" class="entity">
     <a name="http://sbols.org/v2#Protein"></a>
-    <h3>Protein<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Protein<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Protein</p>
     <div class="comment">
      <p>Protein component definition</p> 
@@ -2322,7 +2322,7 @@
    </div>
    <div id="ProteinSequence" class="entity">
     <a name="http://sbols.org/v2#ProteinSequence"></a>
-    <h3>ProteinSequence<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>ProteinSequence<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#ProteinSequence</p>
     <div class="comment">
      <p>Protein sequence</p> 
@@ -2362,7 +2362,7 @@
    </div>
    <div id="public" class="entity">
     <a name="http://sbols.org/v2#public"></a>
-    <h3>public<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>public<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#public</p>
     <div class="comment">
      <p>Indicates that a ComponentInstance MAY be referred to by remote MapsTo objects.</p>
@@ -2393,13 +2393,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3157">named individual</a>
+      <a href="#d4e3163">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="Range" class="entity">
     <a name="http://sbols.org/v2#Range"></a>
-    <h3>Range<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Range<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Range</p>
     <div class="comment">
      <p>A Range object specifies a region via discrete, inclusive start and end positions that correspond to indices for characters in the elements String of a Sequence.</p> 
@@ -2446,7 +2446,7 @@
    </div>
    <div id="RBS" class="entity">
     <a name="http://sbols.org/v2#RBS"></a>
-    <h3>RBS<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>RBS<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#RBS</p>
     <div class="comment">
      <p>RBS DNA component</p> 
@@ -2490,7 +2490,7 @@
    </div>
    <div id="Refinement" class="entity">
     <a name="http://sbols.org/v2#Refinement"></a>
-    <h3>Refinement<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Refinement<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Refinement</p>
     <div class="comment">
      <p>Not represented in SBOL directly. It is used in the OWL representation to enforce choosing a refinement using one of its subclasses.</p> 
@@ -2562,7 +2562,7 @@
    </div>
    <div id="Restriction" class="entity">
     <a name="http://sbols.org/v2#Restriction"></a>
-    <h3>Restriction<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Restriction<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Restriction</p>
     <div class="comment">
      <p>Specifies relative positions of sub components in a design.</p> 
@@ -2634,7 +2634,7 @@
    </div>
    <div id="reverseComplement" class="entity">
     <a name="http://sbols.org/v2#reverseComplement"></a>
-    <h3>reverseComplement<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>reverseComplement<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#reverseComplement</p>
     <div class="comment">
      <p>The region specified by this Location is on the reverse-complement translation of the elements of a Sequence. The exact nature of this translation depends on the encoding of the Sequence</p>
@@ -2665,13 +2665,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3164">named individual</a>
+      <a href="#d4e3170">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="RNA" class="entity">
     <a name="http://sbols.org/v2#RNA"></a>
-    <h3>RNA<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>RNA<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#RNA</p>
     <div class="comment">
      <p>RNA component definition</p> 
@@ -2715,7 +2715,7 @@
    </div>
    <div id="RoleIntegration" class="entity">
     <a name="http://sbols.org/v2#RoleIntegration"></a>
-    <h3>RoleIntegration<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>RoleIntegration<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#RoleIntegration</p>
     <div class="comment">
      <p>Not represented in SBOL directly. It is used in the OWL representation to enforce choosing a role integration using one of its subclasses.</p> 
@@ -2777,7 +2777,7 @@
    </div>
    <div id="sameOrientationAs" class="entity">
     <a name="http://sbols.org/v2#sameOrientationAs"></a>
-    <h3>sameOrientationAs<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>sameOrientationAs<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#sameOrientationAs</p>
     <div class="comment">
      <p>The subject and object Component objects MUST have the same orientation. If each one is associated with a SequenceAnnotation, then the orientation URIs of the Location objects of the first SequenceAnnotation MUST be among those of the second SequenceAnnotation, and vice versa.</p> 
@@ -2805,7 +2805,7 @@
    </div>
    <div id="sample" class="entity">
     <a name="http://sbols.org/v2#sample"></a>
-    <h3>sample<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>sample<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#sample</p>
     <div class="comment">
      <p>A user SHOULD derive a subset of all possible ComponentDefinition objects specified by CombinatorialDerivation. The manner in which this subset is chosen is for the user to decide.</p>
@@ -2836,13 +2836,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3172">named individual</a>
+      <a href="#d4e3178">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="SBOLVocabulary" class="entity">
     <a name="http://sbols.org/v2#SBOLVocabulary"></a>
-    <h3>SBOLVocabulary<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>SBOLVocabulary<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#SBOLVocabulary</p>
     <div class="comment">
      <p>Not represented in SBOL directly. It is used to group SBOL specific terms.</p> 
@@ -2901,7 +2901,7 @@
    </div>
    <div id="Sequence" class="entity">
     <a name="http://sbols.org/v2#Sequence"></a>
-    <h3>Sequence<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Sequence<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Sequence</p>
     <div class="comment">
      <p>Sequence</p> 
@@ -2961,7 +2961,7 @@
       <sup title="class" class="type-c">c</sup>, 
       <a href="#ComponentDefinition" title="http://sbols.org/v2#ComponentDefinition">ComponentDefinition</a>
       <sup title="class" class="type-c">c</sup>, 
-      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">generic top level</a>
+      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">GenericTopLevel</a>
       <sup title="class" class="type-c">c</sup>, 
       <a href="#Implementation" title="http://sbols.org/v2#Implementation">Implementation</a>
       <sup title="class" class="type-c">c</sup>, 
@@ -2974,7 +2974,7 @@
    </div>
    <div id="SequenceAnnotation" class="entity">
     <a name="http://sbols.org/v2#SequenceAnnotation"></a>
-    <h3>SequenceAnnotation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>SequenceAnnotation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#SequenceAnnotation</p>
     <div class="comment">
      <p>The SequenceAnnotation class describes one or more regions of interest on the Sequence objects referred to by its parent ComponentDefinition. In addition, SequenceAnnotation objects can describe the substructure of their parent ComponentDefinition through association with the Component objects contained by this ComponentDefinition.</p> 
@@ -3012,7 +3012,7 @@
    </div>
    <div id="SequenceConstraint" class="entity">
     <a name="http://sbols.org/v2#SequenceConstraint"></a>
-    <h3>SequenceConstraint<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>SequenceConstraint<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#SequenceConstraint</p>
     <div class="comment">
      <p>The SequenceConstraint class can be used to assert restrictions on the relative, sequence-based positions of pairs of Component objects contained by the same parent ComponentDefinition. The primary purpose of this class is to enable the specification of partially designed ComponentDefinition objects, for which the precise positions or orientations of their contained Component objects are not yet fully determined. Each SequenceConstraint includes the restriction, subject, and object properties.</p> 
@@ -3072,7 +3072,7 @@
    </div>
    <div id="SmallMolecule" class="entity">
     <a name="http://sbols.org/v2#SmallMolecule"></a>
-    <h3>SmallMolecule<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>SmallMolecule<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#SmallMolecule</p>
     <div class="comment">
      <p>SmallMolecule component definition</p> 
@@ -3116,7 +3116,7 @@
    </div>
    <div id="SMILES" class="entity">
     <a name="http://sbols.org/v2#SMILES"></a>
-    <h3>SMILES<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>SMILES<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#SMILES</p>
     <div class="comment">
      <p>SMILES sequence</p> 
@@ -3156,7 +3156,7 @@
    </div>
    <div id="Terminator" class="entity">
     <a name="http://sbols.org/v2#Terminator"></a>
-    <h3>Terminator<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>Terminator<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Terminator</p>
     <div class="comment">
      <p>Terminator DNA component</p> 
@@ -3200,7 +3200,7 @@
    </div>
    <div id="TopLevel" class="entity">
     <a name="http://sbols.org/v2#TopLevel"></a>
-    <h3>TopLevel<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>TopLevel<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#TopLevel</p>
     <div class="comment">
      <p>Can be used to represent biological design components such as DNA, RNA and small molecules.</p> 
@@ -3225,6 +3225,8 @@
       <sup title="class" class="type-c">c</sup>, 
       <a href="#ComponentDefinition" title="http://sbols.org/v2#ComponentDefinition">ComponentDefinition</a>
       <sup title="class" class="type-c">c</sup>, 
+      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">GenericTopLevel</a>
+      <sup title="class" class="type-c">c</sup>, 
       <a href="#Implementation" title="http://sbols.org/v2#Implementation">Implementation</a>
       <sup title="class" class="type-c">c</sup>, 
       <a href="#Model" title="http://sbols.org/v2#Model">Model</a>
@@ -3232,8 +3234,6 @@
       <a href="#ModuleDefinition" title="http://sbols.org/v2#ModuleDefinition">ModuleDefinition</a>
       <sup title="class" class="type-c">c</sup>, 
       <a href="#Sequence" title="http://sbols.org/v2#Sequence">Sequence</a>
-      <sup title="class" class="type-c">c</sup>, 
-      <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">generic top level</a>
       <sup title="class" class="type-c">c</sup>
      </dd>
      <dt>
@@ -3247,7 +3247,7 @@
    </div>
    <div id="useLocal" class="entity">
     <a name="http://sbols.org/v2#useLocal"></a>
-    <h3>useLocal<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>useLocal<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#useLocal</p>
     <div class="comment">
      <p>In the context of the ComponentDefinition or ModuleDefinition that contains the owner of the MapsTo, all references to the remote ComponentInstance MUST dereference to the local ComponentInstance instead.</p>
@@ -3282,13 +3282,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3179">named individual</a>
+      <a href="#d4e3185">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="useRemote" class="entity">
     <a name="http://sbols.org/v2#useRemote"></a>
-    <h3>useRemote<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>useRemote<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#useRemote</p>
     <div class="comment">
      <p>Indicates that all references to the local ComponentInstance MUST dereference to the remote ComponentInstance instead.</p>
@@ -3323,13 +3323,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3186">named individual</a>
+      <a href="#d4e3192">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="VariableComponent" class="entity">
     <a name="http://sbols.org/v2#VariableComponent"></a>
-    <h3>VariableComponent<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>VariableComponent<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#VariableComponent</p>
     <div class="comment">
      <p>The VariableComponent class can be used to specify a choice of ComponentDefinition objects for any new 35 Component derived from a template Component in the template ComponentDefinition.</p> 
@@ -3382,7 +3382,7 @@
    </div>
    <div id="VariableOperator" class="entity">
     <a name="http://sbols.org/v2#VariableOperator"></a>
-    <h3>VariableOperator<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>VariableOperator<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#VariableOperator</p>
     <div class="comment">
      <p>Specifies the operator types for combinatorial derivations.</p> 
@@ -3454,7 +3454,7 @@
    </div>
    <div id="verifyIdentical" class="entity">
     <a name="http://sbols.org/v2#verifyIdentical"></a>
-    <h3>verifyIdentical<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>verifyIdentical<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#verifyIdentical</p>
     <div class="comment">
      <p>Indicates that the definition properties of the local and remote ComponentInstance objects MUST refer to the same ComponentDefinition.</p>
@@ -3489,13 +3489,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3194">named individual</a>
+      <a href="#d4e3200">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="zeroOrMore" class="entity">
     <a name="http://sbols.org/v2#zeroOrMore"></a>
-    <h3>zeroOrMore<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>zeroOrMore<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#zeroOrMore</p>
     <div class="comment">
      <p>Any number of Component objects in the derived ComponentDefinition MAY have wasDerivedFroms properties that refer to the template Component.</p>
@@ -3523,13 +3523,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3201">named individual</a>
+      <a href="#d4e3207">named individual</a>
      </dd>
     </dl>
    </div>
    <div id="zeroOrOne" class="entity">
     <a name="http://sbols.org/v2#zeroOrOne"></a>
-    <h3>zeroOrOne<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#classes">Class ToC</a></span></h3>
+    <h3>zeroOrOne<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#zeroOrOne</p>
     <div class="comment">
      <p>No more than one Component in the derived ComponentDefinition SHOULD have a wasDerivedFroms property that refers to the template Component.</p>
@@ -3566,7 +3566,7 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3208">named individual</a>
+      <a href="#d4e3214">named individual</a>
      </dd>
     </dl>
    </div>
@@ -3623,7 +3623,7 @@
    </ul>
    <div id="access" class="entity">
     <a name="http://sbols.org/v2#access"></a>
-    <h3>access<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>access<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#access</p>
     <div class="comment">
      <p>The access property is a REQUIRED URI that indicates whether the ComponentInstance can be referred to remotely by a MapsTo on another ComponentInstance or Module contained by a different parent ComponentDefinition or ModuleDefinition (one that does not contain this ComponentInstance)</p> 
@@ -3650,7 +3650,7 @@
    </div>
    <div id="built" class="entity">
     <a name="http://sbols.org/v2#built"></a>
-    <h3>built<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>built<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#built</p>
     <div class="comment">
      <p>The built property is OPTIONAL and MAY contain a URI that MUST refer to a TopLevel object that is either a ComponentDefinition or ModuleDefinition. This ComponentDefinition or ModuleDefinition is intended to describe the actual physical structure and/or functional behavior of the Implementation.</p> 
@@ -3680,7 +3680,7 @@
    </div>
    <div id="component" class="entity">
     <a name="http://sbols.org/v2#component"></a>
-    <h3>component<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>component<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#component</p>
     <div class="comment">
      <p>The components property is OPTIONAL and MAY specify a set of Component objects that are contained by the ComponentDefinition. The set of relations between Component and ComponentDefinition objects is strictly acyclic.</p> 
@@ -3716,7 +3716,7 @@
    </div>
    <div id="definition" class="entity">
     <a name="http://sbols.org/v2#definition"></a>
-    <h3>definition<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>definition<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#definition</p>
     <div class="comment">
      <p>The definition property is a REQUIRED URI that refers to the ComponentDefinition of the ComponentInstance. As described in the previous section, this ComponentDefinition effectively provides information about the types and roles of the ComponentInstance.</p> 
@@ -3756,7 +3756,7 @@
    </div>
    <div id="direction" class="entity">
     <a name="http://sbols.org/v2#direction"></a>
-    <h3>direction<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>direction<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#direction</p>
     <div class="comment">
      <p>Each FunctionalComponent MUST specify via the direction property whether it serves as an input, output, both, or neither for its parent ModuleDefinition object.</p> 
@@ -3783,7 +3783,7 @@
    </div>
    <div id="encoding" class="entity">
     <a name="http://sbols.org/v2#encoding"></a>
-    <h3>encoding<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>encoding<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#encoding</p>
     <div class="comment">
      <p>The encoding property is REQUIRED and has a data type of URI. This property MUST indicate how the elements property of a Sequence MUST be formed and interpreted.</p> 
@@ -3803,7 +3803,7 @@
    </div>
    <div id="format" class="entity">
     <a name="http://sbols.org/v2#format"></a>
-    <h3>format<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>format<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#format</p>
     <div class="comment">
      <p>The format property is OPTIONAL and MAY contain a URI that specifies the format of the attached file. It is RECOMMENDED that this URI refer to a term from the EMBRACE Data and Methods (EDAM) ontology</p> 
@@ -3823,7 +3823,7 @@
    </div>
    <div id="framework" class="entity">
     <a name="http://sbols.org/v2#framework"></a>
-    <h3>framework<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>framework<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#framework</p>
     <div class="comment">
      <p>The framework property is REQUIRED and MUST contain a URI that specifies the framework in which the model is implemented. It is RECOMMENDED this URI refer to a term from the modeling framework branch of the SBO when possible.</p> 
@@ -3843,7 +3843,7 @@
    </div>
    <div id="functionalComponent" class="entity">
     <a name="http://sbols.org/v2#functionalComponent"></a>
-    <h3>functionalComponent<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>functionalComponent<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#functionalComponent</p>
     <div class="comment">
      <p>The property is OPTIONAL and MAY be used specify a set of FunctionalComponent objects contained by the ModuleDefinition.</p> 
@@ -3869,7 +3869,7 @@
    </div>
    <div id="interaction" class="entity">
     <a name="http://sbols.org/v2#interaction"></a>
-    <h3>interaction<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>interaction<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#interaction</p>
     <div class="comment">
      <p>The interaction property is OPTIONAL and MAY be used specify a set of Interaction objects within the ModuleDefinition.</p> 
@@ -3895,7 +3895,7 @@
    </div>
    <div id="isComponentOf" class="entity">
     <a name="http://sbols.org/v2#isComponentOf"></a>
-    <h3>isComponentOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>isComponentOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#isComponentOf</p>
     <div class="comment">
      <p>isComponentOf</p> 
@@ -3932,7 +3932,7 @@
    </div>
    <div id="isDefinitionOf" class="entity">
     <a name="http://sbols.org/v2#isDefinitionOf"></a>
-    <h3>isDefinitionOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>isDefinitionOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#isDefinitionOf</p>
     <div class="comment">
      <p>Inverse of the definition property</p> 
@@ -3951,7 +3951,7 @@
    </div>
    <div id="isObjectOf" class="entity">
     <a name="http://sbols.org/v2#isObjectOf"></a>
-    <h3>isObjectOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>isObjectOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#isObjectOf</p>
     <div class="comment">
      <p>isObjectOf</p> 
@@ -3984,7 +3984,7 @@
    </div>
    <div id="isSequenceOf" class="entity">
     <a name="http://sbols.org/v2#isSequenceOf"></a>
-    <h3>isSequenceOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>isSequenceOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#isSequenceOf</p>
     <div class="comment">
      <p>Inverse of the sequence property</p> 
@@ -4018,7 +4018,7 @@
    </div>
    <div id="isSubjectOf" class="entity">
     <a name="http://sbols.org/v2#isSubjectOf"></a>
-    <h3>isSubjectOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>isSubjectOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#isSubjectOf</p>
     <div class="comment">
      <p>isSubjectOf</p> 
@@ -4051,7 +4051,7 @@
    </div>
    <div id="language" class="entity">
     <a name="http://sbols.org/v2#language"></a>
-    <h3>language<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>language<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#language</p>
     <div class="comment">
      <p>The language property is REQUIRED and MUST contain a URI that specifies the language in which the model is implemented. It is RECOMMENDED that this URI refer to a term from the EMBRACE Data and Methods (EDAM) ontology.</p> 
@@ -4071,7 +4071,7 @@
    </div>
    <div id="local" class="entity">
     <a name="http://sbols.org/v2#local"></a>
-    <h3>local<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>local<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#local</p>
     <div class="comment">
      <p>This REQUIRED property has a data type of URI and is used to refer to the ComponentInstance contained by the “higher level” ComponentDefinition or ModuleDefinition. This local ComponentInstance MUST be contained by the ComponentDefinition or ModuleDefinition that contains the ComponentInstance or Module that owns the MapsTo.</p> 
@@ -4098,7 +4098,7 @@
    </div>
    <div id="location" class="entity">
     <a name="http://sbols.org/v2#location"></a>
-    <h3>location<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>location<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#location</p>
     <div class="comment">
      <p>The location property is REQUIRED to specify one or more Location objects that indicate which elements of a Sequence are described by the SequenceAnnotation.</p> 
@@ -4124,7 +4124,7 @@
    </div>
    <div id="mapsTo" class="entity">
     <a name="http://sbols.org/v2#mapsTo"></a>
-    <h3>mapsTo<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>mapsTo<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#mapsTo</p>
     <div class="comment">
      <p>The mapsTo property is OPTIONAL and MAY contain a MapsTo object that refers to and links together a ComponentInstance object (both Component objects and FunctionalComponent objects) within a larger design.</p> 
@@ -4150,7 +4150,7 @@
    </div>
    <div id="member" class="entity">
     <a name="http://sbols.org/v2#member"></a>
-    <h3>member<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>member<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#member</p>
     <div class="comment">
      <p>Contains a reference to a top level entity</p> 
@@ -4176,7 +4176,7 @@
    </div>
    <div id="model" class="entity">
     <a name="http://sbols.org/v2#model"></a>
-    <h3>model<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>model<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#model</p>
     <div class="comment">
      <p>The model property is OPTIONAL and MAY be used to specify a set of URI references to Model objects.</p> 
@@ -4202,7 +4202,7 @@
    </div>
    <div id="module" class="entity">
     <a name="http://sbols.org/v2#module"></a>
-    <h3>module<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>module<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#module</p>
     <div class="comment">
      <p>The property is OPTIONAL and MAY be used specify a set of Module objects contained by the ModuleDefinition. Note that the set of relations between Module and ModuleDefinition objects is strictly acyclic.</p> 
@@ -4228,7 +4228,7 @@
    </div>
    <div id="object" class="entity">
     <a name="http://sbols.org/v2#object"></a>
-    <h3>object<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>object<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#object</p>
     <div class="comment">
      <p>The object property is REQUIRED and MUST contain a URI that refers to a Component contained by the same parent ComponentDefinition that contains the SequenceConstraint. This Component MUST NOT be the same Component that the SequenceConstraint refers to via its subject property.</p> 
@@ -4262,7 +4262,7 @@
    </div>
    <div id="operator" class="entity">
     <a name="http://sbols.org/v2#operator"></a>
-    <h3>operator<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>operator<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#operator</p>
     <div class="comment">
      <p>The operator property is REQUIRED and has a data type of URI. This property specifies how many Component objects SHOULD be derived from the template Component during the derivation of a new ComponentDefinition.</p> 
@@ -4289,7 +4289,7 @@
    </div>
    <div id="orientation" class="entity">
     <a name="http://sbols.org/v2#orientation"></a>
-    <h3>orientation<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>orientation<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#orientation</p>
     <div class="comment">
      <p>Indicates the type of a component's orientation. All subclasses of Location share this property, which can be used to indicate how the region specified by the SequenceAnnotation and any associated double-stranded Component is oriented on the elements of a Sequence from their parent ComponentDefinition</p> 
@@ -4316,7 +4316,7 @@
    </div>
    <div id="participant" class="entity">
     <a name="http://sbols.org/v2#participant"></a>
-    <h3>participant<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>participant<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#participant</p>
     <div class="comment">
      <p>The participant property MUST specify precisely one FunctionalComponent object that plays the designated role in its parent Interaction object.</p> 
@@ -4343,7 +4343,7 @@
    </div>
    <div id="participation" class="entity">
     <a name="http://sbols.org/v2#participation"></a>
-    <h3>participation<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>participation<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#participation</p>
     <div class="comment">
      <p>The participation property is an OPTIONAL and MAY contain a Participation object, which identifies the roles that its referenced FunctionalComponent plays in the Interaction</p> 
@@ -4369,7 +4369,7 @@
    </div>
    <div id="persistentIdentity" class="entity">
     <a name="http://sbols.org/v2#persistentIdentity"></a>
-    <h3>persistentIdentity<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>persistentIdentity<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#persistentIdentity</p>
     <div class="comment">
      <p>It is used to refer to a set of SBOL objects that are different versions of each other.</p> 
@@ -4389,7 +4389,7 @@
    </div>
    <div id="refinement" class="entity">
     <a name="http://sbols.org/v2#refinement"></a>
-    <h3>refinement<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>refinement<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#refinement</p>
     <div class="comment">
      <p>The refinement property is REQUIRED and has a data type of URI. Each MapsTo object MUST specify the rela- 27 tionship between its local and remote ComponentInstance objects.</p> 
@@ -4416,7 +4416,7 @@
    </div>
    <div id="remote" class="entity">
     <a name="http://sbols.org/v2#remote"></a>
-    <h3>remote<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>remote<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#remote</p>
     <div class="comment">
      <p>This REQUIRED property has a data type of URI and is used to refer to the ComponentInstance contained by the “lower level” ComponentDefinition or ModuleDefinition. This remote ComponentInstance MUST be contained by the ComponentDefinition or ModuleDefinition that is the definition of the ComponentInstance or Module that owns the MapsTo. Lastly, the access property of the remote ComponentInstance MUST be set to “public.</p> 
@@ -4443,7 +4443,7 @@
    </div>
    <div id="restriction" class="entity">
     <a name="http://sbols.org/v2#restriction"></a>
-    <h3>restriction<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>restriction<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#restriction</p>
     <div class="comment">
      <p>The restriction property is REQUIRED and has a data type of URI. This property MUST indicate the type of structural restriction on the positions, orientations, or structural identities of the subject and object Component objects in relation to each other.</p> 
@@ -4470,10 +4470,10 @@
    </div>
    <div id="role" class="entity">
     <a name="http://sbols.org/v2#role"></a>
-    <h3>role<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>role<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#role</p>
     <div class="comment">
-     <p>Points to a URI that represents the role. In the context of a ComponentDefinition, aan SO term for a promoter.</p> 
+     <p>Clarifies the potential function of an entity in a biochemical or physical context. When it is used for ComponentDefinitions, it MUST identify terms from ontologies that are consistent with the types property of the ComponentDefinition. For example, the roles property of a DNA or RNA ComponentDefinition could contain URIs identifying terms from the Sequence Ontology (SO).</p> 
     </div>
     <div class="description">
      <dl>
@@ -4501,7 +4501,7 @@
    </div>
    <div id="roleIntegration" class="entity">
     <a name="http://sbols.org/v2#roleIntegration"></a>
-    <h3>roleIntegration<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>roleIntegration<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#roleIntegration</p>
     <div class="comment">
      <p>A roleIntegration specifies the relationship between a Component instance’s own set of roles and the set of roles on the included sub-ComponentDefinition.</p> 
@@ -4528,7 +4528,7 @@
    </div>
    <div id="sequence" class="entity">
     <a name="http://sbols.org/v2#sequence"></a>
-    <h3>sequence<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>sequence<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#sequence</p>
     <div class="comment">
      <p>The sequences property is OPTIONAL and MAY include a set of URIs that refer to Sequence objects. These objects define the primary structure of the ComponentDefinition</p> 
@@ -4561,7 +4561,7 @@
    </div>
    <div id="sequenceAnnotation" class="entity">
     <a name="http://sbols.org/v2#sequenceAnnotation"></a>
-    <h3>sequenceAnnotation<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>sequenceAnnotation<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#sequenceAnnotation</p>
     <div class="comment">
      <p>The sequenceAnnotations property is OPTIONAL and MAY contain a set of SequenceAnnotation objects. Each SequenceAnnotation specifies and describes a potentially discontiguous region on the Sequence objects referred to by the ComponentDefinition.</p> 
@@ -4587,7 +4587,7 @@
    </div>
    <div id="sequenceConstraint" class="entity">
     <a name="http://sbols.org/v2#sequenceConstraint"></a>
-    <h3>sequenceConstraint<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>sequenceConstraint<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#sequenceConstraint</p>
     <div class="comment">
      <p>The sequenceConstraints property is OPTIONAL and MAY contain a set of SequenceConstraint objects. These objects describe any restrictions on the relative, sequence-based positions and/or orientations of the Component objects contained by the ComponentDefinition. For example, the ComponentDefinition of a gene might specify that the position of its promoter Component precedes that of its CDS Component. This is particularly useful when a ComponentDefinition lacks a Sequence and therefore cannot specify the precise, sequence-based positions of its Component objects using SequenceAnnotation objects.</p> 
@@ -4613,7 +4613,7 @@
    </div>
    <div id="source" class="entity">
     <a name="http://sbols.org/v2#source"></a>
-    <h3>source<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>source<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#source</p>
     <div class="comment">
      <p>The source property is REQUIRED and MUST contain a URI reference to the source file for a model.</p> 
@@ -4636,7 +4636,7 @@
    </div>
    <div id="strategy" class="entity">
     <a name="http://sbols.org/v2#strategy"></a>
-    <h3>strategy<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>strategy<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#strategy</p>
     <div class="comment">
      <p>Indicates combinatorial derivation strategy.</p> 
@@ -4663,7 +4663,7 @@
    </div>
    <div id="subject" class="entity">
     <a name="http://sbols.org/v2#subject"></a>
-    <h3>subject<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>subject<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#subject</p>
     <div class="comment">
      <p>The subject property is REQUIRED and MUST contain a URI that refers to a Component contained by the same parent ComponentDefinition that contains the SequenceConstraint.</p> 
@@ -4697,7 +4697,7 @@
    </div>
    <div id="template" class="entity">
     <a name="http://sbols.org/v2#template"></a>
-    <h3>template<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>template<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#template</p>
     <div class="comment">
      <p>The template property is REQUIRED and MUST contain a URI that refers to a ComponentDefinition. This ComponentDefinition is expected to serve as a template for the derivation of new ComponentDefinition objects.</p> 
@@ -4724,10 +4724,10 @@
    </div>
    <div id="type" class="entity">
     <a name="http://sbols.org/v2#type"></a>
-    <h3>type<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>type<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#type</p>
     <div class="comment">
-     <p>Points to a URI that represents the type.</p> 
+     <p>Specifies the category of biochemical or physical entity. For example DNA, protein, or small molecule that a ComponentDefinition object abstracts for the purpose of engineering design. For DNA or RNA entities, additional types fields are used to describe nucleic acid topology (circular / linear) and strandedness (double- or single-stranded).</p> 
     </div>
     <div class="description">
      <dl>
@@ -4746,7 +4746,7 @@
    </div>
    <div id="variable" class="entity">
     <a name="http://sbols.org/v2#variable"></a>
-    <h3>variable<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>variable<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#variable</p>
     <div class="comment">
      <p>The variable property is REQUIRED and MUST contain a URI that refers to a template Component in the template ComponentDefinition.</p> 
@@ -4773,7 +4773,7 @@
    </div>
    <div id="variableComponent" class="entity">
     <a name="http://sbols.org/v2#variableComponent"></a>
-    <h3>variableComponent<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>variableComponent<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#variableComponent</p>
     <div class="comment">
      <p>The variableComponent property is OPTIONAL and MAY contain a set of VariableComponent objects.</p> 
@@ -4799,7 +4799,7 @@
    </div>
    <div id="variant" class="entity">
     <a name="http://sbols.org/v2#variant"></a>
-    <h3>variant<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>variant<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#variant</p>
     <div class="comment">
      <p>The variants property is OPTIONAL and MAY contain zero or more URIs that each refer to a ComponentDefinition. This property specifies individual ComponentDefinition objects to serve as options when deriving a new Component from the template Component.</p> 
@@ -4825,7 +4825,7 @@
    </div>
    <div id="variantCollection" class="entity">
     <a name="http://sbols.org/v2#variantCollection"></a>
-    <h3>variantCollection<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>variantCollection<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#variantCollection</p>
     <div class="comment">
      <p>This property is OPTIONAL and MAY contain zero or more URIs that each refer to a Collection. The members property of each Collection referred to in this way MUST NOT be empty. This property enables the convenient specification of existing groups of ComponentDefinition objects to serve as options when deriving a new Component from the template Component.</p> 
@@ -4851,7 +4851,7 @@
    </div>
    <div id="variantDerivation" class="entity">
     <a name="http://sbols.org/v2#variantDerivation"></a>
-    <h3>variantDerivation<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#objectproperties">Object Property ToC</a></span></h3>
+    <h3>variantDerivation<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#variantDerivation</p>
     <div class="comment">
      <p>The variantDerivations property is OPTIONAL and MAY contain zero or more URIs that each refer to a CombinatorialDerivation. This property enables the convenient specification of ComponentDefinition objects derived in accordance with another CombinatorialDerivation to serve as options when deriving a new Component from the template Component. </p> 
@@ -4890,7 +4890,7 @@
    </ul>
    <div id="at" class="entity">
     <a name="http://sbols.org/v2#at"></a>
-    <h3>at<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#dataproperties">Data Property ToC</a></span></h3>
+    <h3>at<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#at</p>
     <div class="comment">
      <p>specifies a discrete position that that corresponds to the index of a character in the elements String of a Sequence.</p> 
@@ -4916,7 +4916,7 @@
    </div>
    <div id="displayId" class="entity">
     <a name="http://sbols.org/v2#displayId"></a>
-    <h3>displayId<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#dataproperties">Data Property ToC</a></span></h3>
+    <h3>displayId<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#displayId</p>
     <div class="comment">
      <p>The displayId property is an OPTIONAL identifier with a data type of String. This property is intended to be an intermediate between name and identity that is machine-readable, but more human-readable than the full URI of an identity.</p> 
@@ -4942,7 +4942,7 @@
    </div>
    <div id="elements" class="entity">
     <a name="http://sbols.org/v2#elements"></a>
-    <h3>elements<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#dataproperties">Data Property ToC</a></span></h3>
+    <h3>elements<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#elements</p>
     <div class="comment">
      <p>The elements property is a REQUIRED String of characters that represents the constituents of a biological or chemical molecule. For example, these characters could represent the nucleotide bases of a molecule of DNA, the amino acid residues of a protein, or the atoms and chemical bonds of a small molecule.</p> 
@@ -4968,7 +4968,7 @@
    </div>
    <div id="end" class="entity">
     <a name="http://sbols.org/v2#end"></a>
-    <h3>end<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#dataproperties">Data Property ToC</a></span></h3>
+    <h3>end<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#end</p>
     <div class="comment">
      <p>Specifies the inclusive ending position of the Range.</p> 
@@ -4994,7 +4994,7 @@
    </div>
    <div id="hash" class="entity">
     <a name="http://sbols.org/v2#hash"></a>
-    <h3>hash<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#dataproperties">Data Property ToC</a></span></h3>
+    <h3>hash<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#hash</p>
     <div class="comment">
      <p>The hash property is OPTIONAL and MAY contain a SHA-1 hash of the file contents represented as a hexadecimal digest.</p> 
@@ -5020,7 +5020,7 @@
    </div>
    <div id="size" class="entity">
     <a name="http://sbols.org/v2#size"></a>
-    <h3>size<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#dataproperties">Data Property ToC</a></span></h3>
+    <h3>size<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#size</p>
     <div class="comment">
      <p>The size property is OPTIONAL and MAY contain a long indicating the file size in bytes.</p> 
@@ -5046,7 +5046,7 @@
    </div>
    <div id="start" class="entity">
     <a name="http://sbols.org/v2#start"></a>
-    <h3>start<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#dataproperties">Data Property ToC</a></span></h3>
+    <h3>start<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#start</p>
     <div class="comment">
      <p>Specifies the inclusive starting position of the Range.</p> 
@@ -5072,7 +5072,7 @@
    </div>
    <div id="version" class="entity">
     <a name="http://sbols.org/v2#version"></a>
-    <h3>version<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#dataproperties">Data Property ToC</a></span></h3>
+    <h3>version<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#version</p>
     <div class="comment">
      <p>The version property is OPTIONAL and has a data type of String. This property can be used to compare two SBOL objects with the same persistentIdentity.</p> 
@@ -5100,8 +5100,8 @@
   <div id="namedindividuals">
    <h2>Named Individuals</h2>
    <ul class="hlist">
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3216" title="http://www.biopax.org/release/biopax-level3.owl#Complex"><span>complex</span></a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3223" title="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"><span>dna region</span></a></li>
+    <li><a href="#d4e3222" title="http://www.biopax.org/release/biopax-level3.owl#Complex"><span>complex</span></a></li>
+    <li><a href="#d4e3229" title="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"><span>dna region</span></a></li>
     <li><a href="#enumerate" title="http://sbols.org/v2#enumerate"><span>enumerate</span></a></li>
     <li><a href="#in" title="http://sbols.org/v2#in"><span>in</span></a></li>
     <li><a href="#inline" title="http://sbols.org/v2#inline"><span>inline</span></a></li>
@@ -5112,29 +5112,29 @@
     <li><a href="#oneOrMore" title="http://sbols.org/v2#oneOrMore"><span>oneOrMore</span></a></li>
     <li><a href="#out" title="http://sbols.org/v2#out"><span>out</span></a></li>
     <li><a href="#private" title="http://sbols.org/v2#private"><span>private</span></a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3230" title="http://www.biopax.org/release/biopax-level3.owl#Protein"><span>protein</span></a></li>
+    <li><a href="#d4e3236" title="http://www.biopax.org/release/biopax-level3.owl#Protein"><span>protein</span></a></li>
     <li><a href="#public" title="http://sbols.org/v2#public"><span>public</span></a></li>
     <li><a href="#reverseComplement" title="http://sbols.org/v2#reverseComplement"><span>reverseComplement</span></a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3238" title="http://www.biopax.org/release/biopax-level3.owl#RnaRegion"><span>rna region</span></a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3025" title="http://identifiers.org/so/SO:0000057"><span>s o:0000057</span></a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3032" title="http://identifiers.org/so/SO:0000139"><span>s o:0000139</span></a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3040" title="http://identifiers.org/so/SO:0000141"><span>s o:0000141</span></a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3047" title="http://identifiers.org/so/SO:0000167"><span>s o:0000167</span></a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3054" title="http://identifiers.org/so/SO:0000234"><span>s o:0000234</span></a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3062" title="http://identifiers.org/so/SO:0000280"><span>s o:0000280</span></a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3069" title="http://identifiers.org/so/SO:0000316"><span>s o:0000316</span></a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3076" title="http://identifiers.org/so/SO:0000704"><span>s o:0000704</span></a></li>
+    <li><a href="#d4e3244" title="http://www.biopax.org/release/biopax-level3.owl#RnaRegion"><span>rna region</span></a></li>
+    <li><a href="#d4e3031" title="http://identifiers.org/so/SO:0000057"><span>s o:0000057</span></a></li>
+    <li><a href="#d4e3038" title="http://identifiers.org/so/SO:0000139"><span>s o:0000139</span></a></li>
+    <li><a href="#d4e3046" title="http://identifiers.org/so/SO:0000141"><span>s o:0000141</span></a></li>
+    <li><a href="#d4e3053" title="http://identifiers.org/so/SO:0000167"><span>s o:0000167</span></a></li>
+    <li><a href="#d4e3060" title="http://identifiers.org/so/SO:0000234"><span>s o:0000234</span></a></li>
+    <li><a href="#d4e3068" title="http://identifiers.org/so/SO:0000280"><span>s o:0000280</span></a></li>
+    <li><a href="#d4e3075" title="http://identifiers.org/so/SO:0000316"><span>s o:0000316</span></a></li>
+    <li><a href="#d4e3082" title="http://identifiers.org/so/SO:0000704"><span>s o:0000704</span></a></li>
     <li><a href="#sample" title="http://sbols.org/v2#sample"><span>sample</span></a></li>
-    <li><a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e3245" title="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"><span>small molecule</span></a></li>
+    <li><a href="#d4e3251" title="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"><span>small molecule</span></a></li>
     <li><a href="#useLocal" title="http://sbols.org/v2#useLocal"><span>useLocal</span></a></li>
     <li><a href="#useRemote" title="http://sbols.org/v2#useRemote"><span>useRemote</span></a></li>
     <li><a href="#verifyIdentical" title="http://sbols.org/v2#verifyIdentical"><span>verifyIdentical</span></a></li>
     <li><a href="#zeroOrMore" title="http://sbols.org/v2#zeroOrMore"><span>zeroOrMore</span></a></li>
     <li><a href="#zeroOrOne" title="http://sbols.org/v2#zeroOrOne"><span>zeroOrOne</span></a></li>
    </ul>
-   <div id="d4e3216" class="entity">
+   <div id="d4e3222" class="entity">
     <a name="http://www.biopax.org/release/biopax-level3.owl#Complex"></a>
-    <h3>complex<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>complex<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://www.biopax.org/release/biopax-level3.owl#Complex</p>
     <dl class="description">
      <dt>
@@ -5152,9 +5152,9 @@
      </dd>
     </dl>
    </div>
-   <div id="d4e3223" class="entity">
+   <div id="d4e3229" class="entity">
     <a name="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"></a>
-    <h3>dna region<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>dna region<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://www.biopax.org/release/biopax-level3.owl#DnaRegion</p>
     <dl class="description">
      <dt>
@@ -5174,7 +5174,7 @@
    </div>
    <div id="enumerate" class="entity">
     <a name="http://sbols.org/v2#enumerate"></a>
-    <h3>enumerate<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>enumerate<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#enumerate</p>
     <div class="comment">
      <p>A user SHOULD derive all possible ComponentDefinition objects specified by the CombinatorialDerivation.</p>
@@ -5197,13 +5197,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2736">class</a>
+      <a href="#d4e2742">class</a>
      </dd>
     </dl>
    </div>
    <div id="in" class="entity">
     <a name="http://sbols.org/v2#in"></a>
-    <h3>in<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>in<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#in</p>
     <div class="comment">
      <p>Indicates that the FunctionalComponent is an input.</p>
@@ -5228,13 +5228,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2745">class</a>
+      <a href="#d4e2751">class</a>
      </dd>
     </dl>
    </div>
    <div id="inline" class="entity">
     <a name="http://sbols.org/v2#inline"></a>
-    <h3>inline<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>inline<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#inline</p>
     <div class="comment">
      <p>The region specified by this Location is on the elements of a Sequence.</p>
@@ -5257,13 +5257,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2753">class</a>
+      <a href="#d4e2759">class</a>
      </dd>
     </dl>
    </div>
    <div id="inout" class="entity">
     <a name="http://sbols.org/v2#inout"></a>
-    <h3>inout<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>inout<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#inout</p>
     <div class="comment">
      <p>Indicates that the FunctionalComponent is both an input and output.</p>
@@ -5288,13 +5288,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2762">class</a>
+      <a href="#d4e2768">class</a>
      </dd>
     </dl>
    </div>
    <div id="merge" class="entity">
     <a name="http://sbols.org/v2#merge"></a>
-    <h3>merge<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>merge<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#merge</p>
     <div class="comment">
      <p>In the context of the ComponentDefinition or ModuleDefinition that contains the owner of the MapsTo, all references to the local ComponentInstance or the remote ComponentInstance MUST dereference to both objects.</p>
@@ -5319,13 +5319,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2796">class</a>
+      <a href="#d4e2802">class</a>
      </dd>
     </dl>
    </div>
    <div id="none" class="entity">
     <a name="http://sbols.org/v2#none"></a>
-    <h3>none<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>none<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#none</p>
     <div class="comment">
      <p>Indicates that the FunctionalComponent is neither an input or output.</p>
@@ -5350,13 +5350,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2821">class</a>
+      <a href="#d4e2827">class</a>
      </dd>
     </dl>
    </div>
    <div id="one" class="entity">
     <a name="http://sbols.org/v2#one"></a>
-    <h3>one<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>one<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#one</p>
     <div class="comment">
      <p>Exactly one Component in the derived ComponentDefinition SHOULD have a wasDerivedFroms property that refers to the template Component.</p>
@@ -5381,13 +5381,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2829">class</a>
+      <a href="#d4e2835">class</a>
      </dd>
     </dl>
    </div>
    <div id="oneOrMore" class="entity">
     <a name="http://sbols.org/v2#oneOrMore"></a>
-    <h3>oneOrMore<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>oneOrMore<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#oneOrMore</p>
     <div class="comment">
      <p>At least one Component in the derived ComponentDefinition SHOULD have a wasDerivedFroms property that refers to the template Component.</p>
@@ -5412,13 +5412,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2836">class</a>
+      <a href="#d4e2842">class</a>
      </dd>
     </dl>
    </div>
    <div id="out" class="entity">
     <a name="http://sbols.org/v2#out"></a>
-    <h3>out<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>out<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#out</p>
     <div class="comment">
      <p>Indicates that the FunctionalComponent is an output.</p>
@@ -5443,13 +5443,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2860">class</a>
+      <a href="#d4e2866">class</a>
      </dd>
     </dl>
    </div>
    <div id="private" class="entity">
     <a name="http://sbols.org/v2#private"></a>
-    <h3>private<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>private<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#private</p>
     <div class="comment">
      <p>Indicates that a ComponentInstance MUST NOT be referred to by remote MapsTo objects.</p>
@@ -5472,13 +5472,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2900">class</a>
+      <a href="#d4e2906">class</a>
      </dd>
     </dl>
    </div>
-   <div id="d4e3230" class="entity">
+   <div id="d4e3236" class="entity">
     <a name="http://www.biopax.org/release/biopax-level3.owl#Protein"></a>
-    <h3>protein<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>protein<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://www.biopax.org/release/biopax-level3.owl#Protein</p>
     <dl class="description">
      <dt>
@@ -5498,7 +5498,7 @@
    </div>
    <div id="public" class="entity">
     <a name="http://sbols.org/v2#public"></a>
-    <h3>public<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>public<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#public</p>
     <div class="comment">
      <p>Indicates that a ComponentInstance MAY be referred to by remote MapsTo objects.</p>
@@ -5521,13 +5521,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2909">class</a>
+      <a href="#d4e2915">class</a>
      </dd>
     </dl>
    </div>
    <div id="reverseComplement" class="entity">
     <a name="http://sbols.org/v2#reverseComplement"></a>
-    <h3>reverseComplement<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>reverseComplement<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#reverseComplement</p>
     <div class="comment">
      <p>The region specified by this Location is on the reverse-complement translation of the elements of a Sequence. The exact nature of this translation depends on the encoding of the Sequence</p>
@@ -5550,13 +5550,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2916">class</a>
+      <a href="#d4e2922">class</a>
      </dd>
     </dl>
    </div>
-   <div id="d4e3238" class="entity">
+   <div id="d4e3244" class="entity">
     <a name="http://www.biopax.org/release/biopax-level3.owl#RnaRegion"></a>
-    <h3>rna region<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>rna region<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://www.biopax.org/release/biopax-level3.owl#RnaRegion</p>
     <dl class="description">
      <dt>
@@ -5574,9 +5574,9 @@
      </dd>
     </dl>
    </div>
-   <div id="d4e3025" class="entity">
+   <div id="d4e3031" class="entity">
     <a name="http://identifiers.org/so/SO:0000057"></a>
-    <h3>s o:0000057<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>s o:0000057<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://identifiers.org/so/SO:0000057</p>
     <dl class="description">
      <dt>
@@ -5594,9 +5594,9 @@
      </dd>
     </dl>
    </div>
-   <div id="d4e3032" class="entity">
+   <div id="d4e3038" class="entity">
     <a name="http://identifiers.org/so/SO:0000139"></a>
-    <h3>s o:0000139<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>s o:0000139<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://identifiers.org/so/SO:0000139</p>
     <dl class="description">
      <dt>
@@ -5614,9 +5614,9 @@
      </dd>
     </dl>
    </div>
-   <div id="d4e3040" class="entity">
+   <div id="d4e3046" class="entity">
     <a name="http://identifiers.org/so/SO:0000141"></a>
-    <h3>s o:0000141<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>s o:0000141<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://identifiers.org/so/SO:0000141</p>
     <dl class="description">
      <dt>
@@ -5634,9 +5634,9 @@
      </dd>
     </dl>
    </div>
-   <div id="d4e3047" class="entity">
+   <div id="d4e3053" class="entity">
     <a name="http://identifiers.org/so/SO:0000167"></a>
-    <h3>s o:0000167<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>s o:0000167<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://identifiers.org/so/SO:0000167</p>
     <dl class="description">
      <dt>
@@ -5654,9 +5654,9 @@
      </dd>
     </dl>
    </div>
-   <div id="d4e3054" class="entity">
+   <div id="d4e3060" class="entity">
     <a name="http://identifiers.org/so/SO:0000234"></a>
-    <h3>s o:0000234<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>s o:0000234<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://identifiers.org/so/SO:0000234</p>
     <dl class="description">
      <dt>
@@ -5674,9 +5674,9 @@
      </dd>
     </dl>
    </div>
-   <div id="d4e3062" class="entity">
+   <div id="d4e3068" class="entity">
     <a name="http://identifiers.org/so/SO:0000280"></a>
-    <h3>s o:0000280<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>s o:0000280<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://identifiers.org/so/SO:0000280</p>
     <dl class="description">
      <dt>
@@ -5694,9 +5694,9 @@
      </dd>
     </dl>
    </div>
-   <div id="d4e3069" class="entity">
+   <div id="d4e3075" class="entity">
     <a name="http://identifiers.org/so/SO:0000316"></a>
-    <h3>s o:0000316<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>s o:0000316<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://identifiers.org/so/SO:0000316</p>
     <dl class="description">
      <dt>
@@ -5714,9 +5714,9 @@
      </dd>
     </dl>
    </div>
-   <div id="d4e3076" class="entity">
+   <div id="d4e3082" class="entity">
     <a name="http://identifiers.org/so/SO:0000704"></a>
-    <h3>s o:0000704<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>s o:0000704<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://identifiers.org/so/SO:0000704</p>
     <dl class="description">
      <dt>
@@ -5736,7 +5736,7 @@
    </div>
    <div id="sample" class="entity">
     <a name="http://sbols.org/v2#sample"></a>
-    <h3>sample<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>sample<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#sample</p>
     <div class="comment">
      <p>A user SHOULD derive a subset of all possible ComponentDefinition objects specified by CombinatorialDerivation. The manner in which this subset is chosen is for the user to decide.</p>
@@ -5759,13 +5759,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2940">class</a>
+      <a href="#d4e2946">class</a>
      </dd>
     </dl>
    </div>
-   <div id="d4e3245" class="entity">
+   <div id="d4e3251" class="entity">
     <a name="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"></a>
-    <h3>small molecule<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>small molecule<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://www.biopax.org/release/biopax-level3.owl#SmallMolecule</p>
     <dl class="description">
      <dt>
@@ -5785,7 +5785,7 @@
    </div>
    <div id="useLocal" class="entity">
     <a name="http://sbols.org/v2#useLocal"></a>
-    <h3>useLocal<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>useLocal<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#useLocal</p>
     <div class="comment">
      <p>In the context of the ComponentDefinition or ModuleDefinition that contains the owner of the MapsTo, all references to the remote ComponentInstance MUST dereference to the local ComponentInstance instead.</p>
@@ -5810,13 +5810,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2947">class</a>
+      <a href="#d4e2953">class</a>
      </dd>
     </dl>
    </div>
    <div id="useRemote" class="entity">
     <a name="http://sbols.org/v2#useRemote"></a>
-    <h3>useRemote<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>useRemote<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#useRemote</p>
     <div class="comment">
      <p>Indicates that all references to the local ComponentInstance MUST dereference to the remote ComponentInstance instead.</p>
@@ -5841,13 +5841,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2955">class</a>
+      <a href="#d4e2961">class</a>
      </dd>
     </dl>
    </div>
    <div id="verifyIdentical" class="entity">
     <a name="http://sbols.org/v2#verifyIdentical"></a>
-    <h3>verifyIdentical<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>verifyIdentical<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#verifyIdentical</p>
     <div class="comment">
      <p>Indicates that the definition properties of the local and remote ComponentInstance objects MUST refer to the same ComponentDefinition.</p>
@@ -5872,13 +5872,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2962">class</a>
+      <a href="#d4e2968">class</a>
      </dd>
     </dl>
    </div>
    <div id="zeroOrMore" class="entity">
     <a name="http://sbols.org/v2#zeroOrMore"></a>
-    <h3>zeroOrMore<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>zeroOrMore<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#zeroOrMore</p>
     <div class="comment">
      <p>Any number of Component objects in the derived ComponentDefinition MAY have wasDerivedFroms properties that refer to the template Component.</p>
@@ -5903,13 +5903,13 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2969">class</a>
+      <a href="#d4e2975">class</a>
      </dd>
     </dl>
    </div>
    <div id="zeroOrOne" class="entity">
     <a name="http://sbols.org/v2#zeroOrOne"></a>
-    <h3>zeroOrOne<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a> or <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#namedindividuals">Named Individual ToC</a></span></h3>
+    <h3>zeroOrOne<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#zeroOrOne</p>
     <div class="comment">
      <p>No more than one Component in the derived ComponentDefinition SHOULD have a wasDerivedFroms property that refers to the template Component.</p>
@@ -5934,56 +5934,56 @@
       is also defined as
      </dt>
      <dd>
-      <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#d4e2977">class</a>
+      <a href="#d4e2983">class</a>
      </dd>
     </dl>
    </div>
   </div>
   <div id="generalaxioms">
    <h2>General Axioms</h2>
-   <div id="d4e3473" class="entity">
-    <h3>All Disjoint Classes <span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a></span></h3>
+   <div id="d4e3479" class="entity">
+    <h3>All Disjoint Classes <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
     <p><a href="#Access" title="http://sbols.org/v2#Access">Access</a><sup title="class" class="type-c">c</sup>, <a href="#CombinatorialDerivationStrategy" title="http://sbols.org/v2#CombinatorialDerivationStrategy">CombinatorialDerivationStrategy</a><sup title="class" class="type-c">c</sup>, <a href="#Direction" title="http://sbols.org/v2#Direction">Direction</a><sup title="class" class="type-c">c</sup>, <a href="#Orientation" title="http://sbols.org/v2#Orientation">Orientation</a><sup title="class" class="type-c">c</sup>, <a href="#Refinement" title="http://sbols.org/v2#Refinement">Refinement</a><sup title="class" class="type-c">c</sup>, <a href="#Restriction" title="http://sbols.org/v2#Restriction">Restriction</a><sup title="class" class="type-c">c</sup>, <a href="#RoleIntegration" title="http://sbols.org/v2#RoleIntegration">RoleIntegration</a><sup title="class" class="type-c">c</sup>, <a href="#VariableOperator" title="http://sbols.org/v2#VariableOperator">VariableOperator</a><sup title="class" class="type-c">c</sup></p>
    </div>
-   <div id="d4e3499" class="entity">
-    <h3>All Disjoint Classes <span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a></span></h3>
-    <p><a href="#Attachment" title="http://sbols.org/v2#Attachment">Attachment</a><sup title="class" class="type-c">c</sup>, <a href="#Collection" title="http://sbols.org/v2#Collection">Collection</a><sup title="class" class="type-c">c</sup>, <a href="#CombinatorialDerivation" title="http://sbols.org/v2#CombinatorialDerivation">CombinatorialDerivation</a><sup title="class" class="type-c">c</sup>, <a href="#ComponentDefinition" title="http://sbols.org/v2#ComponentDefinition">ComponentDefinition</a><sup title="class" class="type-c">c</sup>, <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">generic top level</a><sup title="class" class="type-c">c</sup>, <a href="#Implementation" title="http://sbols.org/v2#Implementation">Implementation</a><sup title="class" class="type-c">c</sup>, <a href="#Model" title="http://sbols.org/v2#Model">Model</a><sup title="class" class="type-c">c</sup>, <a href="#ModuleDefinition" title="http://sbols.org/v2#ModuleDefinition">ModuleDefinition</a><sup title="class" class="type-c">c</sup>, <a href="#Sequence" title="http://sbols.org/v2#Sequence">Sequence</a><sup title="class" class="type-c">c</sup></p>
+   <div id="d4e3505" class="entity">
+    <h3>All Disjoint Classes <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
+    <p><a href="#Attachment" title="http://sbols.org/v2#Attachment">Attachment</a><sup title="class" class="type-c">c</sup>, <a href="#Collection" title="http://sbols.org/v2#Collection">Collection</a><sup title="class" class="type-c">c</sup>, <a href="#CombinatorialDerivation" title="http://sbols.org/v2#CombinatorialDerivation">CombinatorialDerivation</a><sup title="class" class="type-c">c</sup>, <a href="#ComponentDefinition" title="http://sbols.org/v2#ComponentDefinition">ComponentDefinition</a><sup title="class" class="type-c">c</sup>, <a href="#GenericTopLevel" title="http://sbols.org/v2#GenericTopLevel">GenericTopLevel</a><sup title="class" class="type-c">c</sup>, <a href="#Implementation" title="http://sbols.org/v2#Implementation">Implementation</a><sup title="class" class="type-c">c</sup>, <a href="#Model" title="http://sbols.org/v2#Model">Model</a><sup title="class" class="type-c">c</sup>, <a href="#ModuleDefinition" title="http://sbols.org/v2#ModuleDefinition">ModuleDefinition</a><sup title="class" class="type-c">c</sup>, <a href="#Sequence" title="http://sbols.org/v2#Sequence">Sequence</a><sup title="class" class="type-c">c</sup></p>
    </div>
-   <div id="d4e3526" class="entity">
-    <h3>All Disjoint Classes <span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a></span></h3>
+   <div id="d4e3532" class="entity">
+    <h3>All Disjoint Classes <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
     <p><a href="#CDS" title="http://sbols.org/v2#CDS">CDS</a><sup title="class" class="type-c">c</sup>, <a href="#EngineeredGene" title="http://sbols.org/v2#EngineeredGene">EngineeredGene</a><sup title="class" class="type-c">c</sup>, <a href="#Gene" title="http://sbols.org/v2#Gene">Gene</a><sup title="class" class="type-c">c</sup>, <a href="#Operator" title="http://sbols.org/v2#Operator">Operator</a><sup title="class" class="type-c">c</sup>, <a href="#Promoter" title="http://sbols.org/v2#Promoter">Promoter</a><sup title="class" class="type-c">c</sup>, <a href="#RBS" title="http://sbols.org/v2#RBS">RBS</a><sup title="class" class="type-c">c</sup>, <a href="#Terminator" title="http://sbols.org/v2#Terminator">Terminator</a><sup title="class" class="type-c">c</sup></p>
    </div>
-   <div id="d4e3549" class="entity">
-    <h3>All Disjoint Classes <span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a></span></h3>
+   <div id="d4e3555" class="entity">
+    <h3>All Disjoint Classes <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
     <p><a href="#Complex" title="http://sbols.org/v2#Complex">Complex</a><sup title="class" class="type-c">c</sup>, <a href="#DNA" title="http://sbols.org/v2#DNA">DNA</a><sup title="class" class="type-c">c</sup>, <a href="#Protein" title="http://sbols.org/v2#Protein">Protein</a><sup title="class" class="type-c">c</sup>, <a href="#RNA" title="http://sbols.org/v2#RNA">RNA</a><sup title="class" class="type-c">c</sup>, <a href="#SmallMolecule" title="http://sbols.org/v2#SmallMolecule">SmallMolecule</a><sup title="class" class="type-c">c</sup></p>
    </div>
-   <div id="d4e3567" class="entity">
-    <h3>All Disjoint Classes <span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a></span></h3>
+   <div id="d4e3573" class="entity">
+    <h3>All Disjoint Classes <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
     <p><a href="#Cut" title="http://sbols.org/v2#Cut">Cut</a><sup title="class" class="type-c">c</sup>, <a href="#GenericLocation" title="http://sbols.org/v2#GenericLocation">GenericLocation</a><sup title="class" class="type-c">c</sup>, <a href="#Range" title="http://sbols.org/v2#Range">Range</a><sup title="class" class="type-c">c</sup></p>
    </div>
-   <div id="d4e3581" class="entity">
-    <h3>All Disjoint Classes <span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a></span></h3>
+   <div id="d4e3587" class="entity">
+    <h3>All Disjoint Classes <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
     <p><a href="#NASequence" title="http://sbols.org/v2#NASequence">NASequence</a><sup title="class" class="type-c">c</sup>, <a href="#ProteinSequence" title="http://sbols.org/v2#ProteinSequence">ProteinSequence</a><sup title="class" class="type-c">c</sup>, <a href="#SMILES" title="http://sbols.org/v2#SMILES">SMILES</a><sup title="class" class="type-c">c</sup></p>
    </div>
-   <div id="d4e3595" class="entity">
-    <h3>All Disjoint Classes <span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a></span></h3>
+   <div id="d4e3601" class="entity">
+    <h3>All Disjoint Classes <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
     <p><a href="#differentFrom" title="http://sbols.org/v2#differentFrom">differentFrom</a><sup title="class" class="type-c">c</sup>, <a href="#oppositeOrientationAs" title="http://sbols.org/v2#oppositeOrientationAs">oppositeOrientationAs</a><sup title="class" class="type-c">c</sup>, <a href="#precedes" title="http://sbols.org/v2#precedes">precedes</a><sup title="class" class="type-c">c</sup>, <a href="#sameOrientationAs" title="http://sbols.org/v2#sameOrientationAs">sameOrientationAs</a><sup title="class" class="type-c">c</sup></p>
    </div>
-   <div id="d4e3612" class="entity">
-    <h3>All Disjoint Classes <span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a></span></h3>
+   <div id="d4e3618" class="entity">
+    <h3>All Disjoint Classes <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
     <p><a href="#in" title="http://sbols.org/v2#in">in</a><sup title="class" class="type-c">c</sup>, <a href="#inout" title="http://sbols.org/v2#inout">inout</a><sup title="class" class="type-c">c</sup>, <a href="#none" title="http://sbols.org/v2#none">none</a><sup title="class" class="type-c">c</sup>, <a href="#out" title="http://sbols.org/v2#out">out</a><sup title="class" class="type-c">c</sup></p>
    </div>
-   <div id="d4e3628" class="entity">
-    <h3>All Disjoint Classes <span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a></span></h3>
+   <div id="d4e3634" class="entity">
+    <h3>All Disjoint Classes <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
     <p><a href="#merge" title="http://sbols.org/v2#merge">merge</a><sup title="class" class="type-c">c</sup>, <a href="#useLocal" title="http://sbols.org/v2#useLocal">useLocal</a><sup title="class" class="type-c">c</sup>, <a href="#useRemote" title="http://sbols.org/v2#useRemote">useRemote</a><sup title="class" class="type-c">c</sup>, <a href="#verifyIdentical" title="http://sbols.org/v2#verifyIdentical">verifyIdentical</a><sup title="class" class="type-c">c</sup></p>
    </div>
-   <div id="d4e3644" class="entity">
-    <h3>All Disjoint Classes <span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a></span></h3>
+   <div id="d4e3650" class="entity">
+    <h3>All Disjoint Classes <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
     <p><a href="#one" title="http://sbols.org/v2#one">one</a><sup title="class" class="type-c">c</sup>, <a href="#oneOrMore" title="http://sbols.org/v2#oneOrMore">oneOrMore</a><sup title="class" class="type-c">c</sup>, <a href="#zeroOrMore" title="http://sbols.org/v2#zeroOrMore">zeroOrMore</a><sup title="class" class="type-c">c</sup>, <a href="#zeroOrOne" title="http://sbols.org/v2#zeroOrOne">zeroOrOne</a><sup title="class" class="type-c">c</sup></p>
    </div>
   </div>
   <div id="namespacedeclarations">
-   <h2>Namespace Declarations <span class="backlink"> back to <a href="http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf#toc">ToC</a></span></h2>
+   <h2>Namespace Declarations <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
    <dl>
     <dt>
      <em>default namespace</em>
