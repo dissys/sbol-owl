@@ -225,7 +225,7 @@ ObjectProperty: sbol:interaction
 ObjectProperty: sbol:isComponentOf
 
     Annotations: 
-        rdfs:comment "isComponentOf"@en,
+        rdfs:comment "Inverse of the component property."@en,
         rdfs:label "isComponentOf"@en,
         <http://www.purl.org/ontolink/tawny#name> "isComponentOf"@en
     
@@ -247,7 +247,7 @@ ObjectProperty: sbol:isDefinitionOf
     Annotations: 
         rdfs:label "isDefinitionOf"@en,
         <http://www.purl.org/ontolink/tawny#name> "isDefinitionOf"@en,
-        rdfs:comment "Inverse of the definition property"@en
+        rdfs:comment "Inverse of the definition property."@en
     
     InverseOf: 
         sbol:definition
@@ -256,8 +256,8 @@ ObjectProperty: sbol:isDefinitionOf
 ObjectProperty: sbol:isObjectOf
 
     Annotations: 
+        rdfs:comment "Inverse of the object property"@en,
         <http://www.purl.org/ontolink/tawny#name> "isObjectOf"@en,
-        rdfs:comment "isObjectOf"@en,
         rdfs:label "isObjectOf"@en
     
     Domain: 
@@ -273,7 +273,7 @@ ObjectProperty: sbol:isObjectOf
 ObjectProperty: sbol:isSequenceOf
 
     Annotations: 
-        rdfs:comment "Inverse of the sequence property"@en,
+        rdfs:comment "Inverse of the sequence property."@en,
         rdfs:label "isSequenceOf"@en,
         <http://www.purl.org/ontolink/tawny#name> "isSequenceOf"@en
     
@@ -293,7 +293,7 @@ ObjectProperty: sbol:isSequenceOf
 ObjectProperty: sbol:isSubjectOf
 
     Annotations: 
-        rdfs:comment "isSubjectOf"@en,
+        rdfs:comment "Inverse of the subject property."@en,
         <http://www.purl.org/ontolink/tawny#name> "isSubjectOf"@en,
         rdfs:label "isSubjectOf"@en
     
@@ -369,9 +369,9 @@ ObjectProperty: sbol:mapsTo
 ObjectProperty: sbol:member
 
     Annotations: 
+        rdfs:comment "Contains a reference to a top level entity."@en,
         rdfs:label "member"@en,
-        <http://www.purl.org/ontolink/tawny#name> "member"@en,
-        rdfs:comment "Contains a reference to a top level entity"@en
+        <http://www.purl.org/ontolink/tawny#name> "member"@en
     
     Domain: 
         sbol:Collection
@@ -484,7 +484,7 @@ ObjectProperty: sbol:participation
     Annotations: 
         rdfs:label "participation"@en,
         <http://www.purl.org/ontolink/tawny#name> "participation"@en,
-        rdfs:comment "The participation property is an OPTIONAL and MAY contain a Participation object, which identifies the roles that its referenced FunctionalComponent plays in the Interaction"@en
+        rdfs:comment "The participation property is an OPTIONAL and MAY contain a Participation object, which identifies the roles that its referenced FunctionalComponent plays in the Interaction."@en
     
     Domain: 
         sbol:Interaction
@@ -591,7 +591,7 @@ ObjectProperty: sbol:sequence
     Annotations: 
         <http://www.purl.org/ontolink/tawny#name> "sequence"@en,
         rdfs:label "sequence"@en,
-        rdfs:comment "The sequences property is OPTIONAL and MAY include a set of URIs that refer to Sequence objects. These objects define the primary structure of the ComponentDefinition"@en
+        rdfs:comment "The sequences property is OPTIONAL and MAY include a set of URIs that refer to Sequence objects. These objects define the primary structure of the ComponentDefinition."@en
     
     Domain: 
         sbol:ComponentDefinition
@@ -1065,7 +1065,7 @@ Class: sbol:Component
 
     Annotations: 
         <http://www.purl.org/ontolink/tawny#name> "Component"@en,
-        rdfs:comment "Component"@en,
+        rdfs:comment "The Component class is used to compose ComponentDefinition objects into a structural hierarchy. For example,the ComponentDefinition of a gene could contain four Component objects: a promoter, RBS, CDS, and terminator. In turn, the ComponentDefinition of the promoter Component could contain Component objects defined as various operator sites."@en,
         rdfs:label "Component"@en
     
     SubClassOf: 
@@ -1174,7 +1174,7 @@ Class: sbol:EngineeredGene
 Class: sbol:FunctionalComponent
 
     Annotations: 
-        rdfs:comment "FunctionalComponent"@en,
+        rdfs:comment "A FunctionalComponent is an instance of a ComponentDefinition being used as part of a ModuleDefinition. The ModuleDefinition describes how the that describes how the FunctionalComponent interacts with others and summarizes their aggregate function"@en,
         rdfs:label "FunctionalComponent"@en,
         <http://www.purl.org/ontolink/tawny#name> "FunctionalComponent"@en
     
@@ -1519,8 +1519,8 @@ Class: sbol:SMILES
 Class: sbol:Sequence
 
     Annotations: 
-        rdfs:comment "Sequence"@en,
         rdfs:label "Sequence"@en,
+        rdfs:comment "The purpose of the Sequence class is to represent the primary structure of a ComponentDefinition object and the manner in which it is encoded. This representation is accomplished by means of the elements property and encoding property."@en,
         <http://www.purl.org/ontolink/tawny#name> "Sequence"@en
     
     SubClassOf: 

@@ -247,7 +247,7 @@
             </owl:Class>
         </rdfs:range>
         <tawny:name xml:lang="en">isComponentOf</tawny:name>
-        <rdfs:comment xml:lang="en">isComponentOf</rdfs:comment>
+        <rdfs:comment xml:lang="en">Inverse of the component property.</rdfs:comment>
         <rdfs:label xml:lang="en">isComponentOf</rdfs:label>
     </owl:ObjectProperty>
     
@@ -257,7 +257,7 @@
 
     <owl:ObjectProperty rdf:about="http://sbols.org/v2#isDefinitionOf">
         <tawny:name xml:lang="en">isDefinitionOf</tawny:name>
-        <rdfs:comment xml:lang="en">Inverse of the definition property</rdfs:comment>
+        <rdfs:comment xml:lang="en">Inverse of the definition property.</rdfs:comment>
         <rdfs:label xml:lang="en">isDefinitionOf</rdfs:label>
     </owl:ObjectProperty>
     
@@ -270,7 +270,7 @@
         <rdfs:domain rdf:resource="http://sbols.org/v2#Component"/>
         <rdfs:range rdf:resource="http://sbols.org/v2#SequenceConstraint"/>
         <tawny:name xml:lang="en">isObjectOf</tawny:name>
-        <rdfs:comment xml:lang="en">isObjectOf</rdfs:comment>
+        <rdfs:comment xml:lang="en">Inverse of the object property</rdfs:comment>
         <rdfs:label xml:lang="en">isObjectOf</rdfs:label>
     </owl:ObjectProperty>
     
@@ -284,7 +284,7 @@
         <rdfs:domain rdf:resource="http://sbols.org/v2#Sequence"/>
         <rdfs:range rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
         <tawny:name xml:lang="en">isSequenceOf</tawny:name>
-        <rdfs:comment xml:lang="en">Inverse of the sequence property</rdfs:comment>
+        <rdfs:comment xml:lang="en">Inverse of the sequence property.</rdfs:comment>
         <rdfs:label xml:lang="en">isSequenceOf</rdfs:label>
     </owl:ObjectProperty>
     
@@ -297,7 +297,7 @@
         <rdfs:domain rdf:resource="http://sbols.org/v2#Component"/>
         <rdfs:range rdf:resource="http://sbols.org/v2#SequenceConstraint"/>
         <tawny:name xml:lang="en">isSubjectOf</tawny:name>
-        <rdfs:comment xml:lang="en">isSubjectOf</rdfs:comment>
+        <rdfs:comment xml:lang="en">Inverse of the subject property.</rdfs:comment>
         <rdfs:label xml:lang="en">isSubjectOf</rdfs:label>
     </owl:ObjectProperty>
     
@@ -358,7 +358,7 @@
         <rdfs:domain rdf:resource="http://sbols.org/v2#Collection"/>
         <rdfs:range rdf:resource="http://sbols.org/v2#TopLevel"/>
         <tawny:name xml:lang="en">member</tawny:name>
-        <rdfs:comment xml:lang="en">Contains a reference to a top level entity</rdfs:comment>
+        <rdfs:comment xml:lang="en">Contains a reference to a top level entity.</rdfs:comment>
         <rdfs:label xml:lang="en">member</rdfs:label>
     </owl:ObjectProperty>
     
@@ -446,7 +446,7 @@
         <rdfs:domain rdf:resource="http://sbols.org/v2#Interaction"/>
         <rdfs:range rdf:resource="http://sbols.org/v2#Participation"/>
         <tawny:name xml:lang="en">participation</tawny:name>
-        <rdfs:comment xml:lang="en">The participation property is an OPTIONAL and MAY contain a Participation object, which identifies the roles that its referenced FunctionalComponent plays in the Interaction</rdfs:comment>
+        <rdfs:comment xml:lang="en">The participation property is an OPTIONAL and MAY contain a Participation object, which identifies the roles that its referenced FunctionalComponent plays in the Interaction.</rdfs:comment>
         <rdfs:label xml:lang="en">participation</rdfs:label>
     </owl:ObjectProperty>
     
@@ -543,7 +543,7 @@
         <rdfs:domain rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
         <rdfs:range rdf:resource="http://sbols.org/v2#Sequence"/>
         <tawny:name xml:lang="en">sequence</tawny:name>
-        <rdfs:comment xml:lang="en">The sequences property is OPTIONAL and MAY include a set of URIs that refer to Sequence objects. These objects define the primary structure of the ComponentDefinition</rdfs:comment>
+        <rdfs:comment xml:lang="en">The sequences property is OPTIONAL and MAY include a set of URIs that refer to Sequence objects. These objects define the primary structure of the ComponentDefinition.</rdfs:comment>
         <rdfs:label xml:lang="en">sequence</rdfs:label>
     </owl:ObjectProperty>
     
@@ -1007,7 +1007,7 @@
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#ComponentInstance"/>
         <owl:disjointWith rdf:resource="http://sbols.org/v2#FunctionalComponent"/>
         <tawny:name xml:lang="en">Component</tawny:name>
-        <rdfs:comment xml:lang="en">Component</rdfs:comment>
+        <rdfs:comment xml:lang="en">The Component class is used to compose ComponentDefinition objects into a structural hierarchy. For example,the ComponentDefinition of a gene could contain four Component objects: a promoter, RBS, CDS, and terminator. In turn, the ComponentDefinition of the promoter Component could contain Component objects defined as various operator sites.</rdfs:comment>
         <rdfs:label xml:lang="en">Component</rdfs:label>
     </owl:Class>
     
@@ -1166,7 +1166,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <tawny:name xml:lang="en">FunctionalComponent</tawny:name>
-        <rdfs:comment xml:lang="en">FunctionalComponent</rdfs:comment>
+        <rdfs:comment xml:lang="en">A FunctionalComponent is an instance of a ComponentDefinition being used as part of a ModuleDefinition. The ModuleDefinition describes how the that describes how the FunctionalComponent interacts with others and summarizes their aggregate function</rdfs:comment>
         <rdfs:label xml:lang="en">FunctionalComponent</rdfs:label>
     </owl:Class>
     
@@ -1659,7 +1659,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <tawny:name xml:lang="en">Sequence</tawny:name>
-        <rdfs:comment xml:lang="en">Sequence</rdfs:comment>
+        <rdfs:comment xml:lang="en">The purpose of the Sequence class is to represent the primary structure of a ComponentDefinition object and the manner in which it is encoded. This representation is accomplished by means of the elements property and encoding property.</rdfs:comment>
         <rdfs:label xml:lang="en">Sequence</rdfs:label>
     </owl:Class>
     

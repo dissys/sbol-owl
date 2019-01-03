@@ -118,7 +118,7 @@
 ;Classes for top level SBOL entities
 (defclass Sequence
   :label "Sequence"
-  :comment "Sequence"
+  :comment "The purpose of the Sequence class is to represent the primary structure of a ComponentDefinition object and the manner in which it is encoded. This representation is accomplished by means of the elements property and encoding property."
   :subclass (owl-some elements :XSD_STRING)
   ;TODO :subclass (owl-some encoding (thing))
  )
@@ -321,7 +321,7 @@
                         
 (defclass Component
   :label "Component"
-  :comment "Component"
+  :comment "The Component class is used to compose ComponentDefinition objects into a structural hierarchy. For example,the ComponentDefinition of a gene could contain four Component objects: a promoter, RBS, CDS, and terminator. In turn, the ComponentDefinition of the promoter Component could contain Component objects defined as various operator sites."
  )
 
 (defoproperty direction)
@@ -334,7 +334,7 @@
 (defoproperty location)
 (defclass FunctionalComponent
   :label "FunctionalComponent"
-  :comment "FunctionalComponent"
+  :comment "A FunctionalComponent is an instance of a ComponentDefinition being used as part of a ModuleDefinition. The ModuleDefinition describes how the that describes how the FunctionalComponent interacts with others and summarizes their aggregate function"
   :subclass (owl-some direction Direction)
  )
 
@@ -427,7 +427,7 @@
 
 (defoproperty isSubjectOf
   :label "isSubjectOf"
-  :comment "isSubjectOf"
+  :comment "Inverse of the subject property."
   :domain Component 
   :range SequenceConstraint
   :inverse subject
@@ -443,7 +443,7 @@
 
 (defoproperty isObjectOf
   :label "isObjectOf"
-  :comment "isObjectOf"
+  :comment "Inverse of the object property"
   :domain  Component
   :range SequenceConstraint
   :inverse object
@@ -707,14 +707,14 @@
 
 (defoproperty sequence
   :label "sequence"
-  :comment "The sequences property is OPTIONAL and MAY include a set of URIs that refer to Sequence objects. These objects define the primary structure of the ComponentDefinition"
+  :comment "The sequences property is OPTIONAL and MAY include a set of URIs that refer to Sequence objects. These objects define the primary structure of the ComponentDefinition."
   :domain ComponentDefinition
   :range Sequence
  )
 
 (defoproperty isSequenceOf
   :label "isSequenceOf"
-  :comment "Inverse of the sequence property"
+  :comment "Inverse of the sequence property."
   :domain Sequence
   :range ComponentDefinition
   :inverse sequence
@@ -730,7 +730,7 @@
 
 (defoproperty isComponentOf
   :label "isComponentOf"
-  :comment "isComponentOf"
+  :comment "Inverse of the component property."
   :domain Component
   :range (owl-or ComponentDefinition SequenceAnnotation)
   :inverse component
@@ -870,13 +870,13 @@
 
 (defoproperty isDefinitionOf
   :label "isDefinitionOf"
-  :comment "Inverse of the definition property"
+  :comment "Inverse of the definition property."
   :inverse definition
  )
 
 (defoproperty participation
   :label "participation"
-  :comment "The participation property is an OPTIONAL and MAY contain a Participation object, which identifies the roles that its referenced FunctionalComponent plays in the Interaction"
+  :comment "The participation property is an OPTIONAL and MAY contain a Participation object, which identifies the roles that its referenced FunctionalComponent plays in the Interaction."
   :domain Interaction
   :range Participation
  )
@@ -891,7 +891,7 @@
 
 (defoproperty member
   :label "member"
-  :comment "Contains a reference to a top level entity"
+  :comment "Contains a reference to a top level entity."
   :domain Collection
   :range TopLevel
  )
