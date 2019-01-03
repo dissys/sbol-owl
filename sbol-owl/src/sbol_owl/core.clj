@@ -86,6 +86,13 @@
  (defclass Protein)
  (defclass SmallMolecule)
  
+ (defclass GenericTopLevel
+  :label "GenericTopLevel"
+  :comment "The GenericTopLevel class is used to represent top-level entities whose purpose is to contain a set of annotations that are independent of any other class of SBOL object."
+ )
+ 
+  
+
  (defclass NASequence
  :label "NASequence"
  :comment "Nucleic acid sequence" 
@@ -317,6 +324,14 @@
   :comment "Component"
  )
 
+(defoproperty direction)
+
+(defclass Direction
+  :label "Direction"
+  :comment "Not represented in SBOL directly. It is used in the OWL representation to enforce choosing a direction type using one of its subclasses."
+ )
+
+(defoproperty location)
 (defclass FunctionalComponent
   :label "FunctionalComponent"
   :comment "FunctionalComponent"
@@ -342,6 +357,9 @@
   (defclass GenericLocation)
  )
 
+(defdproperty start)
+(defdproperty end)
+(defdproperty at)
 (defclass Range
   :label "Range"
   :comment "A Range object specifies a region via discrete, inclusive start and end positions that correspond to indices for characters in the elements String of a Sequence." 
@@ -383,6 +401,14 @@
   :comment "The region specified by this Location is on the reverse-complement translation of the elements of a Sequence. The exact nature of this translation depends on the encoding of the Sequence" 
  )
 
+(defoproperty restriction)
+(defoproperty subject)
+(defoproperty object)
+(defclass Restriction
+  :label "Restriction"
+  :comment "Specifies relative positions of sub components in a design." 
+  )
+
 (defclass SequenceConstraint
   :label "SequenceConstraint"
   :comment "The SequenceConstraint class can be used to assert restrictions on the relative, sequence-based positions of pairs of Component objects contained by the same parent ComponentDefinition. The primary purpose of this class is to enable the specification of partially designed ComponentDefinition objects, for which the precise positions or orientations of their contained Component objects are not yet fully determined. Each SequenceConstraint includes the restriction, subject, and object properties."
@@ -423,10 +449,6 @@
   :inverse object
  )
 
-(defclass Restriction
-  :label "Restriction"
-  :comment "Specifies relative positions of sub components in a design." 
-  )
 
 (defoproperty restriction
   :label "restriction"
@@ -474,7 +496,7 @@
 
 (defclass MapsTo
  :label "MapsTo"
- :comment "MapsTo"
+ :comment "When ComponentDefinition and ModuleDefinition objects are composed into structural and functional hierarchies using ComponentInstance and Module objects, it is often the case that some ComponentInstance objects are intended to represent the same entity in the overall design. The purpose of the MapsTo class is to make these identity relationships clear and explicit. For example, consider a ModuleDefinition for a genetic inverter that includes a FunctionalComponent for an abstract repressor protein. When this ModuleDefinition is instantiated within a “higher level” ModuleDefinition that includes a FunctionalComponent for a LacI protein, the MapsTo object can be used to indicate that the repressor protein in the first ModuleDefinition is LacI in the context of the composite design. "
  :subclass (owl-some refinement Refinement)
  :subclass (owl-some local ComponentInstance)
  
@@ -566,11 +588,6 @@
   :comment "Indicates that a ComponentInstance MUST NOT be referred to by remote MapsTo objects."
  )
 
-(defclass Direction
-  :label "Direction"
-  :comment "Not represented in SBOL directly. It is used in the OWL representation to enforce choosing a direction type using one of its subclasses."
- )
-
 (as-subclasses
   Direction
   :disjoint :cover
@@ -647,13 +664,13 @@
  
 (defoproperty role
   :label "role"
-  :comment "Points to a URI that represents the role. In the context of a ComponentDefinition, aan SO term for a promoter."
+  :comment "Clarifies the potential function of an entity in a biochemical or physical context. When it is used for ComponentDefinitions, it MUST identify terms from ontologies that are consistent with the types property of the ComponentDefinition. For example, the roles property of a DNA or RNA ComponentDefinition could contain URIs identifying terms from the Sequence Ontology (SO)."
   :domain (owl-or ComponentDefinition Component SequenceAnnotation Participation ModuleDefinition)
  )
 
 (defoproperty type
   :label "type"
-  :comment "Points to a URI that represents the type."
+  :comment "Specifies the category of biochemical or physical entity. For example DNA, protein, or small molecule that a ComponentDefinition object abstracts for the purpose of engineering design. For DNA or RNA entities, additional types fields are used to describe nucleic acid topology (circular / linear) and strandedness (double- or single-stranded)."
   :domain (owl-or ComponentDefinition Interaction)
  )
 
@@ -1062,7 +1079,7 @@
 
 ;To use the some relationship for individuals
 (individual (toIri "http://sbols.org/v2#private")  :type (owl-class private))
-(individual (toIri "http://sbols.org/v2#public") :type (owl-class public))
+(individual (toIri "http://sbols.org/v2#public") :type (owl-class public)) 
 (individual (toIri "http://sbols.org/v2#useLocal") :type (owl-class useLocal))
 (individual (toIri "http://sbols.org/v2#useRemote") :type (owl-class useRemote))
 (individual (toIri "http://sbols.org/v2#verifyIdentical") :type (owl-class verifyIdentical))

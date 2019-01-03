@@ -561,9 +561,9 @@ ObjectProperty: sbol:restriction
 ObjectProperty: sbol:role
 
     Annotations: 
-        rdfs:comment "Points to a URI that represents the role. In the context of a ComponentDefinition, aan SO term for a promoter."@en,
         <http://www.purl.org/ontolink/tawny#name> "role"@en,
-        rdfs:label "role"@en
+        rdfs:label "role"@en,
+        rdfs:comment "Clarifies the potential function of an entity in a biochemical or physical context. When it is used for ComponentDefinitions, it MUST identify terms from ontologies that are consistent with the types property of the ComponentDefinition. For example, the roles property of a DNA or RNA ComponentDefinition could contain URIs identifying terms from the Sequence Ontology (SO)."@en
     
     Domain: 
         sbol:Component or sbol:ComponentDefinition or sbol:ModuleDefinition or sbol:Participation or sbol:SequenceAnnotation
@@ -703,8 +703,8 @@ ObjectProperty: sbol:type
 
     Annotations: 
         rdfs:label "type"@en,
-        <http://www.purl.org/ontolink/tawny#name> "type"@en,
-        rdfs:comment "Points to a URI that represents the type."@en
+        rdfs:comment "Specifies the category of biochemical or physical entity. For example DNA, protein, or small molecule that a ComponentDefinition object abstracts for the purpose of engineering design. For DNA or RNA entities, additional types fields are used to describe nucleic acid topology (circular / linear) and strandedness (double- or single-stranded)."@en,
+        <http://www.purl.org/ontolink/tawny#name> "type"@en
     
     Domain: 
         sbol:ComponentDefinition or sbol:Interaction
@@ -1214,7 +1214,9 @@ Class: sbol:GenericLocation
 Class: sbol:GenericTopLevel
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "GenericTopLevel"@en
+        <http://www.purl.org/ontolink/tawny#name> "GenericTopLevel"@en,
+        rdfs:label "GenericTopLevel"@en,
+        rdfs:comment "The GenericTopLevel class is used to represent top-level entities whose purpose is to contain a set of annotations that are independent of any other class of SBOL object."@en
     
     SubClassOf: 
         sbol:TopLevel
@@ -1270,9 +1272,9 @@ Class: sbol:Location
 Class: sbol:MapsTo
 
     Annotations: 
+        rdfs:comment "When ComponentDefinition and ModuleDefinition objects are composed into structural and functional hierarchies using ComponentInstance and Module objects, it is often the case that some ComponentInstance objects are intended to represent the same entity in the overall design. The purpose of the MapsTo class is to make these identity relationships clear and explicit. For example, consider a ModuleDefinition for a genetic inverter that includes a FunctionalComponent for an abstract repressor protein. When this ModuleDefinition is instantiated within a “higher level” ModuleDefinition that includes a FunctionalComponent for a LacI protein, the MapsTo object can be used to indicate that the repressor protein in the first ModuleDefinition is LacI in the context of the composite design. "@en,
         rdfs:label "MapsTo"@en,
-        <http://www.purl.org/ontolink/tawny#name> "MapsTo"@en,
-        rdfs:comment "MapsTo"@en
+        <http://www.purl.org/ontolink/tawny#name> "MapsTo"@en
     
     SubClassOf: 
         sbol:Identified,
