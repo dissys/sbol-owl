@@ -1,4 +1,4 @@
-<!-- saved from url=(0085)http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf?a=1 -->
+<!-- saved from url=(0093)http://localhost:8080/lode/extract?url=https://dissys.github.io/sbol-owl/sbol.rdf?c=1#d4e2486 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,7 +15,7 @@
                     function () {
                     	jQuery(".markdown").each(function(el){
 							jQuery(this).after(marked(jQuery(this).text())).remove()});
-                        var list = $('a[name="https://dissys.github.io/sbol-owl/sbol.rdf?a=1"]');
+                        var list = $('a[name="https://dissys.github.io/sbol-owl/sbol.rdf?c=1"]');
                         if (list.size() != 0) {
                         	var element = list.first();
                         	$.scrollTo(element);
@@ -509,7 +509,7 @@
     <h3>Component<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Component</p>
     <div class="comment">
-     <p>Component</p> 
+     <p>The Component class is used to compose ComponentDefinition objects into a structural hierarchy. For example,the ComponentDefinition of a gene could contain four Component objects: a promoter, RBS, CDS, and terminator. In turn, the ComponentDefinition of the promoter Component could contain Component objects defined as various operator sites.</p> 
     </div>
     <dl class="description">
      <dt>
@@ -1024,7 +1024,7 @@
     <h3>FunctionalComponent<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#FunctionalComponent</p>
     <div class="comment">
-     <p>FunctionalComponent</p> 
+     <p>A FunctionalComponent is an instance of a ComponentDefinition being used as part of a ModuleDefinition. The ModuleDefinition describes how the that describes how the FunctionalComponent interacts with others and summarizes their aggregate function</p> 
     </div>
     <dl class="description">
      <dt>
@@ -2904,7 +2904,7 @@
     <h3>Sequence<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#Sequence</p>
     <div class="comment">
-     <p>Sequence</p> 
+     <p>The purpose of the Sequence class is to represent the primary structure of a ComponentDefinition object and the manner in which it is encoded. This representation is accomplished by means of the elements property and encoding property.</p> 
     </div>
     <dl class="description">
      <dt>
@@ -3898,7 +3898,7 @@
     <h3>isComponentOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#isComponentOf</p>
     <div class="comment">
-     <p>isComponentOf</p> 
+     <p>Inverse of the component property.</p> 
     </div>
     <div class="description">
      <p><strong>has characteristics:</strong> functional</p>
@@ -3935,7 +3935,7 @@
     <h3>isDefinitionOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#isDefinitionOf</p>
     <div class="comment">
-     <p>Inverse of the definition property</p> 
+     <p>Inverse of the definition property.</p> 
     </div>
     <div class="description">
      <dl>
@@ -3954,7 +3954,7 @@
     <h3>isObjectOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#isObjectOf</p>
     <div class="comment">
-     <p>isObjectOf</p> 
+     <p>Inverse of the object property</p> 
     </div>
     <div class="description">
      <dl>
@@ -3987,7 +3987,7 @@
     <h3>isSequenceOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#isSequenceOf</p>
     <div class="comment">
-     <p>Inverse of the sequence property</p> 
+     <p>Inverse of the sequence property.</p> 
     </div>
     <div class="description">
      <p><strong>has characteristics:</strong> functional</p>
@@ -4021,7 +4021,7 @@
     <h3>isSubjectOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#isSubjectOf</p>
     <div class="comment">
-     <p>isSubjectOf</p> 
+     <p>Inverse of the subject property.</p> 
     </div>
     <div class="description">
      <dl>
@@ -4153,7 +4153,7 @@
     <h3>member<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#member</p>
     <div class="comment">
-     <p>Contains a reference to a top level entity</p> 
+     <p>Contains a reference to a top level entity.</p> 
     </div>
     <div class="description">
      <dl>
@@ -4346,7 +4346,7 @@
     <h3>participation<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#participation</p>
     <div class="comment">
-     <p>The participation property is an OPTIONAL and MAY contain a Participation object, which identifies the roles that its referenced FunctionalComponent plays in the Interaction</p> 
+     <p>The participation property is an OPTIONAL and MAY contain a Participation object, which identifies the roles that its referenced FunctionalComponent plays in the Interaction.</p> 
     </div>
     <div class="description">
      <dl>
@@ -4531,7 +4531,7 @@
     <h3>sequence<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
     <p><strong>IRI:</strong> http://sbols.org/v2#sequence</p>
     <div class="comment">
-     <p>The sequences property is OPTIONAL and MAY include a set of URIs that refer to Sequence objects. These objects define the primary structure of the ComponentDefinition</p> 
+     <p>The sequences property is OPTIONAL and MAY include a set of URIs that refer to Sequence objects. These objects define the primary structure of the ComponentDefinition.</p> 
     </div>
     <div class="description">
      <dl>
