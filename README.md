@@ -2,7 +2,7 @@
 The SBOL-OWL ontology provides a set of controlled terms that are used to describe genetic circuit designs using SBOL. Terms are included for the followings.
 
 - Descriptions of SBOL entities (e.g. "[ComponentDefinition](http://sbolstandard.org/v2#ComponentDefinition)") that are exchanged electronically. Constraints and validation rules that are enforced on SBOL entities are also captured as part of the ontology.
-- SBOL entities (e.g. "[TopLevel]http://sbolstandard.org/v2#TopLevel)" that are not serialised but are used to group different SBOL entities. SBOL-OWL exposes these entities to semantic reasoning tools via parent-child relationships.
+- SBOL entities (e.g. "[TopLevel](http://sbolstandard.org/v2#TopLevel)" that are not serialised but are used to group different SBOL entities. SBOL-OWL exposes these entities to semantic reasoning tools via parent-child relationships.
 - Terms (e.g. "[inline](http://sbolstandard.org/v2#inline)") that are used to restrict values of SBOL entities.
 - Properties (e.g. "[sequence](http://sbolstandard.org/v2#sequence)") linking SBOL entities to accepted values.
 - Metadata terms (e.g. "[Promoter](http://sbolstandard.org/v2#Promoter)") for commonly used descriptions of design entities. Such terms may require the use of several SBOL entities and properties.
