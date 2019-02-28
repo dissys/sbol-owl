@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -39,6 +41,22 @@ public class RDFMerger {
 		model.add(ontModel);
 
 		save(model, file3);
+	}
+	
+	public static void combine(ArrayList<String> inputFiles, String outputFile) throws IOException {
+		Model model = ModelFactory.createDefaultModel();
+
+		InputStream is = new FileInputStream(inputFiles.get(0));
+		model.read(is, RDFS.getURI());
+
+		for (int i=1;i<inputFiles.size();i++)
+		{
+			Model ontModel = ModelFactory.createDefaultModel();
+			InputStream ontIs = new FileInputStream(inputFiles.get(i));
+			ontModel.read(ontIs, RDFS.getURI());
+			model.add(ontModel);
+		}
+		save(model, outputFile);
 	}
 
 	public static void save(Model rdfModel, String filePath) throws IOException, FileNotFoundException {

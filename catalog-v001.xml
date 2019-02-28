@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1546542664375" name="http://cdk.sf.net/ontologies/atomtype/cdk#" uri="sbol-sem/target/assembly/work/cdk-atomtype-1.5.14.jar/org/openscience/cdk/dict/data/cdk-atom-types.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1546542664375" name="http://cdk.sf.net/ontologies/atomtype/sybyl#" uri="sbol-sem/target/assembly/work/cdk-atomtype-1.5.14.jar/org/openscience/cdk/dict/data/sybyl-atom-types.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1546542664375" name="duplicate:http://cdk.sf.net/ontologies/atomtypemappings#" uri="sbol-sem/target/assembly/work/cdk-atomtype-1.5.14.jar/org/openscience/cdk/dict/data/atom-type-mappings.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1546542664375" name="duplicate:http://cdk.sf.net/ontologies/atomtypemappings#" uri="sbol-sem/target/assembly/work/cdk-atomtype-1.5.14.jar/org/openscience/cdk/dict/data/cdk-sybyl-mappings.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1546542664375" name="http://cdk.sf.net/ontologies/atomtypes#" uri="sbol-sem/target/assembly/work/cdk-atomtype-1.5.14.jar/org/openscience/cdk/dict/data/atom-types.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1546542664375" name="http://cdk.sf.net/ontologies/elements#" uri="sbol-sem/target/assembly/work/cdk-atomtype-1.5.14.jar/org/openscience/cdk/dict/data/elements.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1546542664375" name="http://jena.hpl.hp.com/2003/04/schemagen" uri="sbol-sem/target/assembly/work/jena-core-3.7.0.jar/etc/schemagen_example.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1546542664375" name="http://jena.hpl.hp.com/schemas/2003/03/ont-manager" uri="sbol-sem/target/assembly/work/jena-core-3.7.0.jar/ont-policy.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1546542664375" name="duplicate:http://sbols.org/v2" uri="sbol.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1546542664375" name="duplicate:http://sbols.org/v2" uri="sbol.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1546542664375" name="shadowed:http://sbols.org/v2" uri="sbol-sem/target/sbol.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1546542664375" name="shadowed:http://sbols.org/v2" uri="sbol-sem/examples/popsreceiver_sbolowl_withqueries.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1546542664375" name="shadowed:http://sbols.org/v2" uri="sbol-owl/sbol.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1546542664375" name="shadowed:http://sbols.org/v2" uri="sbol-owl/sbol.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="http://cdk.sf.net/ontologies/atomtype/cdk#" uri="sbol-sem/target/assembly/work/cdk-atomtype-1.5.14.jar/org/openscience/cdk/dict/data/cdk-atom-types.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="http://cdk.sf.net/ontologies/atomtype/sybyl#" uri="sbol-sem/target/assembly/work/cdk-atomtype-1.5.14.jar/org/openscience/cdk/dict/data/sybyl-atom-types.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="duplicate:http://cdk.sf.net/ontologies/atomtypemappings#" uri="sbol-sem/target/assembly/work/cdk-atomtype-1.5.14.jar/org/openscience/cdk/dict/data/cdk-sybyl-mappings.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="duplicate:http://cdk.sf.net/ontologies/atomtypemappings#" uri="sbol-sem/target/assembly/work/cdk-atomtype-1.5.14.jar/org/openscience/cdk/dict/data/atom-type-mappings.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="http://cdk.sf.net/ontologies/atomtypes#" uri="sbol-sem/target/assembly/work/cdk-atomtype-1.5.14.jar/org/openscience/cdk/dict/data/atom-types.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="http://cdk.sf.net/ontologies/elements#" uri="sbol-sem/target/assembly/work/cdk-atomtype-1.5.14.jar/org/openscience/cdk/dict/data/elements.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="http://jena.hpl.hp.com/2003/04/schemagen" uri="sbol-sem/target/assembly/work/jena-core-3.7.0.jar/etc/schemagen_example.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="http://jena.hpl.hp.com/schemas/2003/03/ont-manager" uri="sbol-sem/target/assembly/work/jena-core-3.7.0.jar/ont-policy.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="duplicate:http://sbols.org/v2" uri="sbol.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="duplicate:http://sbols.org/v2" uri="sbol.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="shadowed:http://sbols.org/v2" uri="sbol-sem/target/sbol.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="shadowed:http://sbols.org/v2" uri="sbol-sem/examples/circuit_0x78_environment_md_gm_sbolowl2.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="shadowed:http://sbols.org/v2" uri="sbol-sem/examples/popsreceiver_sbolowl_withqueries.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="shadowed:http://sbols.org/v2" uri="sbol-sem/examples/circuit_0x78_environment_md_gm_sbolowl.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="shadowed:http://sbols.org/v2" uri="sbol-sem/examples/circuit_0x78_environment_md_gm3_sbolowl.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="shadowed:http://sbols.org/v2" uri="sbol-sem/examples/igem/BBa_K316027.xml"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="shadowed:http://sbols.org/v2" uri="sbol-owl/sbol.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1551007308550" name="shadowed:http://sbols.org/v2" uri="sbol-owl/sbol.rdf"/>
     </group>
 </catalog>

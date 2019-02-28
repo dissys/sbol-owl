@@ -224,6 +224,7 @@
     <!-- http://sbols.org/v2#interaction -->
 
     <owl:ObjectProperty rdf:about="http://sbols.org/v2#interaction">
+        <owl:inverseOf rdf:resource="http://sbols.org/v2#isInteractionOf"/>
         <rdfs:domain rdf:resource="http://sbols.org/v2#ModuleDefinition"/>
         <rdfs:range rdf:resource="http://sbols.org/v2#Interaction"/>
         <tawny:name xml:lang="en">interaction</tawny:name>
@@ -236,7 +237,6 @@
     <!-- http://sbols.org/v2#isComponentOf -->
 
     <owl:ObjectProperty rdf:about="http://sbols.org/v2#isComponentOf">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://sbols.org/v2#Component"/>
         <rdfs:range>
             <owl:Class>
@@ -259,6 +259,38 @@
         <tawny:name xml:lang="en">isDefinitionOf</tawny:name>
         <rdfs:comment xml:lang="en">Inverse of the definition property.</rdfs:comment>
         <rdfs:label xml:lang="en">isDefinitionOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v2#isInteractionOf -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v2#isInteractionOf">
+        <tawny:name xml:lang="en">isInteractionOf</tawny:name>
+        <rdfs:comment xml:lang="en">Inverse of the interaction property.</rdfs:comment>
+        <rdfs:label xml:lang="en">isInteractionOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v2#isMemberOf -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v2#isMemberOf">
+        <owl:inverseOf rdf:resource="http://sbols.org/v2#member"/>
+        <tawny:name xml:lang="en">isMemberOf</tawny:name>
+        <rdfs:comment xml:lang="en">Inverse of the member property.</rdfs:comment>
+        <rdfs:label xml:lang="en">isMemberOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sbols.org/v2#isModuleOf -->
+
+    <owl:ObjectProperty rdf:about="http://sbols.org/v2#isModuleOf">
+        <owl:inverseOf rdf:resource="http://sbols.org/v2#module"/>
+        <tawny:name xml:lang="en">isModuleOf</tawny:name>
+        <rdfs:comment xml:lang="en">Inverse of the module property.</rdfs:comment>
+        <rdfs:label xml:lang="en">isModuleOf</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -394,6 +426,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://sbols.org/v2#SequenceConstraint"/>
         <rdfs:range rdf:resource="http://sbols.org/v2#Component"/>
+        <owl:propertyDisjointWith rdf:resource="http://sbols.org/v2#subject"/>
         <tawny:name xml:lang="en">object</tawny:name>
         <rdfs:comment xml:lang="en">The object property is REQUIRED and MUST contain a URI that refers to a Component contained by the same parent ComponentDefinition that contains the SequenceConstraint. This Component MUST NOT be the same Component that the SequenceConstraint refers to via its subject property.</rdfs:comment>
         <rdfs:label xml:lang="en">object</rdfs:label>
@@ -726,7 +759,6 @@
     <owl:DatatypeProperty rdf:about="http://sbols.org/v2#at">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://sbols.org/v2#Cut"/>
-        <rdfs:range rdf:resource="http://sbols.org/v2#zeroOrGreater"/>
         <tawny:name xml:lang="en">at</tawny:name>
         <rdfs:comment xml:lang="en">specifies a discrete position that that corresponds to the index of a character in the elements String of a Sequence.</rdfs:comment>
         <rdfs:label xml:lang="en">at</rdfs:label>
@@ -765,7 +797,6 @@
     <owl:DatatypeProperty rdf:about="http://sbols.org/v2#end">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://sbols.org/v2#Range"/>
-        <rdfs:range rdf:resource="http://sbols.org/v2#greaterThanZero"/>
         <tawny:name xml:lang="en">end</tawny:name>
         <rdfs:comment xml:lang="en">Specifies the inclusive ending position of the Range.</rdfs:comment>
         <rdfs:label xml:lang="en">end</rdfs:label>
@@ -791,7 +822,6 @@
     <owl:DatatypeProperty rdf:about="http://sbols.org/v2#size">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://sbols.org/v2#Attachment"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
         <tawny:name xml:lang="en">size</tawny:name>
         <rdfs:comment xml:lang="en">The size property is OPTIONAL and MAY contain a long indicating the file size in bytes.</rdfs:comment>
         <rdfs:label xml:lang="en">size</rdfs:label>
@@ -804,7 +834,6 @@
     <owl:DatatypeProperty rdf:about="http://sbols.org/v2#start">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://sbols.org/v2#Range"/>
-        <rdfs:range rdf:resource="http://sbols.org/v2#greaterThanZero"/>
         <tawny:name xml:lang="en">start</tawny:name>
         <rdfs:comment xml:lang="en">Specifies the inclusive starting position of the Range.</rdfs:comment>
         <rdfs:label xml:lang="en">start</rdfs:label>
@@ -987,13 +1016,18 @@
     <!-- http://sbols.org/v2#Complex -->
 
     <owl:Class rdf:about="http://sbols.org/v2#Complex">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v2#ComponentDefinition"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v2#type"/>
+                        <owl:someValuesFrom rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://sbols.org/v2#type"/>
-                <owl:someValuesFrom rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <tawny:name xml:lang="en">Complex</tawny:name>
         <rdfs:comment xml:lang="en">Complex component definition</rdfs:comment>
         <rdfs:label xml:lang="en">Complex</rdfs:label>
@@ -1028,6 +1062,12 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#TopLevel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v2#definition"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <tawny:name xml:lang="en">ComponentDefinition</tawny:name>
         <rdfs:comment xml:lang="en">Can be used to represent biological design components such as DNA, RNA and small molecules.</rdfs:comment>
         <rdfs:label xml:lang="en">ComponentDefinition</rdfs:label>
@@ -1053,12 +1093,6 @@
                 <owl:someValuesFrom rdf:resource="http://sbols.org/v2#Access"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://sbols.org/v2#definition"/>
-                <owl:someValuesFrom rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <tawny:name xml:lang="en">ComponentInstance</tawny:name>
         <rdfs:comment xml:lang="en">The ComponentInstance abstract class is inherited by SBOL classes that represent the usage or occurrence of a ComponentDefinition within a larger design (that is, another ComponentDefinition or ModuleDefinition).</rdfs:comment>
         <rdfs:label xml:lang="en">ComponentInstance</rdfs:label>
@@ -1070,12 +1104,6 @@
 
     <owl:Class rdf:about="http://sbols.org/v2#Cut">
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#Location"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://sbols.org/v2#at"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <tawny:name xml:lang="en">Cut</tawny:name>
         <rdfs:comment xml:lang="en">The Cut class has been introduced to enable the specification of a region between two discrete positions. This specification is accomplished using the at property, which specifies a discrete position that that corresponds to the index of a character in the elements String of a Sequence.</rdfs:comment>
         <rdfs:label xml:lang="en">Cut</rdfs:label>
@@ -1086,13 +1114,18 @@
     <!-- http://sbols.org/v2#DNA -->
 
     <owl:Class rdf:about="http://sbols.org/v2#DNA">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v2#ComponentDefinition"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v2#type"/>
+                        <owl:someValuesFrom rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://sbols.org/v2#type"/>
-                <owl:someValuesFrom rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <tawny:name xml:lang="en">DNA</tawny:name>
         <rdfs:comment xml:lang="en">DNA component definition</rdfs:comment>
         <rdfs:label xml:lang="en">DNA</rdfs:label>
@@ -1446,13 +1479,18 @@
     <!-- http://sbols.org/v2#Protein -->
 
     <owl:Class rdf:about="http://sbols.org/v2#Protein">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v2#ComponentDefinition"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v2#type"/>
+                        <owl:someValuesFrom rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://sbols.org/v2#type"/>
-                <owl:someValuesFrom rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <tawny:name xml:lang="en">Protein</tawny:name>
         <rdfs:comment xml:lang="en">Protein component definition</rdfs:comment>
         <rdfs:label xml:lang="en">Protein</rdfs:label>
@@ -1503,13 +1541,18 @@
     <!-- http://sbols.org/v2#RNA -->
 
     <owl:Class rdf:about="http://sbols.org/v2#RNA">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v2#ComponentDefinition"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v2#type"/>
+                        <owl:someValuesFrom rdf:resource="http://www.biopax.org/release/biopax-level3.owl#RnaRegion"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://sbols.org/v2#type"/>
-                <owl:someValuesFrom rdf:resource="http://www.biopax.org/release/biopax-level3.owl#RnaRegion"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <tawny:name xml:lang="en">RNA</tawny:name>
         <rdfs:comment xml:lang="en">RNA component definition</rdfs:comment>
         <rdfs:label xml:lang="en">RNA</rdfs:label>
@@ -1521,18 +1564,6 @@
 
     <owl:Class rdf:about="http://sbols.org/v2#Range">
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#Location"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://sbols.org/v2#end"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://sbols.org/v2#start"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <tawny:name xml:lang="en">Range</tawny:name>
         <rdfs:comment xml:lang="en">A Range object specifies a region via discrete, inclusive start and end positions that correspond to indices for characters in the elements String of a Sequence.</rdfs:comment>
         <rdfs:label xml:lang="en">Range</rdfs:label>
@@ -1714,13 +1745,18 @@
     <!-- http://sbols.org/v2#SmallMolecule -->
 
     <owl:Class rdf:about="http://sbols.org/v2#SmallMolecule">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v2#ComponentDefinition"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://sbols.org/v2#type"/>
+                        <owl:someValuesFrom rdf:resource="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://sbols.org/v2#type"/>
-                <owl:someValuesFrom rdf:resource="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <tawny:name xml:lang="en">SmallMolecule</tawny:name>
         <rdfs:comment xml:lang="en">SmallMolecule component definition</rdfs:comment>
         <rdfs:label xml:lang="en">SmallMolecule</rdfs:label>

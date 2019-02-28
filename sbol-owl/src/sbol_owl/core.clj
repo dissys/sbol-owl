@@ -45,7 +45,6 @@
  :label "ComponentInstance"
  :comment "The ComponentInstance abstract class is inherited by SBOL classes that represent the usage or occurrence of a ComponentDefinition within a larger design (that is, another ComponentDefinition or ModuleDefinition)." 
  :subclass (owl-some access Access)
- :subclass (owl-some definition ComponentDefinition)
  )
  
 (as-subclasses
@@ -125,7 +124,9 @@
 
 (defclass ComponentDefinition
   :label "ComponentDefinition"
-  :comment "Can be used to represent biological design components such as DNA, RNA and small molecules."  
+  :comment "Can be used to represent biological design components such as DNA, RNA and small molecules." 
+  :subclass (owl-some definition ComponentDefinition)
+ 
   ;TODO  :subclass (owl-some type (thing))
  )
 
@@ -170,7 +171,7 @@
   :label "size"
   :comment "The size property is OPTIONAL and MAY contain a long indicating the file size in bytes."
   :domain Attachment
-  :range :XSD_LONG
+  ;:range :XSD_LONG Commented for now until this property is serialised correctly as an integer. SBOL3.0
   :characteristic :functional
  )
 
@@ -363,15 +364,15 @@
 (defclass Range
   :label "Range"
   :comment "A Range object specifies a region via discrete, inclusive start and end positions that correspond to indices for characters in the elements String of a Sequence." 
-  :subclass (owl-some start :XSD_INTEGER )
-  :subclass (owl-some end :XSD_INTEGER)
+  ; :subclass (owl-some start :XSD_INTEGER ) --> Commented for now until this property is serialised correctly as an integer. SBOL3.0
+  ; :subclass (owl-some end :XSD_INTEGER) --> Commented for now until this property is serialised correctly as an integer. SBOL3.0
   ;TODO Ask Phil:subclass (some start (>< 0 8) )
  )
 
 (defclass Cut
   :label "Cut"
   :comment "The Cut class has been introduced to enable the specification of a region between two discrete positions. This specification is accomplished using the at property, which specifies a discrete position that that corresponds to the index of a character in the elements String of a Sequence." 
-  :subclass (owl-some at :XSD_INTEGER)
+  ;:subclass (owl-some at :XSD_INTEGER) --> Commented for now until this property is serialised correctly as an integer. SBOL3.0
  )
 
 (defclass GenericLocation
@@ -439,6 +440,7 @@
   :domain SequenceConstraint 
   :range Component
   :characteristic :functional
+  :disjoint subject
  )
 
 (defoproperty isObjectOf
@@ -734,7 +736,7 @@
   :domain Component
   :range (owl-or ComponentDefinition SequenceAnnotation)
   :inverse component
-  :characteristic :functional
+  ;:characteristic :functional --> isComponentOf can be used both to refer to a ComponentDefinition and a SequenceAnnotation for the same Component. Therefore it can't be functional.
  )
 
 (defoproperty sequenceAnnotation
@@ -775,18 +777,17 @@
   :label "start"
   :comment "Specifies the inclusive starting position of the Range."
   :domain Range
-  :range greaterThanZero
+  ; :range greaterThanZero --> Commented for now until this property is serialised correctly as an integer. SBOL3.0
   ;Commented :range :XSD_POSITIVE_INTEGER 
   :characteristic :functional
  )
-
 
 
 (defdproperty end
   :label "end"
   :comment "Specifies the inclusive ending position of the Range."
   :domain Range
-  :range greaterThanZero
+  ;:range greaterThanZero --> Commented for now until this property is serialised correctly as an integer. SBOL3.0
   :characteristic :functional
  )
 
@@ -794,7 +795,7 @@
   :label "at"
   :comment "specifies a discrete position that that corresponds to the index of a character in the elements String of a Sequence."
   :domain Cut
-  :range zeroOrGreater
+  ;:range zeroOrGreater Commented for now until this property is serialised correctly as an integer. SBOL3.0
   :characteristic :functional
  )
 
@@ -896,6 +897,12 @@
   :range TopLevel
  )
 
+(defoproperty isMemberOf
+  :label "isMemberOf"
+  :comment "Inverse of the member property."
+  :inverse member
+ )
+
 (defoproperty source
   :label "source"
   :comment "The source property is REQUIRED and MUST contain a URI reference to the source file for a model."
@@ -931,6 +938,12 @@
   :range Interaction
  )
 
+(defoproperty isInteractionOf
+  :label "isInteractionOf"
+  :comment "Inverse of the interaction property."
+  :inverse interaction
+ )
+
 (defoproperty functionalComponent
   :label "functionalComponent"
   :comment "The property is OPTIONAL and MAY be used specify a set of FunctionalComponent objects contained by the ModuleDefinition."
@@ -943,6 +956,12 @@
   :comment "The property is OPTIONAL and MAY be used specify a set of Module objects contained by the ModuleDefinition. Note that the set of relations between Module and ModuleDefinition objects is strictly acyclic."
   :domain ModuleDefinition
   :range Module
+ )
+
+(defoproperty isModuleOf
+  :label "isModuleOf"
+  :comment "Inverse of the module property."
+  :inverse module
  )
 
 (as-subclasses
@@ -958,31 +977,31 @@
  (defclass DNA
  :label "DNA"
  :comment "DNA component definition" 
- :subclass (owl-some type CD_DNA)
+ :equivalent (owl-and ComponentDefinition (owl-some type CD_DNA))
  )
  
  (defclass Protein
  :label "Protein"
  :comment "Protein component definition" 
- :subclass (owl-some type CD_PROTEIN)
+ :equivalent (owl-and ComponentDefinition (owl-some type CD_PROTEIN))
  )
   
  (defclass SmallMolecule
  :label "SmallMolecule"
  :comment "SmallMolecule component definition" 
- :subclass (owl-some type CD_SMALLMOLECULE)
+ :equivalent (owl-and ComponentDefinition  (owl-some type CD_SMALLMOLECULE))
  )
  
  (defclass RNA
  :label "RNA"
  :comment "RNA component definition" 
- :subclass (owl-some type CD_RNA)
+ :equivalent (owl-and ComponentDefinition  (owl-some type CD_RNA))
  )
   
  (defclass Complex
  :label "Complex"
  :comment "Complex component definition" 
- :subclass (owl-some type CD_COMPLEX)
+ :equivalent (owl-and ComponentDefinition (owl-some type CD_COMPLEX))
  )
   
   ;Metadata classes
