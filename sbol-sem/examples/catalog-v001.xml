@@ -2,8 +2,17 @@
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <uri id="Imports Wizard Entry" name="http://www.w3.org/ns/prov-o-inverses-20130430" uri="http://www.w3.org/ns/prov"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1550688812448" name="duplicate:http://sbols.org/v2" uri="circuit_0x78_environment_md_gm_sbolowl2.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1550688812448" name="duplicate:http://sbols.org/v2" uri="popsreceiver_sbolowl_withqueries.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1550688812448" name="duplicate:http://sbols.org/v2" uri="circuit_0x78_environment_md_gm3_sbolowl.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1551480400585" name="duplicate:http://sbols.org/v2" uri="popsreceiver_sbolowl_withqueries.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1551480400585" name="duplicate:http://sbols.org/v2" uri="circuit_0x78_environment_md_sbolowl.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1551480400585" name="shadowed:http://sbols.org/v2" uri="invalidfiles_sbolowl/sbol-11412_2.xml"/>
+        <uri id="Automatically generated entry, Timestamp=1551480400585" name="shadowed:http://sbols.org/v2" uri="del/circuit_0x78_environment_md_3_sbolowl.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1551480400585" name="shadowed:http://sbols.org/v2" uri="del/circuit_0x78_environment_md_gm_sbolowl2.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1551480400585" name="shadowed:http://sbols.org/v2" uri="igem/BBa_K316027.xml"/>
+        <uri id="Automatically generated entry, Timestamp=1551480400585" name="shadowed:http://sbols.org/v2" uri="igem/BBa_K316027_2.xml"/>
+        <uri id="Automatically generated entry, Timestamp=1551480400585" name="shadowed:http://sbols.org/v2" uri="igem/BBa_K316027_withQueries.xml"/>
+        <uri id="Automatically generated entry, Timestamp=1551480400585" name="shadowed:http://sbols.org/v2" uri="igem/designs_chassis_sbolowl/BBa_K316027.xml.updated.xml"/>
+        <uri id="Automatically generated entry, Timestamp=1551480400585" name="shadowed:http://sbols.org/v2" uri="igem/del/BBa_K316027.xml"/>
+        <uri id="Automatically generated entry, Timestamp=1551480400585" name="shadowed:http://sbols.org/v2" uri="igem/del/del3.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1551480400585" name="shadowed:http://sbols.org/v2" uri="igem/del/BBa_K316027_del1.xml"/>
     </group>
 </catalog>

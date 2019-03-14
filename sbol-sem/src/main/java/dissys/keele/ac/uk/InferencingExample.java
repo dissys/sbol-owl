@@ -80,8 +80,8 @@ public class InferencingExample
         addSequenceConstraint(BBa_S03839, cBBa_F2620, cB0030);
         addSequenceConstraint(BBa_S03839, cB0030, cgfp);
         
-        doc.write(new File("examples/popsreceiver.rdf"));
-    	RDFMerger.combine("examples/popsreceiver.rdf","../sbol-owl/sbol.rdf", "examples/popsreceiver_sbolowl.rdf");  
+        doc.write(new File("../examples/popsreceiver.rdf"));
+    	RDFMerger.combine("../examples/popsreceiver.rdf","../sbol-owl/sbol.rdf", "../examples/popsreceiver_sbolowl.rdf");  
     	System.out.println("done!");
     }
     

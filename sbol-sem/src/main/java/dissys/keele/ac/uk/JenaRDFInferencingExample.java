@@ -19,10 +19,6 @@ public class JenaRDFInferencingExample {
 		Resource ptetR = infmodel.getResource("http://parts.igem.org/ptetR");
 		System.out.println("ptetR has types:");
 		printStatements(infmodel, ptetR, RDF.type, null);
-
-		/*Resource Person = infmodel.getResource("urn:x-hp:eg/Person");
-		System.out.println("\nPerson has types:");
-		printStatements(infmodel, Person, RDF.type, null);*/
 	}
 	
 	public static void   printStatements(Model m, Resource s, Property p, Resource o) {

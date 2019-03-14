@@ -14,7 +14,7 @@
 (defclass Identified
   :label "Identified"
   :comment "Represents SBOL objects that can be identified uniquely using URIs."   
-  :super PROVO_ENTITY
+  ;:super PROVO_ENTITY
   )
    
 (as-subclasses

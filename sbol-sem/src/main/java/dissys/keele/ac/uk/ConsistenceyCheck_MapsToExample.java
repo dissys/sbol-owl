@@ -35,9 +35,9 @@ public class ConsistenceyCheck_MapsToExample {
 		
 		fc1.createMapsTo("mapsTo", RefinementType.USELOCAL, "fc2", "component1");
 		
-		doc.write(new File("examples/mapsto.rdf"));
+		doc.write(new File("../examples/mapsto.rdf"));
 		   
-		RDFMerger.combine("examples/mapsto.rdf","../sbol-owl/sbol.rdf", "examples/mapsto_sbolowl_consistent.rdf");
+		RDFMerger.combine("../examples/mapsto.rdf","../sbol-owl/sbol.rdf", "../examples/mapsto_sbolowl_consistent.rdf");
 		
 		System.out.println("done!");
 	}

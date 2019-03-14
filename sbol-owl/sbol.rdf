@@ -1247,7 +1247,6 @@
     <!-- http://sbols.org/v2#Identified -->
 
     <owl:Class rdf:about="http://sbols.org/v2#Identified">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <tawny:name xml:lang="en">Identified</tawny:name>
         <rdfs:comment xml:lang="en">Represents SBOL objects that can be identified uniquely using URIs.</rdfs:comment>
         <rdfs:label xml:lang="en">Identified</rdfs:label>
@@ -2112,12 +2111,6 @@
     <!-- http://www.opensmiles.org/opensmiles.html -->
 
     <owl:Class rdf:about="http://www.opensmiles.org/opensmiles.html"/>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#Entity -->
-
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity"/>
     
 
 

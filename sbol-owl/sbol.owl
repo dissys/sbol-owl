@@ -569,9 +569,6 @@
         <Class IRI="http://www.chem.qmul.ac.uk/iupac/AminoAcid/"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.w3.org/ns/prov#Entity"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
     </Declaration>
     <EquivalentClasses>
@@ -892,10 +889,6 @@
     <SubClassOf>
         <Class IRI="#GenericTopLevel"/>
         <Class IRI="#TopLevel"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Identified"/>
-        <Class IRI="http://www.w3.org/ns/prov#Entity"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Implementation"/>

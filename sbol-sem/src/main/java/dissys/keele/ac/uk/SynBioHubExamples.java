@@ -24,7 +24,7 @@ public class SynBioHubExamples
 {   public static void main(String[] args ) throws Exception
     {
        
-      	RDFMerger.combine("examples/circuit_0x78_environment_md_gm.xml","../sbol-owl/sbol.rdf", "examples/circuit_0x78_environment_md_gm_sbolowl.rdf");  
+      	RDFMerger.combine("../examples/circuit_0x78_environment_md.xml","../sbol-owl/sbol.rdf", "../examples/circuit_0x78_environment_md_sbolowl.rdf");  
     	System.out.println("done!");
     }
 }
@@ -47,3 +47,13 @@ Interaction and (isInteractionOf some circuit_0x78_Module)
 
 //Remove provo
 //Tested with https://openprovenance.org/services/view/validator and prov0 visualiser at http://provoviz.org/
+
+
+//ComponentDefinition and isDefinitionOf some (FunctionalComponent and (isParticipantOf some Participation))
+
+//Interaction and (participation  some (Participation and participant some (FunctionalComponent and definition value TetR_protein)))
+//Works: Interaction and (participation  some (Participation and (participant some (FunctionalComponent and (definition some ComponentDefinition)))))
+//Works: Interaction and (participation  some (Participation and (participant some (FunctionalComponent and (definition value TetR_protein_gm)))))
+//Testing: Interaction and ( (participation  some (Participation and (participant some (FunctionalComponent and (definition value TetR_protein_gm)))))
+//or (isInteractionOf some ModuleDefinition and (isModuleOf some ModuleDefinition and )) )
+

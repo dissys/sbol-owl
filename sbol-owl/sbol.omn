@@ -1000,9 +1000,6 @@ Class: <http://www.chem.qmul.ac.uk/iupac/AminoAcid/>
 Class: <http://www.opensmiles.org/opensmiles.html>
 
     
-Class: <http://www.w3.org/ns/prov#Entity>
-
-    
 Class: sbol:Access
 
     Annotations: 
@@ -1263,9 +1260,6 @@ Class: sbol:Identified
         <http://www.purl.org/ontolink/tawny#name> "Identified"@en,
         rdfs:comment "Represents SBOL objects that can be identified uniquely using URIs."@en,
         rdfs:label "Identified"@en
-    
-    SubClassOf: 
-        <http://www.w3.org/ns/prov#Entity>
     
     
 Class: sbol:Implementation
