@@ -17,7 +17,6 @@ import org.sbolstandard.core2.SBOLValidationException;
 
 public class Util {
 
-	public static String examplesFolder="../examples";
 	
 	public static boolean createFolder(String folderPath)
 	{

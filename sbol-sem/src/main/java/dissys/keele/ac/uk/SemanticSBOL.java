@@ -31,6 +31,13 @@ import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import com.clarkparsia.owlapi.explanation.BlackBoxExplanation;
 import com.clarkparsia.owlapi.explanation.HSTExplanationGenerator;
 
+
+/**
+ * Provides a programmatic access to OWL queries using SBOL-OWL. The constructor requires an SBOL file that is merged with the RDF version of SBOL-OWL. 
+ * the RDFMerger can be used to programmatically merge these files. This class was based on examples from https://github.com/phillord/owl-api/blob/master/contract/src/test/java/org/coode/owlapi/examples/Examples.java
+ * @author gokselmisirli
+ *
+ */
 public class SemanticSBOL {
 
 	private OWLEntityChecker checker;
@@ -38,29 +45,38 @@ public class SemanticSBOL {
 	private OWLOntology o;
 	private OWLOntologyManager m;
 	private Reasoner reasoner;
-	ReasonerFactory factory;
-
-	public SemanticSBOL(File sbolFile) throws OWLOntologyCreationException {
-		m = OWLManager.createOWLOntologyManager();
-		o = m.loadOntologyFromOntologyDocument(sbolFile);
-		// Reasoner hermit=new Reasoner(o);
-		// System.out.println("Is the design consistent: " + hermit.isConsistent());
-
-		checker = new SBOLEntityChecker(m.getOWLDataFactory());
-		df = m.getOWLDataFactory();
-		m.setSilentMissingImportsHandling(true);
+	private ReasonerFactory factory;
+    
+	/**
+	 * Creates a default SemanticSBOL instance. Individuals are not included in queries.
+	 * @param sbolFileWithSBOLOWL The SBOL file with the RDF content of SBOL-OWL
+	 * @throws OWLOntologyCreationException
+	 */
+	public SemanticSBOL(File sbolFileWithSBOLOWL) throws OWLOntologyCreationException {
+		this(sbolFileWithSBOLOWL,null);		
 	}
 	
-	public SemanticSBOL(File sbolFile, Map<String,String> namespaces) throws OWLOntologyCreationException {
+	/**
+	 * Creates a Semantic instance to include individuals in queries.
+	 * @param sbolFileWithSBOLOWL The SBOL file with the RDF content of SBOL-OWL
+	 * @param namespaces A HashMap with key/value pairs. Key: Namespace prefix, Value: Namespace. E.g.: igem, https://synbiohub.org/public/igem/
+	 * @throws OWLOntologyCreationException
+	 */
+	public SemanticSBOL(File sbolFileWithSBOLOWL, Map<String,String> namespaces) throws OWLOntologyCreationException {
 		m = OWLManager.createOWLOntologyManager();
-		o = m.loadOntologyFromOntologyDocument(sbolFile);
-		// Reasoner hermit=new Reasoner(o);
-		// System.out.println("Is the design consistent: " + hermit.isConsistent());
-
-		checker = new SBOLEntityChecker(m.getOWLDataFactory());
+		o = m.loadOntologyFromOntologyDocument(sbolFileWithSBOLOWL);
+		
+		checker = new SBOLEntityChecker(m.getOWLDataFactory(),namespaces);
 		df = m.getOWLDataFactory();
+		m.setSilentMissingImportsHandling(true);
+		
 	}
 
+	/**
+	 *
+	 * @param className Name of the query to add, in the form of an OWL class
+	 * @param classDef The query in Manchester syntax. E.g. "BsubtilisPromoter EquivalentTo: Promoter and isMemberOf value igem:chassis_prokaryote_bsubtilis"
+	 */
 	public void addClass(String className, String classDef) {
 		ManchesterOWLSyntaxEditorParser parser = new ManchesterOWLSyntaxEditorParser(df, classDef);
 		parser.setOWLEntityChecker(checker);
@@ -71,10 +87,14 @@ public class SemanticSBOL {
 		AddAxiom addAxiom = new AddAxiom(o, axiom);
 		m.applyChange(addAxiom);
 
-		// https://github.com/phillord/owl-api/blob/master/contract/src/test/java/org/coode/owlapi/examples/Examples.java
 		// shouldAddAxioms
 	}
 
+	/**
+	 * Makes one class subclass of another
+	 * @param subClass The subclass
+	 * @param parentClass The parent class
+	 */
 	public void addSubClassing(String subClass, String parentClass) {
 		OWLClass clsA = df.getOWLClass(IRI.create(SBOLEntityChecker.NS + "#" + subClass));
 		OWLClass clsB = df.getOWLClass(IRI.create(SBOLEntityChecker.NS + "#" + parentClass));
@@ -83,6 +103,10 @@ public class SemanticSBOL {
 		m.applyChange(addAxiom);
 	}
 
+	/**
+	 * Saves the ontology using the default file used
+	 * @throws OWLOntologyStorageException
+	 */
 	public void save() throws OWLOntologyStorageException {
 		m.saveOntology(o);
 	}
@@ -94,6 +118,11 @@ public class SemanticSBOL {
 		return reasoner.isConsistent();
 	}*/
 
+	/**
+	 * Checks whether the SBOL data are consistent or not
+	 * @return
+	 * @throws OWLOntologyStorageException
+	 */
 	public boolean isConsistent() throws OWLOntologyStorageException {
 		if (reasoner == null) {
 			factory = new Reasoner.ReasonerFactory() {
@@ -111,8 +140,9 @@ public class SemanticSBOL {
 		return reasoner.isConsistent();
 	}
 
-	// Based on the example from
-	// https://github.com/phillord/hermit-reasoner/blob/master/examples/org/semanticweb/HermiT/examples/Explanations.java
+	/**
+	 * If SBOL data are not consistent, this method lists explanations. It is based on the example from https://github.com/phillord/hermit-reasoner/blob/master/examples/org/semanticweb/HermiT/examples/Explanations.java
+	 */
 	public void printInconsistencies() {
 		if (!reasoner.isConsistent()) {
 			System.out.println("Computing explanations for the inconsistency...");
@@ -138,6 +168,10 @@ public class SemanticSBOL {
 		}
 	}
 
+	/**
+	 * Lists SBOL entities for given type.
+	 * @param className The type of SBOL entities
+	 */
 	public void listSBOLEntities(String className) {
 		OWLClass cls = df.getOWLClass(IRI.create(SBOLEntityChecker.NS + "#" + className));
 
@@ -150,6 +184,11 @@ public class SemanticSBOL {
 		}
 	}
 
+	/**
+	 * Makes two classes (or queries) disjoint
+	 * @param class1 The first class or query
+	 * @param class2 The second class or query
+	 */
 	public void MakeDisjoint(String class1, String class2) {
 		OWLClass clsA = df.getOWLClass(IRI.create(SBOLEntityChecker.NS + "#" + class1));
 		OWLClass clsB = df.getOWLClass(IRI.create(SBOLEntityChecker.NS + "#" + class2));
@@ -157,6 +196,12 @@ public class SemanticSBOL {
 		m.addAxiom(o, disjointClassesAxiom);
 	}
 
+	/**
+	 * Adds a tuple for a given SBOL entity
+	 * @param subject The SBOL entity
+	 * @param object The value
+	 * @param property The property
+	 */
 	public void addProperty(URI subject, URI object, URI property) {
 		OWLNamedIndividual sub = df.getOWLNamedIndividual(IRI.create(subject.toString()));
 		OWLNamedIndividual obj = df.getOWLNamedIndividual(IRI.create(object.toString()));
