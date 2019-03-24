@@ -570,8 +570,15 @@
         <rdfs:label xml:lang="en">mapsTo</rdfs:label>
         <rdfs:comment xml:lang="en">The mapsTo property is OPTIONAL and MAY contain a MapsTo object that refers to and links together a ComponentInstance object (both Component objects and FunctionalComponent objects) within a larger design.</rdfs:comment>
         <tawny:name xml:lang="en">mapsTo</tawny:name>
-        <rdfs:domain rdf:resource="http://sbols.org/v2#ComponentInstance"/>
         <rdfs:range rdf:resource="http://sbols.org/v2#MapsTo"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v2#ComponentInstance"/>
+                    <rdf:Description rdf:about="http://sbols.org/v2#Module"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -1304,12 +1311,6 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#TopLevel"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://sbols.org/v2#definition"/>
-                <owl:someValuesFrom rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Can be used to represent biological design components such as DNA, RNA and small molecules.</rdfs:comment>
         <tawny:name xml:lang="en">ComponentDefinition</tawny:name>
     </owl:Class>
@@ -1329,6 +1330,12 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#Identified"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v2#definition"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://sbols.org/v2#access"/>
@@ -1562,6 +1569,12 @@
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#Identified"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v2#refinement"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v2#Refinement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://sbols.org/v2#remote"/>
                 <owl:someValuesFrom rdf:resource="http://sbols.org/v2#ComponentInstance"/>
             </owl:Restriction>
@@ -1575,12 +1588,6 @@
                         <owl:someValuesFrom rdf:resource="http://sbols.org/v2#public"/>
                     </owl:Restriction>
                 </owl:allValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://sbols.org/v2#refinement"/>
-                <owl:someValuesFrom rdf:resource="http://sbols.org/v2#Refinement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1641,6 +1648,12 @@
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#Sequence"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v2#encoding"/>
+                <owl:someValuesFrom rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://sbols.org/v2#isSequenceOf"/>
                 <owl:allValuesFrom>
                     <owl:Class>
@@ -1650,12 +1663,6 @@
                         </owl:unionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://sbols.org/v2#encoding"/>
-                <owl:someValuesFrom rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <tawny:name xml:lang="en">NASequence</tawny:name>
@@ -1763,14 +1770,14 @@
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#Sequence"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://sbols.org/v2#encoding"/>
-                <owl:someValuesFrom rdf:resource="http://www.chem.qmul.ac.uk/iupac/AminoAcid/"/>
+                <owl:onProperty rdf:resource="http://sbols.org/v2#isSequenceOf"/>
+                <owl:allValuesFrom rdf:resource="http://sbols.org/v2#Protein"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://sbols.org/v2#isSequenceOf"/>
-                <owl:allValuesFrom rdf:resource="http://sbols.org/v2#Protein"/>
+                <owl:onProperty rdf:resource="http://sbols.org/v2#encoding"/>
+                <owl:someValuesFrom rdf:resource="http://www.chem.qmul.ac.uk/iupac/AminoAcid/"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Protein sequence</rdfs:comment>
@@ -1978,12 +1985,6 @@
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#Identified"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://sbols.org/v2#subject"/>
-                <owl:someValuesFrom rdf:resource="http://sbols.org/v2#Component"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://sbols.org/v2#object"/>
                 <owl:someValuesFrom rdf:resource="http://sbols.org/v2#Component"/>
             </owl:Restriction>
@@ -1992,6 +1993,12 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://sbols.org/v2#restriction"/>
                 <owl:someValuesFrom rdf:resource="http://sbols.org/v2#Restriction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v2#subject"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v2#Component"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <tawny:name xml:lang="en">SequenceConstraint</tawny:name>
@@ -15640,60 +15647,6 @@ Please see ???Part Design??? section for design considerations and parts used.</
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://sbols.org/v2#one"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#oneOrMore"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#zeroOrMore"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#zeroOrOne"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://sbols.org/v2#Cut"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#GenericLocation"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#Range"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://sbols.org/v2#Complex"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#DNA"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#Protein"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#RNA"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#SmallMolecule"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://sbols.org/v2#Attachment"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#Collection"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#CombinatorialDerivation"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#ComponentDefinition"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#GenericTopLevel"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#Implementation"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#Model"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#ModuleDefinition"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#Sequence"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://sbols.org/v2#Access"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#CombinatorialDerivationStrategy"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#Direction"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#Orientation"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#Refinement"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#Restriction"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#RoleIntegration"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#VariableOperator"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="http://sbols.org/v2#CDS"/>
             <rdf:Description rdf:about="http://sbols.org/v2#EngineeredGene"/>
             <rdf:Description rdf:about="http://sbols.org/v2#Gene"/>
@@ -15706,10 +15659,9 @@ Please see ???Part Design??? section for design considerations and parts used.</
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://sbols.org/v2#merge"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#useLocal"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#useRemote"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#verifyIdentical"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#NASequence"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#ProteinSequence"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#SMILES"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
@@ -15733,9 +15685,64 @@ Please see ???Part Design??? section for design considerations and parts used.</
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://sbols.org/v2#NASequence"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#ProteinSequence"/>
-            <rdf:Description rdf:about="http://sbols.org/v2#SMILES"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#Attachment"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#Collection"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#CombinatorialDerivation"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#ComponentDefinition"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#GenericTopLevel"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#Implementation"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#Model"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#ModuleDefinition"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#Sequence"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://sbols.org/v2#Complex"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#DNA"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#Protein"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#RNA"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#SmallMolecule"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://sbols.org/v2#one"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#oneOrMore"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#zeroOrMore"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#zeroOrOne"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://sbols.org/v2#Access"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#CombinatorialDerivationStrategy"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#Direction"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#Orientation"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#Refinement"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#Restriction"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#RoleIntegration"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#VariableOperator"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://sbols.org/v2#merge"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#useLocal"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#useRemote"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#verifyIdentical"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://sbols.org/v2#Cut"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#GenericLocation"/>
+            <rdf:Description rdf:about="http://sbols.org/v2#Range"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>

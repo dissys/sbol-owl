@@ -45,6 +45,7 @@
  :label "ComponentInstance"
  :comment "The ComponentInstance abstract class is inherited by SBOL classes that represent the usage or occurrence of a ComponentDefinition within a larger design (that is, another ComponentDefinition or ModuleDefinition)." 
  :subclass (owl-some access Access)
+ :subclass (owl-some definition ComponentDefinition)
  )
  
 (as-subclasses
@@ -125,8 +126,6 @@
 (defclass ComponentDefinition
   :label "ComponentDefinition"
   :comment "Can be used to represent biological design components such as DNA, RNA and small molecules." 
-  :subclass (owl-some definition ComponentDefinition)
- 
   ;TODO  :subclass (owl-some type (thing))
  )
 
@@ -817,7 +816,7 @@
 (defoproperty mapsTo
   :label "mapsTo"
   :comment "The mapsTo property is OPTIONAL and MAY contain a MapsTo object that refers to and links together a ComponentInstance object (both Component objects and FunctionalComponent objects) within a larger design."
-  :domain ComponentInstance
+  :domain (owl-or ComponentInstance Module)
   :range MapsTo
  )
 

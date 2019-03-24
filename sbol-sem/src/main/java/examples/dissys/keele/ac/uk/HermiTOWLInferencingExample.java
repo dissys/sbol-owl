@@ -15,7 +15,7 @@ public class HermiTOWLInferencingExample {
 
 	public static void main(String[] args) throws Exception {
     	OWLOntologyManager m=OWLManager.createOWLOntologyManager();
-        OWLOntology o=m.loadOntologyFromOntologyDocument(new File("../examples/popsreceiver_sbolowl_withqueries.owl"));
+        OWLOntology o=m.loadOntologyFromOntologyDocument(new File("../examples/popsreceiver_sbolowl_withqueries.rdf"));
         
         Reasoner hermit=new Reasoner(o);
         

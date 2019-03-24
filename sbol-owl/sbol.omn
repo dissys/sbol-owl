@@ -390,7 +390,7 @@ ObjectProperty: sbol:mapsTo
         <http://www.purl.org/ontolink/tawny#name> "mapsTo"@en
     
     Domain: 
-        sbol:ComponentInstance
+        sbol:ComponentInstance or sbol:Module
     
     Range: 
         sbol:MapsTo
@@ -1116,8 +1116,7 @@ Class: sbol:ComponentDefinition
         sbol:Complex or sbol:DNA or sbol:Protein or sbol:RNA or sbol:SmallMolecule
     
     SubClassOf: 
-        sbol:TopLevel,
-        sbol:definition some sbol:ComponentDefinition
+        sbol:TopLevel
     
     
 Class: sbol:ComponentInstance
@@ -1132,7 +1131,8 @@ Class: sbol:ComponentInstance
     
     SubClassOf: 
         sbol:Identified,
-        sbol:access some sbol:Access
+        sbol:access some sbol:Access,
+        sbol:definition some sbol:ComponentDefinition
     
     
 Class: sbol:Cut

@@ -20,9 +20,6 @@ SBOL-OWL is available in different formats.
 ### Semantic reasoning
 SBOL-OWL can be combined with any SBOL document to query genetic circuit designs using semantic queries. The semanticSBOL Java application has been developed to facilitate this process. The resulting files can then be submitted to existing reasoners for semantic inferencing.
 
-
-
-
 #### Using the semanticSBOL Java library to merge SBOL and SBOL-OWL files
 usage: sbolowl_file sboldesign_file merged_file
 
