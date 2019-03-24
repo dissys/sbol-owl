@@ -8,7 +8,7 @@ The SBOL-OWL ontology provides a set of controlled terms that are used to descri
 - Metadata terms (e.g. "[Promoter](http://sbolstandard.org/v2#Promoter)") for commonly used descriptions of design entities. Such terms may require the use of several SBOL entities and properties.
 
 ### Browse
-[Browse the SBOL-OWL terms via an HTML page.](https://dissys.github.io/sbol-owl/sbol-owl.htm)
+[Browse the SBOL-OWL terms via an HTML page.](https://dissys.github.io/sbol-owl/sbol-owl.html)
 
 ### Download
 SBOL-OWL is available in different formats.
