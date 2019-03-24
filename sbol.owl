@@ -830,13 +830,6 @@
         <Class IRI="#TopLevel"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#ComponentDefinition"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#definition"/>
-            <Class IRI="#ComponentDefinition"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#ComponentInstance"/>
         <Class IRI="#Identified"/>
     </SubClassOf>
@@ -845,6 +838,13 @@
         <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#access"/>
             <Class IRI="#Access"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ComponentInstance"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#definition"/>
+            <Class IRI="#ComponentDefinition"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
@@ -1640,7 +1640,10 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#mapsTo"/>
-        <Class IRI="#ComponentInstance"/>
+        <ObjectUnionOf>
+            <Class IRI="#ComponentInstance"/>
+            <Class IRI="#Module"/>
+        </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#member"/>

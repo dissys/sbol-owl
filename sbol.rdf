@@ -375,7 +375,14 @@
     <!-- http://sbols.org/v2#mapsTo -->
 
     <owl:ObjectProperty rdf:about="http://sbols.org/v2#mapsTo">
-        <rdfs:domain rdf:resource="http://sbols.org/v2#ComponentInstance"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://sbols.org/v2#ComponentInstance"/>
+                    <rdf:Description rdf:about="http://sbols.org/v2#Module"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://sbols.org/v2#MapsTo"/>
         <tawny:name xml:lang="en">mapsTo</tawny:name>
         <rdfs:comment xml:lang="en">The mapsTo property is OPTIONAL and MAY contain a MapsTo object that refers to and links together a ComponentInstance object (both Component objects and FunctionalComponent objects) within a larger design.</rdfs:comment>
@@ -1062,12 +1069,6 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://sbols.org/v2#TopLevel"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://sbols.org/v2#definition"/>
-                <owl:someValuesFrom rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <tawny:name xml:lang="en">ComponentDefinition</tawny:name>
         <rdfs:comment xml:lang="en">Can be used to represent biological design components such as DNA, RNA and small molecules.</rdfs:comment>
         <rdfs:label xml:lang="en">ComponentDefinition</rdfs:label>
@@ -1091,6 +1092,12 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://sbols.org/v2#access"/>
                 <owl:someValuesFrom rdf:resource="http://sbols.org/v2#Access"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sbols.org/v2#definition"/>
+                <owl:someValuesFrom rdf:resource="http://sbols.org/v2#ComponentDefinition"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <tawny:name xml:lang="en">ComponentInstance</tawny:name>
