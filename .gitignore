@@ -1,5 +1,4 @@
 pom.xml.asc
-*.jar
 *.class
 /lib/
 /classes/
