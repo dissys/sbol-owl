@@ -37,7 +37,7 @@ Example using the programmatic access:
 RDFMerger.combine("../examples/circuit_0x78_environment_md.xml","../sbol-owl/sbol.rdf", "../examples/circuit_0x78_environment_md_sbolowl.rdf");  
 ```    	
     	
-[Click here](https://github.com/dissys/sbol-owl/tree/master/sbol-sem/examples) to access other examples.
+[Click here](https://github.com/dissys/sbol-owl/tree/master/sbol-sem/src/main/java/examples/dissys/keele/ac/uk) to access other examples.
 
 #### Some of the important methods for programmatic access to semanticSBOL
 
