@@ -58,9 +58,6 @@ Datatype: sbol:zeroOrGreater
 Datatype: xsd:integer
 
     
-Datatype: xsd:long
-
-    
 Datatype: xsd:string
 
     
@@ -221,6 +218,9 @@ ObjectProperty: sbol:interaction
     Range: 
         sbol:Interaction
     
+    InverseOf: 
+        sbol:isInteractionOf
+    
     
 ObjectProperty: sbol:isComponentOf
 
@@ -228,9 +228,6 @@ ObjectProperty: sbol:isComponentOf
         rdfs:comment "Inverse of the component property."@en,
         rdfs:label "isComponentOf"@en,
         <http://www.purl.org/ontolink/tawny#name> "isComponentOf"@en
-    
-    Characteristics: 
-        Functional
     
     Domain: 
         sbol:Component
@@ -251,6 +248,39 @@ ObjectProperty: sbol:isDefinitionOf
     
     InverseOf: 
         sbol:definition
+    
+    
+ObjectProperty: sbol:isInteractionOf
+
+    Annotations: 
+        rdfs:comment "Inverse of the interaction property."@en,
+        rdfs:label "isInteractionOf"@en,
+        <http://www.purl.org/ontolink/tawny#name> "isInteractionOf"@en
+    
+    InverseOf: 
+        sbol:interaction
+    
+    
+ObjectProperty: sbol:isMemberOf
+
+    Annotations: 
+        rdfs:label "isMemberOf"@en,
+        <http://www.purl.org/ontolink/tawny#name> "isMemberOf"@en,
+        rdfs:comment "Inverse of the member property."@en
+    
+    InverseOf: 
+        sbol:member
+    
+    
+ObjectProperty: sbol:isModuleOf
+
+    Annotations: 
+        rdfs:label "isModuleOf"@en,
+        <http://www.purl.org/ontolink/tawny#name> "isModuleOf"@en,
+        rdfs:comment "Inverse of the module property."@en
+    
+    InverseOf: 
+        sbol:module
     
     
 ObjectProperty: sbol:isObjectOf
@@ -360,7 +390,7 @@ ObjectProperty: sbol:mapsTo
         <http://www.purl.org/ontolink/tawny#name> "mapsTo"@en
     
     Domain: 
-        sbol:ComponentInstance
+        sbol:ComponentInstance or sbol:Module
     
     Range: 
         sbol:MapsTo
@@ -378,6 +408,9 @@ ObjectProperty: sbol:member
     
     Range: 
         sbol:TopLevel
+    
+    InverseOf: 
+        sbol:isMemberOf
     
     
 ObjectProperty: sbol:model
@@ -407,6 +440,9 @@ ObjectProperty: sbol:module
     Range: 
         sbol:Module
     
+    InverseOf: 
+        sbol:isModuleOf
+    
     
 ObjectProperty: sbol:object
 
@@ -414,6 +450,9 @@ ObjectProperty: sbol:object
         <http://www.purl.org/ontolink/tawny#name> "object"@en,
         rdfs:comment "The object property is REQUIRED and MUST contain a URI that refers to a Component contained by the same parent ComponentDefinition that contains the SequenceConstraint. This Component MUST NOT be the same Component that the SequenceConstraint refers to via its subject property."@en,
         rdfs:label "object"@en
+    
+    DisjointWith: 
+        sbol:subject
     
     Characteristics: 
         Functional
@@ -669,6 +708,9 @@ ObjectProperty: sbol:subject
         rdfs:label "subject"@en,
         <http://www.purl.org/ontolink/tawny#name> "subject"@en
     
+    DisjointWith: 
+        sbol:object
+    
     Characteristics: 
         Functional
     
@@ -796,9 +838,6 @@ DataProperty: sbol:at
     Domain: 
         sbol:Cut
     
-    Range: 
-        sbol:zeroOrGreater
-    
     
 DataProperty: sbol:displayId
 
@@ -847,9 +886,6 @@ DataProperty: sbol:end
     Domain: 
         sbol:Range
     
-    Range: 
-        sbol:greaterThanZero
-    
     
 DataProperty: sbol:hash
 
@@ -881,9 +917,6 @@ DataProperty: sbol:size
     Domain: 
         sbol:Attachment
     
-    Range: 
-        xsd:long
-    
     
 DataProperty: sbol:start
 
@@ -897,9 +930,6 @@ DataProperty: sbol:start
     
     Domain: 
         sbol:Range
-    
-    Range: 
-        sbol:greaterThanZero
     
     
 DataProperty: sbol:version
@@ -968,9 +998,6 @@ Class: <http://www.chem.qmul.ac.uk/iupac/AminoAcid/>
 
     
 Class: <http://www.opensmiles.org/opensmiles.html>
-
-    
-Class: <http://www.w3.org/ns/prov#Entity>
 
     
 Class: sbol:Access
@@ -1056,9 +1083,12 @@ Class: sbol:Complex
         rdfs:comment "Complex component definition"@en,
         <http://www.purl.org/ontolink/tawny#name> "Complex"@en
     
+    EquivalentTo: 
+        sbol:ComponentDefinition
+         and (sbol:type some <http://www.biopax.org/release/biopax-level3.owl#Complex>)
+    
     SubClassOf: 
-        sbol:ComponentDefinition,
-        sbol:type some <http://www.biopax.org/release/biopax-level3.owl#Complex>
+        sbol:ComponentDefinition
     
     
 Class: sbol:Component
@@ -1113,8 +1143,7 @@ Class: sbol:Cut
         rdfs:label "Cut"@en
     
     SubClassOf: 
-        sbol:Location,
-        sbol:at some xsd:integer
+        sbol:Location
     
     
 Class: sbol:DNA
@@ -1124,9 +1153,12 @@ Class: sbol:DNA
         <http://www.purl.org/ontolink/tawny#name> "DNA"@en,
         rdfs:label "DNA"@en
     
+    EquivalentTo: 
+        sbol:ComponentDefinition
+         and (sbol:type some <http://www.biopax.org/release/biopax-level3.owl#DnaRegion>)
+    
     SubClassOf: 
-        sbol:ComponentDefinition,
-        sbol:type some <http://www.biopax.org/release/biopax-level3.owl#DnaRegion>
+        sbol:ComponentDefinition
     
     
 Class: sbol:Direction
@@ -1228,9 +1260,6 @@ Class: sbol:Identified
         <http://www.purl.org/ontolink/tawny#name> "Identified"@en,
         rdfs:comment "Represents SBOL objects that can be identified uniquely using URIs."@en,
         rdfs:label "Identified"@en
-    
-    SubClassOf: 
-        <http://www.w3.org/ns/prov#Entity>
     
     
 Class: sbol:Implementation
@@ -1393,9 +1422,12 @@ Class: sbol:Protein
         rdfs:label "Protein"@en,
         <http://www.purl.org/ontolink/tawny#name> "Protein"@en
     
+    EquivalentTo: 
+        sbol:ComponentDefinition
+         and (sbol:type some <http://www.biopax.org/release/biopax-level3.owl#Protein>)
+    
     SubClassOf: 
-        sbol:ComponentDefinition,
-        sbol:type some <http://www.biopax.org/release/biopax-level3.owl#Protein>
+        sbol:ComponentDefinition
     
     
 Class: sbol:ProteinSequence
@@ -1432,9 +1464,12 @@ Class: sbol:RNA
         rdfs:label "RNA"@en,
         rdfs:comment "RNA component definition"@en
     
+    EquivalentTo: 
+        sbol:ComponentDefinition
+         and (sbol:type some <http://www.biopax.org/release/biopax-level3.owl#RnaRegion>)
+    
     SubClassOf: 
-        sbol:ComponentDefinition,
-        sbol:type some <http://www.biopax.org/release/biopax-level3.owl#RnaRegion>
+        sbol:ComponentDefinition
     
     
 Class: sbol:Range
@@ -1445,9 +1480,7 @@ Class: sbol:Range
         rdfs:label "Range"@en
     
     SubClassOf: 
-        sbol:Location,
-        sbol:end some xsd:integer,
-        sbol:start some xsd:integer
+        sbol:Location
     
     
 Class: sbol:Refinement
@@ -1561,9 +1594,12 @@ Class: sbol:SmallMolecule
         rdfs:label "SmallMolecule"@en,
         <http://www.purl.org/ontolink/tawny#name> "SmallMolecule"@en
     
+    EquivalentTo: 
+        sbol:ComponentDefinition
+         and (sbol:type some <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>)
+    
     SubClassOf: 
-        sbol:ComponentDefinition,
-        sbol:type some <http://www.biopax.org/release/biopax-level3.owl#SmallMolecule>
+        sbol:ComponentDefinition
     
     
 Class: sbol:Terminator

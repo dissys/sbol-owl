@@ -224,6 +224,9 @@
         <Class IRI="#mRNA"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#isInteractionOf"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#RoleIntegration"/>
     </Declaration>
     <Declaration>
@@ -273,6 +276,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#persistentIdentity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isModuleOf"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#zeroOrMore"/>
@@ -515,6 +521,9 @@
         <ObjectProperty IRI="#sequenceConstraint"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#isMemberOf"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#isSubjectOf"/>
     </Declaration>
     <Declaration>
@@ -560,9 +569,6 @@
         <Class IRI="http://www.chem.qmul.ac.uk/iupac/AminoAcid/"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.w3.org/ns/prov#Entity"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
     </Declaration>
     <EquivalentClasses>
@@ -587,6 +593,16 @@
         </ObjectUnionOf>
     </EquivalentClasses>
     <EquivalentClasses>
+        <Class IRI="#Complex"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#ComponentDefinition"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#type"/>
+                <Class IRI="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
         <Class IRI="#ComponentDefinition"/>
         <ObjectUnionOf>
             <Class IRI="#Complex"/>
@@ -602,6 +618,16 @@
             <Class IRI="#Component"/>
             <Class IRI="#FunctionalComponent"/>
         </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#DNA"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#ComponentDefinition"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#type"/>
+                <Class IRI="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#Direction"/>
@@ -663,11 +689,31 @@
         </ObjectSomeValuesFrom>
     </EquivalentClasses>
     <EquivalentClasses>
+        <Class IRI="#Protein"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#ComponentDefinition"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#type"/>
+                <Class IRI="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
         <Class IRI="#RBS"/>
         <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#role"/>
             <Class IRI="http://identifiers.org/so/SO:0000139"/>
         </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#RNA"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#ComponentDefinition"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#type"/>
+                <Class IRI="http://www.biopax.org/release/biopax-level3.owl#RnaRegion"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#Refinement"/>
@@ -706,6 +752,16 @@
             <Class IRI="#RoleIntegration"/>
             <Class IRI="#VariableOperator"/>
         </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SmallMolecule"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#ComponentDefinition"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#type"/>
+                <Class IRI="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#Terminator"/>
@@ -766,13 +822,6 @@
         <Class IRI="#ComponentDefinition"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Complex"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#type"/>
-            <Class IRI="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Component"/>
         <Class IRI="#ComponentInstance"/>
     </SubClassOf>
@@ -803,22 +852,8 @@
         <Class IRI="#Location"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Cut"/>
-        <DataSomeValuesFrom>
-            <DataProperty IRI="#at"/>
-            <Datatype abbreviatedIRI="xsd:integer"/>
-        </DataSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#DNA"/>
         <Class IRI="#ComponentDefinition"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#DNA"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#type"/>
-            <Class IRI="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Direction"/>
@@ -854,10 +889,6 @@
     <SubClassOf>
         <Class IRI="#GenericTopLevel"/>
         <Class IRI="#TopLevel"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Identified"/>
-        <Class IRI="http://www.w3.org/ns/prov#Entity"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Implementation"/>
@@ -974,13 +1005,6 @@
         <Class IRI="#ComponentDefinition"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Protein"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#type"/>
-            <Class IRI="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#ProteinSequence"/>
         <Class IRI="#Sequence"/>
     </SubClassOf>
@@ -1007,29 +1031,8 @@
         <Class IRI="#ComponentDefinition"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#RNA"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#type"/>
-            <Class IRI="http://www.biopax.org/release/biopax-level3.owl#RnaRegion"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Range"/>
         <Class IRI="#Location"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Range"/>
-        <DataSomeValuesFrom>
-            <DataProperty IRI="#end"/>
-            <Datatype abbreviatedIRI="xsd:integer"/>
-        </DataSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Range"/>
-        <DataSomeValuesFrom>
-            <DataProperty IRI="#start"/>
-            <Datatype abbreviatedIRI="xsd:integer"/>
-        </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Refinement"/>
@@ -1111,13 +1114,6 @@
     <SubClassOf>
         <Class IRI="#SmallMolecule"/>
         <Class IRI="#ComponentDefinition"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#SmallMolecule"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#type"/>
-            <Class IRI="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
-        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Terminator"/>
@@ -1473,6 +1469,18 @@
         <ObjectProperty IRI="#isDefinitionOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
+        <ObjectProperty IRI="#interaction"/>
+        <ObjectProperty IRI="#isInteractionOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isMemberOf"/>
+        <ObjectProperty IRI="#member"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isModuleOf"/>
+        <ObjectProperty IRI="#module"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
         <ObjectProperty IRI="#isObjectOf"/>
         <ObjectProperty IRI="#object"/>
     </InverseObjectProperties>
@@ -1504,9 +1512,6 @@
     </FunctionalObjectProperty>
     <FunctionalObjectProperty>
         <ObjectProperty IRI="#framework"/>
-    </FunctionalObjectProperty>
-    <FunctionalObjectProperty>
-        <ObjectProperty IRI="#isComponentOf"/>
     </FunctionalObjectProperty>
     <FunctionalObjectProperty>
         <ObjectProperty IRI="#isSequenceOf"/>
@@ -1635,7 +1640,10 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#mapsTo"/>
-        <Class IRI="#ComponentInstance"/>
+        <ObjectUnionOf>
+            <Class IRI="#ComponentInstance"/>
+            <Class IRI="#Module"/>
+        </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#member"/>
@@ -1914,6 +1922,10 @@
         <ObjectProperty IRI="#variantDerivation"/>
         <Class IRI="#CombinatorialDerivation"/>
     </ObjectPropertyRange>
+    <DisjointObjectProperties>
+        <ObjectProperty IRI="#object"/>
+        <ObjectProperty IRI="#subject"/>
+    </DisjointObjectProperties>
     <FunctionalDataProperty>
         <DataProperty IRI="#at"/>
     </FunctionalDataProperty>
@@ -1971,10 +1983,6 @@
         <Class IRI="#Identified"/>
     </DataPropertyDomain>
     <DataPropertyRange>
-        <DataProperty IRI="#at"/>
-        <Datatype IRI="#zeroOrGreater"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
         <DataProperty IRI="#displayId"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
@@ -1983,20 +1991,8 @@
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#end"/>
-        <Datatype IRI="#greaterThanZero"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
         <DataProperty IRI="#hash"/>
         <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#size"/>
-        <Datatype abbreviatedIRI="xsd:long"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#start"/>
-        <Datatype IRI="#greaterThanZero"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#version"/>
@@ -3096,6 +3092,51 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#isDefinitionOf</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isDefinitionOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
+        <IRI>#isInteractionOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isInteractionOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#isInteractionOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Inverse of the interaction property.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isInteractionOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isInteractionOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
+        <IRI>#isMemberOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isMemberOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#isMemberOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Inverse of the member property.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isMemberOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isMemberOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
+        <IRI>#isModuleOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isModuleOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#isModuleOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Inverse of the module property.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isModuleOf</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">isModuleOf</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.purl.org/ontolink/tawny#name"/>
