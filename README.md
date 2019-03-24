@@ -18,7 +18,7 @@ SBOL-OWL is available in different formats.
 - [OMN file](https://dissys.github.io/sbol-owl/sbol.omn) (Manchester Syntax)
 
 ### Semantic reasoning
-SBOL-OWL can be combined with any SBOL document to query genetic circuit designs using semantic queries. The semanticSBOL Java application has been developed to facilitate this process. The resulting files can then be submitted to existing reasoners for semantic inferencing.
+SBOL-OWL can be combined with any SBOL document to query genetic circuit designs using semantic queries. The semanticSBOL Java application has been developed to facilitate this process. The resulting files can then be submitted to existing reasoners for semantic inferencing. The library also includes methods to check the consistency of SBOL files, to execute semantic queries, and to list inconsistencies programmatically.
 
 #### Using the semanticSBOL Java library to merge SBOL and SBOL-OWL files
 usage: sbolowl_file sboldesign_file merged_file
