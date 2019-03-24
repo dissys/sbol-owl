@@ -18,22 +18,70 @@ SBOL-OWL is available in different formats.
 - [OMN file](https://dissys.github.io/sbol-owl/sbol.omn) (Manchester Syntax)
 
 ### Semantic reasoning
-SBOL-OWL can be combined with any SBOL document to query genetic circuit designs using semantic queries. The sbolowl-sem Java application has been developed to facilitate this process. The resulting files can then be submitted to existing reasoners for semantic inferencing.
+SBOL-OWL can be combined with any SBOL document to query genetic circuit designs using semantic queries. The semanticSBOL Java application has been developed to facilitate this process. The resulting files can then be submitted to existing reasoners for semantic inferencing.
 
-#### Using the sbolowl-sem Java library
+#### Using the semanticSBOL Java library to merge SBOL and SBOL-OWL files
 usage: sbolowl_file sboldesign_file merged_file
 
 - sbolowl_file: The RDF version of the SBOL-OWL ontology
 - sboldesign_file: An SBOL file including genetic circuit designs
 - merged_file: The output file name
 
-Example:
+Example using the command line:
 ```
-java -cp sbolowl-sem-1.0-SNAPSHOT-jar-with-dependencies.jar dissys.keele.ac.uk.RDFMerger sbol.rdf mapsto.rdf mapsto_sbolowl_consistent.rdf
+java -cp semanticSBOL-1.0-SNAPSHOT-jar-with-dependencies.jar dissys.keele.ac.uk.RDFMerger sbol.rdf mapsto.rdf mapsto_sbolowl_consistent.rdf
 ```
 
+Example using the programmatic access:
+```
+RDFMerger.combine("../examples/circuit_0x78_environment_md.xml","../sbol-owl/sbol.rdf", "../examples/circuit_0x78_environment_md_sbolowl.rdf");  
+```    	
+    	
 [Click here](https://github.com/dissys/sbol-owl/tree/master/sbol-sem/examples) to access other examples.
 
+#### Some of the important methods for programmatic access to semanticSBOL
+
+Constructing an SemanticSBOL object:
+```
+SemanticSBOL semanticSBOL = new SemanticSBOL(sbolFile_with_SBOLOWL);
+```		
+
+Checking the consistency of SBOL files: 
+```
+semanticSBOL.isConsistent()
+```
+
+Adding a semantic query:
+```
+semanticSBOL.addClass("BsubtilisPromoter", "BsubtilisPromoter EquivalentTo: Promoter and isMemberOf value igem:chassis_prokaryote_bsubtilis");
+```
+
+Adding custom namespace declarations for semantic queries:
+```
+HashMap<String, String> namespaces = new HashMap<String, String>();
+namespaces.put("igem", "https://synbiohub.org/public/igem/");
+SemanticSBOL semanticSBOL = new SemanticSBOL(ontFileUpdated, namespaces);
+```
+
+Adding subclass definitions:
+```
+semanticSBOL.addSubClassing("BsubtilisPromoter", "ComponentDefinition");
+```
+
+Defining semantic queries with no shared SBOL entities:
+```
+semanticSBOL.makeDisjoint("BsubtilisPromoter", "EcoliPromoter");
+```
+					
+Listing SBOL entities for a semantic query:
+```
+semanticSBOL.listSBOLEntities("BsubtilisPromoterContainer");
+```		
+
+Describing inconsistencies:
+```
+semanticSBOL.printInconsistencies();
+```			
 #### Download sbol-sem
-- [Click here](https://dissys.github.io/sbol-owl/sbolowl-sem-1.0-SNAPSHOT-jar-with-dependencies.jar) to download the standalone sbol-sem Java library as a single file including all the dependencies.
-- [Click here](https://dissys.github.io/sbol-owl/sbolowl-sem-1.0-SNAPSHOT.jar) to download the sbol-sem Java library only. Dependencies are not included.
+- [Click here](https://dissys.github.io/sbol-owl/semanticSBOL-1.0-SNAPSHOT-jar-with-dependencies.jar) to download the standalone semanticSBOL Java library as a single file including all the dependencies.
+- [Click here](https://dissys.github.io/sbol-owl/semanticSBOL-1.0-SNAPSHOT.jar) to download the semanticSBOL Java library only. Dependencies are not included.
