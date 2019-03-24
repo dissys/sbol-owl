@@ -8,7 +8,7 @@ The SBOL-OWL ontology provides a set of controlled terms that are used to descri
 - Metadata terms (e.g. "[Promoter](http://sbolstandard.org/v2#Promoter)") for commonly used descriptions of design entities. Such terms may require the use of several SBOL entities and properties.
 
 ### Browse
-[Browse the SBOL-OWL terms via an HTML page.](https://dissys.github.io/sbol-owl/sbol-owl.htm)
+[Browse the SBOL-OWL terms via an HTML page.](https://dissys.github.io/sbol-owl/sbol-owl.html)
 
 ### Download
 SBOL-OWL is available in different formats.
@@ -18,7 +18,7 @@ SBOL-OWL is available in different formats.
 - [OMN file](https://dissys.github.io/sbol-owl/sbol.omn) (Manchester Syntax)
 
 ### Semantic reasoning
-SBOL-OWL can be combined with any SBOL document to query genetic circuit designs using semantic queries. The semanticSBOL Java application has been developed to facilitate this process. The resulting files can then be submitted to existing reasoners for semantic inferencing.
+SBOL-OWL can be combined with any SBOL document to query genetic circuit designs using semantic queries. The semanticSBOL Java application has been developed to facilitate this process. The resulting files can then be submitted to existing reasoners for semantic inferencing. The library also includes methods to check the consistency of SBOL files, to execute semantic queries, and to list inconsistencies programmatically.
 
 #### Using the semanticSBOL Java library to merge SBOL and SBOL-OWL files
 usage: sbolowl_file sboldesign_file merged_file
@@ -37,7 +37,7 @@ Example using the programmatic access:
 RDFMerger.combine("../examples/circuit_0x78_environment_md.xml","../sbol-owl/sbol.rdf", "../examples/circuit_0x78_environment_md_sbolowl.rdf");  
 ```    	
     	
-[Click here](https://github.com/dissys/sbol-owl/tree/master/sbol-sem/examples) to access other examples.
+[Click here](https://github.com/dissys/sbol-owl/tree/master/sbol-sem/src/main/java/examples/dissys/keele/ac/uk) to access other examples.
 
 #### Some of the important methods for programmatic access to semanticSBOL
 
