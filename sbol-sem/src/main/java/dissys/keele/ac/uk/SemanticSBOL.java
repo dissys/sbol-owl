@@ -189,7 +189,7 @@ public class SemanticSBOL {
 	 * @param class1 The first class or query
 	 * @param class2 The second class or query
 	 */
-	public void MakeDisjoint(String class1, String class2) {
+	public void makeDisjoint(String class1, String class2) {
 		OWLClass clsA = df.getOWLClass(IRI.create(SBOLEntityChecker.NS + "#" + class1));
 		OWLClass clsB = df.getOWLClass(IRI.create(SBOLEntityChecker.NS + "#" + class2));
 		OWLDisjointClassesAxiom disjointClassesAxiom = df.getOWLDisjointClassesAxiom(clsA, clsB);

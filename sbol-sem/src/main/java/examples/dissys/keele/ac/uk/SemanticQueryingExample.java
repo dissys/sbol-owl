@@ -98,7 +98,7 @@ public class SemanticQueryingExample {
 			semanticSBOL.addClass("BsubtilisPromoterContainer",
 					"BsubtilisPromoterContainer EquivalentTo: ComponentDefinition and component some (definition some (BsubtilisPromoter or BsubtilisPromoterContainer))");
 
-			semanticSBOL.MakeDisjoint("BsubtilisPromoter", "EcoliPromoter");
+			semanticSBOL.makeDisjoint("BsubtilisPromoter", "EcoliPromoter");
 
 			// This line makes the ontology inconsistent. Since the a promoter is both for
 			// ecoli and bsubtilis.
