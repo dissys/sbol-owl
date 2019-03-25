@@ -41,7 +41,7 @@ RDFMerger.combine("../examples/circuit_0x78_environment_md.xml","../sbol-owl/sbo
 
 #### Some of the important methods for programmatic access to semanticSBOL
 
-Constructing an SemanticSBOL object:
+Constructing a SemanticSBOL object:
 ```
 SemanticSBOL semanticSBOL = new SemanticSBOL(sbolFile_with_SBOLOWL);
 ```		
