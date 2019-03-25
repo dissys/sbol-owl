@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1553444870518" name="http://sbols.org/v2" uri="circuit_0x78_environment_md_sbolowl_queries_test.xml"/>
-        <uri id="Automatically generated entry, Timestamp=1553444870518" name="shadowed:http://sbols.org/v2" uri="igem/designs_chassis_sbolowl_withquery/BBa_K316027.xml"/>
+        <uri id="Automatically generated entry, Timestamp=1553529033062" name="http://sbols.org/v2" uri="popsreceiver_sbolowl_withqueries.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1553529033062" name="shadowed:http://sbols.org/v2" uri="igem/designs_chassis_sbolowl_withquery/BBa_K316027.xml"/>
     </group>
 </catalog>
